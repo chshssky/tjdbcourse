@@ -306,7 +306,7 @@ namespace ReaderTerminal
                 text = text + "Title:         " + str[1] + System.Environment.NewLine;
                 text = text + "Library:       " + str[2] + System.Environment.NewLine;
                 text = text + "RentTime:      " + str[3] + System.Environment.NewLine;
-                text = text + "ReturnTime:    " + str[2] + System.Environment.NewLine;
+                text = text + "ReturnTime:    " + str[4] + System.Environment.NewLine;
                 textBox1.Text = text;
 
             }
