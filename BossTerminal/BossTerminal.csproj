@@ -116,9 +116,9 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
     <None Include="DataSet.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
