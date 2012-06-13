@@ -9,9 +9,9 @@ using System.Data.SqlClient;
 
 namespace ReaderTerminal
 {
-    public partial class changepsw : Form
+    public partial class frmPassword : Form
     {
-        public changepsw()
+        public frmPassword()
         {
             InitializeComponent();
         }

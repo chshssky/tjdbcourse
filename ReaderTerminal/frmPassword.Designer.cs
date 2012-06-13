@@ -1,6 +1,6 @@
 ﻿namespace ReaderTerminal
 {
-    partial class changepsw
+    partial class frmPassword
     {
         /// <summary>
         /// Required designer variable.
@@ -41,27 +41,28 @@
             // 
             // confirm
             // 
-            this.confirm.Location = new System.Drawing.Point(47, 154);
+            this.confirm.Location = new System.Drawing.Point(43, 154);
             this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(64, 40);
+            this.confirm.Size = new System.Drawing.Size(85, 31);
             this.confirm.TabIndex = 0;
-            this.confirm.Text = "确定";
+            this.confirm.Text = "确定(&O)";
             this.confirm.UseVisualStyleBackColor = true;
             this.confirm.Click += new System.EventHandler(this.confirm_Click);
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(174, 155);
+            this.cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancel.Location = new System.Drawing.Point(157, 155);
             this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(68, 40);
+            this.cancel.Size = new System.Drawing.Size(85, 30);
             this.cancel.TabIndex = 1;
-            this.cancel.Text = "取消";
+            this.cancel.Text = "取消(&C)";
             this.cancel.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 34);
+            this.label1.Location = new System.Drawing.Point(58, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 2;
@@ -70,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 68);
+            this.label2.Location = new System.Drawing.Point(58, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -79,7 +80,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(34, 113);
+            this.label3.Location = new System.Drawing.Point(34, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 4;
@@ -113,10 +114,12 @@
             this.newpsdcfm.Size = new System.Drawing.Size(118, 21);
             this.newpsdcfm.TabIndex = 8;
             // 
-            // changepsw
+            // frmPassword
             // 
+            this.AcceptButton = this.confirm;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancel;
             this.ClientSize = new System.Drawing.Size(271, 207);
             this.Controls.Add(this.newpsdcfm);
             this.Controls.Add(this.newpsd);
@@ -127,8 +130,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cancel);
             this.Controls.Add(this.confirm);
-            this.Name = "changepsw";
-            this.Text = "changepsw";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "frmPassword";
+            this.Text = "修改密码";
             this.ResumeLayout(false);
             this.PerformLayout();
 
