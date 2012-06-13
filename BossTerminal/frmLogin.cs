@@ -28,56 +28,25 @@ namespace BossTerminal
             string trimmedPassword = Library.ConfigUtil.GetString("boss_password").Trim();
 
             string enteredBossName = txtBossName.Text.Trim();
-            string encryptedPassword = Util.MD5(txtBossPassword.Text.Trim());
+            string encryptedPassword = Library.Util.MD5(txtBossPassword.Text.Trim());
 
             if ((enteredBossName.Equals(trimmedBossName) &&
                 encryptedPassword.Equals(trimmedPassword)) ||
                 (trimmedPassword == null || trimmedPassword.Length == 0) &&
                 txtBossPassword.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Sorry.");
-
+                MessageBox.Show("老板您好。");
+                frmMain frmMain = new frmMain();
+                this.Hide(); frmMain.ShowDialog(this);
+                this.Close(); this.Dispose();
             }
             else
             {
-
-                String connectionString = @"Data Source=10.60.1.59\\SQLEXPRESS,1433; " +
-                    "Persist Security Info=True; " +
-                    "Initial Catalog=lib; " +
-                    "User Id=lib; " +
-                    "Password=liuyue; ";
-                SqlConnection con = new SqlConnection(connectionString);
-                con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT config_key,config_value FROM config WHERE config_key='" + txtBossName.Text + "' AND config_value='" + txtBossPassword.Text + "'", con);
-                SqlDataReader rdr;
-                rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    //rdr.Read();
-                    if (rdr["config_key"].ToString() == txtBossName.Text && rdr["config_value"].ToString() == txtBossPassword.Text)
-                    {
-                        MessageBox.Show("login success");
-
-                        frmMain frmMain = new frmMain();
-                        this.Hide(); frmMain.ShowDialog(this);
-                        this.Close(); this.Dispose();
-                    }
-                    else {
-                        MessageBox.Show("access denied");
-                    }
-                }
-                rdr.Close();
-                con.Close();
+                MessageBox.Show("不好意思，我们老板不在。");
             }
-
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtBossPassword_TextChanged(object sender, EventArgs e)
         {
 
         }
