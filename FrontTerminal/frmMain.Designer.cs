@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlWrapper = new System.Windows.Forms.Panel();
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tbpRental = new System.Windows.Forms.TabPage();
@@ -36,12 +37,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pnlReaderInfo = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSearchReader = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbReaderId = new System.Windows.Forms.TextBox();
             this.tbpReader = new System.Windows.Forms.TabPage();
             this.pnlReaderWrapper = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -54,13 +56,27 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.tbpRude = new System.Windows.Forms.TabPage();
+            this.dgvTimeOut = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.credentialtypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.credentialnumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registertimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expiretimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.readerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.frontDataSet = new FrontTerminal.FrontDataSet();
             this.tbpLost = new System.Windows.Forms.TabPage();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.终端TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.tbpRude = new System.Windows.Forms.TabPage();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.readerTableAdapter = new FrontTerminal.FrontDataSetTableAdapters.readerTableAdapter();
             this.pnlWrapper.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tbpRental.SuspendLayout();
@@ -76,11 +92,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.pnlReaderCond.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.tbpLost.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tbpRude.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.readerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frontDataSet)).BeginInit();
+            this.tbpLost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlWrapper
@@ -90,7 +108,7 @@
             this.pnlWrapper.Location = new System.Drawing.Point(0, 25);
             this.pnlWrapper.Name = "pnlWrapper";
             this.pnlWrapper.Padding = new System.Windows.Forms.Padding(8, 0, 6, 7);
-            this.pnlWrapper.Size = new System.Drawing.Size(635, 378);
+            this.pnlWrapper.Size = new System.Drawing.Size(679, 378);
             this.pnlWrapper.TabIndex = 15;
             // 
             // tbcMain
@@ -103,7 +121,7 @@
             this.tbcMain.Location = new System.Drawing.Point(8, 0);
             this.tbcMain.Name = "tbcMain";
             this.tbcMain.SelectedIndex = 0;
-            this.tbcMain.Size = new System.Drawing.Size(621, 371);
+            this.tbcMain.Size = new System.Drawing.Size(665, 371);
             this.tbcMain.TabIndex = 0;
             // 
             // tbpRental
@@ -113,7 +131,7 @@
             this.tbpRental.Location = new System.Drawing.Point(4, 22);
             this.tbpRental.Name = "tbpRental";
             this.tbpRental.Padding = new System.Windows.Forms.Padding(3, 3, 5, 3);
-            this.tbpRental.Size = new System.Drawing.Size(613, 345);
+            this.tbpRental.Size = new System.Drawing.Size(657, 345);
             this.tbpRental.TabIndex = 0;
             this.tbpRental.Text = "借书还书登记";
             this.tbpRental.UseVisualStyleBackColor = true;
@@ -124,7 +142,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(605, 284);
+            this.groupBox2.Size = new System.Drawing.Size(649, 284);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "读者借书信息";
@@ -136,7 +154,7 @@
             this.pnlRentalInfo.Location = new System.Drawing.Point(3, 17);
             this.pnlRentalInfo.Name = "pnlRentalInfo";
             this.pnlRentalInfo.Padding = new System.Windows.Forms.Padding(5, 0, 5, 6);
-            this.pnlRentalInfo.Size = new System.Drawing.Size(599, 264);
+            this.pnlRentalInfo.Size = new System.Drawing.Size(643, 264);
             this.pnlRentalInfo.TabIndex = 0;
             // 
             // dataGridView1
@@ -146,7 +164,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(5, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(589, 258);
+            this.dataGridView1.Size = new System.Drawing.Size(633, 258);
             this.dataGridView1.TabIndex = 1;
             // 
             // pnlReaderInfo
@@ -156,24 +174,35 @@
             this.pnlReaderInfo.Location = new System.Drawing.Point(3, 3);
             this.pnlReaderInfo.Name = "pnlReaderInfo";
             this.pnlReaderInfo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.pnlReaderInfo.Size = new System.Drawing.Size(605, 55);
+            this.pnlReaderInfo.Size = new System.Drawing.Size(649, 55);
             this.pnlReaderInfo.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSearchReader);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txbReaderId);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(605, 50);
+            this.groupBox1.Size = new System.Drawing.Size(649, 50);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "读者基本信息";
+            // 
+            // btnSearchReader
+            // 
+            this.btnSearchReader.Location = new System.Drawing.Point(545, 18);
+            this.btnSearchReader.Name = "btnSearchReader";
+            this.btnSearchReader.Size = new System.Drawing.Size(75, 23);
+            this.btnSearchReader.TabIndex = 6;
+            this.btnSearchReader.Text = "搜索";
+            this.btnSearchReader.UseVisualStyleBackColor = true;
+            this.btnSearchReader.Click += new System.EventHandler(this.btnSearchReader_Click);
             // 
             // textBox3
             // 
@@ -218,12 +247,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "读者编号";
             // 
-            // textBox1
+            // txbReaderId
             // 
-            this.textBox1.Location = new System.Drawing.Point(65, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 1;
+            this.txbReaderId.Location = new System.Drawing.Point(65, 20);
+            this.txbReaderId.Name = "txbReaderId";
+            this.txbReaderId.Size = new System.Drawing.Size(100, 21);
+            this.txbReaderId.TabIndex = 1;
             // 
             // tbpReader
             // 
@@ -231,7 +260,7 @@
             this.tbpReader.Location = new System.Drawing.Point(4, 22);
             this.tbpReader.Name = "tbpReader";
             this.tbpReader.Padding = new System.Windows.Forms.Padding(3, 3, 5, 3);
-            this.tbpReader.Size = new System.Drawing.Size(613, 345);
+            this.tbpReader.Size = new System.Drawing.Size(657, 345);
             this.tbpReader.TabIndex = 1;
             this.tbpReader.Text = "读者信息管理";
             this.tbpReader.UseVisualStyleBackColor = true;
@@ -349,15 +378,136 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "姓名(&N)";
             // 
+            // tbpRude
+            // 
+            this.tbpRude.Controls.Add(this.dgvTimeOut);
+            this.tbpRude.Location = new System.Drawing.Point(4, 22);
+            this.tbpRude.Name = "tbpRude";
+            this.tbpRude.Size = new System.Drawing.Size(657, 345);
+            this.tbpRude.TabIndex = 2;
+            this.tbpRude.Text = "超期读者管理";
+            this.tbpRude.UseVisualStyleBackColor = true;
+            // 
+            // dgvTimeOut
+            // 
+            this.dgvTimeOut.AutoGenerateColumns = false;
+            this.dgvTimeOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTimeOut.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
+            this.genderDataGridViewCheckBoxColumn,
+            this.credentialtypeDataGridViewTextBoxColumn,
+            this.credentialnumberDataGridViewTextBoxColumn,
+            this.telephoneDataGridViewTextBoxColumn,
+            this.registertimeDataGridViewTextBoxColumn,
+            this.expiretimeDataGridViewTextBoxColumn,
+            this.availableDataGridViewCheckBoxColumn,
+            this.groupidDataGridViewTextBoxColumn});
+            this.dgvTimeOut.DataSource = this.readerBindingSource;
+            this.dgvTimeOut.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvTimeOut.Location = new System.Drawing.Point(0, 0);
+            this.dgvTimeOut.Name = "dgvTimeOut";
+            this.dgvTimeOut.RowTemplate.Height = 23;
+            this.dgvTimeOut.Size = new System.Drawing.Size(613, 345);
+            this.dgvTimeOut.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            // 
+            // genderDataGridViewCheckBoxColumn
+            // 
+            this.genderDataGridViewCheckBoxColumn.DataPropertyName = "gender";
+            this.genderDataGridViewCheckBoxColumn.HeaderText = "gender";
+            this.genderDataGridViewCheckBoxColumn.Name = "genderDataGridViewCheckBoxColumn";
+            // 
+            // credentialtypeDataGridViewTextBoxColumn
+            // 
+            this.credentialtypeDataGridViewTextBoxColumn.DataPropertyName = "credential_type";
+            this.credentialtypeDataGridViewTextBoxColumn.HeaderText = "credential_type";
+            this.credentialtypeDataGridViewTextBoxColumn.Name = "credentialtypeDataGridViewTextBoxColumn";
+            // 
+            // credentialnumberDataGridViewTextBoxColumn
+            // 
+            this.credentialnumberDataGridViewTextBoxColumn.DataPropertyName = "credential_number";
+            this.credentialnumberDataGridViewTextBoxColumn.HeaderText = "credential_number";
+            this.credentialnumberDataGridViewTextBoxColumn.Name = "credentialnumberDataGridViewTextBoxColumn";
+            // 
+            // telephoneDataGridViewTextBoxColumn
+            // 
+            this.telephoneDataGridViewTextBoxColumn.DataPropertyName = "telephone";
+            this.telephoneDataGridViewTextBoxColumn.HeaderText = "telephone";
+            this.telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
+            // 
+            // registertimeDataGridViewTextBoxColumn
+            // 
+            this.registertimeDataGridViewTextBoxColumn.DataPropertyName = "register_time";
+            this.registertimeDataGridViewTextBoxColumn.HeaderText = "register_time";
+            this.registertimeDataGridViewTextBoxColumn.Name = "registertimeDataGridViewTextBoxColumn";
+            // 
+            // expiretimeDataGridViewTextBoxColumn
+            // 
+            this.expiretimeDataGridViewTextBoxColumn.DataPropertyName = "expire_time";
+            this.expiretimeDataGridViewTextBoxColumn.HeaderText = "expire_time";
+            this.expiretimeDataGridViewTextBoxColumn.Name = "expiretimeDataGridViewTextBoxColumn";
+            // 
+            // availableDataGridViewCheckBoxColumn
+            // 
+            this.availableDataGridViewCheckBoxColumn.DataPropertyName = "available";
+            this.availableDataGridViewCheckBoxColumn.HeaderText = "available";
+            this.availableDataGridViewCheckBoxColumn.Name = "availableDataGridViewCheckBoxColumn";
+            // 
+            // groupidDataGridViewTextBoxColumn
+            // 
+            this.groupidDataGridViewTextBoxColumn.DataPropertyName = "group_id";
+            this.groupidDataGridViewTextBoxColumn.HeaderText = "group_id";
+            this.groupidDataGridViewTextBoxColumn.Name = "groupidDataGridViewTextBoxColumn";
+            // 
+            // readerBindingSource
+            // 
+            this.readerBindingSource.DataMember = "reader";
+            this.readerBindingSource.DataSource = this.frontDataSet;
+            // 
+            // frontDataSet
+            // 
+            this.frontDataSet.DataSetName = "FrontDataSet";
+            this.frontDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tbpLost
             // 
             this.tbpLost.Controls.Add(this.dataGridView4);
             this.tbpLost.Location = new System.Drawing.Point(4, 22);
             this.tbpLost.Name = "tbpLost";
-            this.tbpLost.Size = new System.Drawing.Size(613, 345);
+            this.tbpLost.Size = new System.Drawing.Size(657, 345);
             this.tbpLost.TabIndex = 3;
             this.tbpLost.Text = "书籍遗失登记";
             this.tbpLost.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView4
+            // 
+            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView4.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView4.Name = "dataGridView4";
+            this.dataGridView4.RowTemplate.Height = 23;
+            this.dataGridView4.Size = new System.Drawing.Size(613, 345);
+            this.dataGridView4.TabIndex = 2;
             // 
             // menuStrip1
             // 
@@ -365,7 +515,7 @@
             this.终端TToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(635, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(679, 25);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -383,47 +533,22 @@
             this.退出XToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.退出XToolStripMenuItem.Text = "退出(&X)";
             // 
-            // dataGridView4
+            // readerTableAdapter
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.Size = new System.Drawing.Size(613, 345);
-            this.dataGridView4.TabIndex = 2;
-            // 
-            // tbpRude
-            // 
-            this.tbpRude.Controls.Add(this.dataGridView3);
-            this.tbpRude.Location = new System.Drawing.Point(4, 22);
-            this.tbpRude.Name = "tbpRude";
-            this.tbpRude.Size = new System.Drawing.Size(613, 345);
-            this.tbpRude.TabIndex = 2;
-            this.tbpRude.Text = "超期读者管理";
-            this.tbpRude.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowTemplate.Height = 23;
-            this.dataGridView3.Size = new System.Drawing.Size(613, 345);
-            this.dataGridView3.TabIndex = 0;
+            this.readerTableAdapter.ClearBeforeFill = true;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(635, 403);
+            this.ClientSize = new System.Drawing.Size(679, 403);
             this.Controls.Add(this.pnlWrapper);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmMain";
             this.Text = "图书馆前台服务终端";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlWrapper.ResumeLayout(false);
             this.tbcMain.ResumeLayout(false);
             this.tbpRental.ResumeLayout(false);
@@ -441,12 +566,14 @@
             this.pnlReaderCond.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tbpRude.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTimeOut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.readerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.frontDataSet)).EndInit();
             this.tbpLost.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
-            this.tbpRude.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,7 +591,7 @@
         private System.Windows.Forms.TabPage tbpLost;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbReaderId;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox3;
@@ -486,7 +613,22 @@
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.TabPage tbpRude;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dgvTimeOut;
+        private FrontDataSet frontDataSet;
+        private System.Windows.Forms.BindingSource readerBindingSource;
+        private FrontDataSetTableAdapters.readerTableAdapter readerTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn genderDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn credentialtypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn credentialnumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registertimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expiretimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn availableDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnSearchReader;
 
     }
 }
