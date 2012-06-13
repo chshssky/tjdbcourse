@@ -218,7 +218,6 @@ namespace ReaderTerminal
             {
                 str[0] = "用户账号是：" + book2[0].ToString() + System.Environment.NewLine;
                 str[1] = "用户姓名是：" + book2[1].ToString() + System.Environment.NewLine;
-                str[2] = "用户密码是：" + book2[2].ToString() + System.Environment.NewLine;
                 str[3] = "用户性别是：" + book2[3].ToString() + System.Environment.NewLine;
                 str[4] = "用户性别是：" + book2[4].ToString() + System.Environment.NewLine;
                 str[5] = "用户注册号类型是：" + book2[5].ToString() + System.Environment.NewLine;
@@ -227,7 +226,7 @@ namespace ReaderTerminal
                 str[8] = "用户注册时间是：" + book2[8].ToString() + System.Environment.NewLine;
                 str[9] = "用户到期时间是：" + book2[9].ToString() + System.Environment.NewLine;
                 book2.Close();
-                for (int i = 0; i < 9; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     readerInfo.Text += str[i];
                 }
@@ -278,6 +277,8 @@ namespace ReaderTerminal
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
+             if (this.listView1.SelectedItems[0].Text.ToString() == null)
+                 textBox1.Text = null;
             SqlCommand cmd;
             SqlDataReader book = null;
             String isbn = listView1.SelectedItems[0].Text.ToString();
@@ -310,7 +311,7 @@ namespace ReaderTerminal
                 textBox1.Text = text;
 
             }
-            
+          
             book.Close();
         }
 
