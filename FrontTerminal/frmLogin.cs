@@ -14,7 +14,7 @@ namespace FrontTerminal
     {
         public static int readerId;
 
-        public const int FRONT_TERMINAL_PERMISSION = 0;
+        public const int FRONT_TERMINAL_PERMISSION = 2;
 
         public frmLogin()
         {
@@ -43,7 +43,7 @@ namespace FrontTerminal
             {
                 int id = reader.GetInt32(0);
                 reader.Close();
-                if ((id & FRONT_TERMINAL_PERMISSION) != 1)
+                if ((id & FRONT_TERMINAL_PERMISSION) != 0)
                 {
                     this.Hide();
                     new frmMain().ShowDialog();

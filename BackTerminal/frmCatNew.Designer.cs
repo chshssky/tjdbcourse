@@ -52,7 +52,7 @@
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox.Location = new System.Drawing.Point(53, 23);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(508, 21);
+            this.textBox.Size = new System.Drawing.Size(539, 21);
             this.textBox.TabIndex = 1;
             this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
@@ -60,7 +60,7 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonOK.Location = new System.Drawing.Point(487, 0);
+            this.buttonOK.Location = new System.Drawing.Point(518, 0);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 28);
             this.buttonOK.TabIndex = 2;
@@ -82,7 +82,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(584, 46);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(615, 46);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // panel1
@@ -92,7 +92,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 60);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 22, 12);
-            this.panel1.Size = new System.Drawing.Size(584, 40);
+            this.panel1.Size = new System.Drawing.Size(615, 40);
             this.panel1.TabIndex = 6;
             // 
             // frmCatNew
@@ -100,7 +100,7 @@
             this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 100);
+            this.ClientSize = new System.Drawing.Size(615, 100);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximumSize = new System.Drawing.Size(32767, 138);

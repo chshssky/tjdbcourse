@@ -88,8 +88,13 @@ namespace FrontTerminal
 
         private void dgvReaderBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+        private void selectionChange(object sender, EventArgs e)
+        {
 
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -140,6 +145,47 @@ namespace FrontTerminal
                 MessageBox.Show(err.Message);
             }
 
+        }
+        private void btnBorrow_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = Connection.Instance();
+            SqlCommand cmd = new SqlCommand();
+            int readerId = Convert.ToInt32(txbReaderId.Text);
+            int bookId = Convert.ToInt32(textboxBookId.Text);
+            String borrowTime = System.DateTime.Now.ToString();
+            String dueTime = System.DateTime.Now.AddDays(30).ToString();
+            try
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "select * from  Reader where id = " + readerId;
+                SqlDataReader record = cmd.ExecuteReader();
+                if (!record.HasRows)
+                    MessageBox.Show("没有该用户！");
+                else
+                {
+                    record.Read();
+                    int authory = Convert.ToInt32(record[10]);
+                    record.Close();
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = con;
+                    cmd2.CommandText = "select * from  group where id = " + authory;
+                    SqlDataReader record2 = cmd.ExecuteReader();
+                    record2.Read();
+                    int maxBorrowTime = Convert.ToInt32(record2[2]);
+                    record2.Close();
+                    DateTime nowTime = System.DateTime.Now;
+                    DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
+                    SqlCommand cmd3 = new SqlCommand();
+                    cmd3.Connection = con;
+                    cmd3.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
+                    cmd3.ExecuteNonQuery();//
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            con.Close();
         }
     }
 }

@@ -31,11 +31,6 @@ namespace BossTerminal
             fm.Close();
         }
 
-        private void mnuToolAddManager_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void mnuToolExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -77,7 +72,8 @@ namespace BossTerminal
             DataGridViewCell cell = row.Cells[e.ColumnIndex];
             if (column.DataPropertyName.Equals("password"))
             {
-                lastPassword = (string) cell.Value;
+                if (cell.Value is string)
+                    lastPassword = (string) cell.Value;
                 cell.Value = "";
             }
             else

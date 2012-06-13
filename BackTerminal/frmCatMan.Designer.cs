@@ -33,8 +33,8 @@
             this.buttonClose = new System.Windows.Forms.Button();
             this.btnEditCategory = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tvCategory = new System.Windows.Forms.TreeView();
@@ -69,7 +69,7 @@
             // 
             this.buttonClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonClose.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonClose.Location = new System.Drawing.Point(3, 224);
+            this.buttonClose.Location = new System.Drawing.Point(3, 414);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(97, 26);
             this.buttonClose.TabIndex = 10;
@@ -97,19 +97,11 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.btnAddCategory);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(278, 0);
+            this.panel1.Location = new System.Drawing.Point(298, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(3, 12, 6, 12);
-            this.panel1.Size = new System.Drawing.Size(106, 262);
+            this.panel1.Size = new System.Drawing.Size(106, 452);
             this.panel1.TabIndex = 12;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(3, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(97, 6);
-            this.panel2.TabIndex = 12;
             // 
             // panel3
             // 
@@ -119,6 +111,14 @@
             this.panel3.Size = new System.Drawing.Size(97, 6);
             this.panel3.TabIndex = 13;
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(3, 38);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(97, 6);
+            this.panel2.TabIndex = 12;
+            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.groupBox1);
@@ -126,7 +126,7 @@
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Padding = new System.Windows.Forms.Padding(6);
-            this.panel4.Size = new System.Drawing.Size(278, 262);
+            this.panel4.Size = new System.Drawing.Size(298, 452);
             this.panel4.TabIndex = 13;
             // 
             // groupBox1
@@ -136,7 +136,7 @@
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(266, 250);
+            this.groupBox1.Size = new System.Drawing.Size(286, 440);
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "分类";
@@ -147,7 +147,7 @@
             this.tvCategory.Location = new System.Drawing.Point(6, 20);
             this.tvCategory.Name = "tvCategory";
             this.tvCategory.ShowRootLines = false;
-            this.tvCategory.Size = new System.Drawing.Size(254, 224);
+            this.tvCategory.Size = new System.Drawing.Size(274, 414);
             this.tvCategory.TabIndex = 6;
             // 
             // frmCatMan
@@ -155,7 +155,7 @@
             this.AcceptButton = this.buttonClose;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 262);
+            this.ClientSize = new System.Drawing.Size(404, 452);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(400, 300);

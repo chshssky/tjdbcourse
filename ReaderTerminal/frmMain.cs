@@ -236,7 +236,7 @@ namespace ReaderTerminal
         private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            changepsw frm = new changepsw();
+            frmPassword frm = new frmPassword();
             frm.ShowDialog();
             this.Show();
         }

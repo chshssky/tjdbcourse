@@ -37,7 +37,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 15);
+            this.label2.Location = new System.Drawing.Point(10, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 1;
@@ -45,15 +45,15 @@
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(82, 12);
+            this.textBox.Location = new System.Drawing.Point(57, 15);
             this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(260, 21);
+            this.textBox.Size = new System.Drawing.Size(323, 21);
             this.textBox.TabIndex = 2;
             // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(219, 48);
+            this.btnOK.Location = new System.Drawing.Point(224, 48);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -76,11 +76,14 @@
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(392, 83);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmCatEdit";
             this.Text = "编辑分类";
             this.ResumeLayout(false);
