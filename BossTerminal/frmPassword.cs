@@ -83,7 +83,7 @@ namespace BossTerminal
                    conn.Open();
                    cmd.ExecuteNonQuery();
                }
-               catch (SqlException err)
+               catch (SqlException)
                {
                    MessageBox.Show("更新出现异常！");
                }

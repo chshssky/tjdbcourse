@@ -47,6 +47,9 @@
     <Compile Include="..\Common\Connection.cs">
       <Link>Common\Connection.cs</Link>
     </Compile>
+    <Compile Include="..\Common\Util.cs">
+      <Link>Common\Util.cs</Link>
+    </Compile>
     <Compile Include="frmAddLib.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,10 +98,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>libDSlibrary.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Util.cs" />
     <EmbeddedResource Include="frmAddLib.resx">
       <DependentUpon>frmAddLib.cs</DependentUpon>
     </EmbeddedResource>

@@ -39,10 +39,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 21);
+            this.label1.Location = new System.Drawing.Point(32, 16);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 24);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "老板如何称呼";
             // 
@@ -52,7 +52,7 @@
             this.label2.Location = new System.Drawing.Point(64, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 24);
+            this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "暗号为何";
             // 
@@ -61,9 +61,8 @@
             this.txtBossName.Location = new System.Drawing.Point(149, 13);
             this.txtBossName.Margin = new System.Windows.Forms.Padding(4);
             this.txtBossName.Name = "txtBossName";
-            this.txtBossName.Size = new System.Drawing.Size(225, 35);
+            this.txtBossName.Size = new System.Drawing.Size(225, 26);
             this.txtBossName.TabIndex = 2;
-            this.txtBossName.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // txtBossPassword
             // 
@@ -71,9 +70,8 @@
             this.txtBossPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtBossPassword.Name = "txtBossPassword";
             this.txtBossPassword.PasswordChar = '●';
-            this.txtBossPassword.Size = new System.Drawing.Size(225, 35);
+            this.txtBossPassword.Size = new System.Drawing.Size(225, 26);
             this.txtBossPassword.TabIndex = 3;
-            this.txtBossPassword.TextChanged += new System.EventHandler(this.txtBossPassword_TextChanged);
             // 
             // btnLogin
             // 
@@ -100,7 +98,7 @@
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(387, 168);
