@@ -151,7 +151,7 @@ namespace FrontTerminal
             SqlConnection con = Connection.Instance();
             SqlCommand cmd = new SqlCommand();
             int readerId = Convert.ToInt32(txbReaderId.Text);
-            int bookId = Convert.ToInt32(textboxBookId.Text);
+            //int bookId = Convert.ToInt32(textboxBookId.Text);
             String borrowTime = System.DateTime.Now.ToString();
             String dueTime = System.DateTime.Now.AddDays(30).ToString();
             try
@@ -177,7 +177,7 @@ namespace FrontTerminal
                     DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
                     SqlCommand cmd3 = new SqlCommand();
                     cmd3.Connection = con;
-                    cmd3.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
+                    //cmd3.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
                     cmd3.ExecuteNonQuery();//
                 }
             }
