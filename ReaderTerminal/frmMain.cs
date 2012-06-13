@@ -276,9 +276,43 @@ namespace ReaderTerminal
             book3.Close();
         }
 
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            SqlCommand cmd;
+            SqlDataReader book = null;
+            String isbn = listView1.SelectedItems[0].Text.ToString();
+            isbn = isbn.Substring(0, isbn.IndexOf(" ") + 1);
+            String sql =
+                "select * " +
+                "from book " +
+                "where isbn = @isbn";
+            cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@isbn", isbn);
+            book = cmd.ExecuteReader();
+            String[] str = new String[4];
+            if (book != null && book.Read())
+            {
+
+                str[0] = book[1].ToString();
+                str[1] = book[2].ToString();
+                str[2] = book[3].ToString();
+                str[3] = book[4].ToString();
+                for (int i = 0; i < 4; ++i)
+                    textBox1.Text = textBox1.Text + str[i] + System.Environment.NewLine;
+
+            }
+            
+            book.Close();
+        }
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -42,6 +42,8 @@
             this.tpgReaderInfo = new System.Windows.Forms.TabPage();
             this.readerInfo = new System.Windows.Forms.TextBox();
             this.tpgBookRental = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.tpgBookReserve = new System.Windows.Forms.TabPage();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.终端TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +56,6 @@
             this.mnuReaderLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.pnlWrapperMain.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tpgBookSearch.SuspendLayout();
@@ -218,6 +219,7 @@
             // 
             // tpgBookRental
             // 
+            this.tpgBookRental.Controls.Add(this.textBox1);
             this.tpgBookRental.Controls.Add(this.listView1);
             this.tpgBookRental.Location = new System.Drawing.Point(4, 22);
             this.tpgBookRental.Name = "tpgBookRental";
@@ -226,6 +228,26 @@
             this.tpgBookRental.TabIndex = 2;
             this.tpgBookRental.Text = "书刊借阅";
             this.tpgBookRental.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(41, 158);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox1.Size = new System.Drawing.Size(341, 65);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(41, 18);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(341, 134);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // tpgBookReserve
             // 
@@ -321,15 +343,6 @@
             this.关于AToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(41, 18);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(359, 201);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -353,6 +366,7 @@
             this.tpgReaderInfo.ResumeLayout(false);
             this.tpgReaderInfo.PerformLayout();
             this.tpgBookRental.ResumeLayout(false);
+            this.tpgBookRental.PerformLayout();
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.ResumeLayout(false);
@@ -389,6 +403,7 @@
         private System.Windows.Forms.TextBox readerInfo;
         private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
         private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox textBox1;
 
 
     }
