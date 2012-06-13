@@ -27,24 +27,44 @@ namespace FrontTerminal
 
         private void btnSearchReader_Click(object sender, EventArgs e)
         {
-            int readerID = Convert.ToInt32(txbReaderId.Text);
-            Console.Out.WriteLine(readerID);
-            SqlConnection con = Connection.Instance();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            try
+            if (txbReaderId.Text == "")
             {
-                cmd.CommandText = "select * from  Reader where id = "+readerID;
-                SqlDataReader record = cmd.ExecuteReader();
-                if (!record.HasRows)
-                    MessageBox.Show("没有该用户！");
+                MessageBox.Show("请输入读者编号");
+            }
+            else
+            {
+                int readerID = Convert.ToInt32(txbReaderId.Text);
+                Console.Out.WriteLine(readerID);
+                SqlConnection con = Connection.Instance();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                try
+                {
+                    cmd.CommandText = "select * from  Reader where id = " + readerID;
+                    SqlDataReader record = cmd.ExecuteReader();
+                    if (!record.HasRows)
+                        MessageBox.Show("没有该用户！");
+                    else
+                    {
+                        while (record.Read())
+                        {
+                            txbName.Text = record[1].ToString();
+                            if (Convert.ToInt32(record[3]) == 0)
+                                txbGender.Text = "女";
+                            else
+                                txbGender.Text = "男";
+                        }
+                        record.Close();
+                    }
 
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+                con.Close();
             }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
-            con.Close();
+           
         }
     }
 }

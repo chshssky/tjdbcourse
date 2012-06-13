@@ -34,13 +34,13 @@
             this.tbpRental = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.pnlRentalInfo = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvReaderBorrow = new System.Windows.Forms.DataGridView();
             this.pnlReaderInfo = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSearchReader = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbGender = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txbReaderId = new System.Windows.Forms.TextBox();
@@ -82,7 +82,7 @@
             this.tbpRental.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlRentalInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReaderBorrow)).BeginInit();
             this.pnlReaderInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tbpReader.SuspendLayout();
@@ -149,7 +149,7 @@
             // 
             // pnlRentalInfo
             // 
-            this.pnlRentalInfo.Controls.Add(this.dataGridView1);
+            this.pnlRentalInfo.Controls.Add(this.dgvReaderBorrow);
             this.pnlRentalInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRentalInfo.Location = new System.Drawing.Point(3, 17);
             this.pnlRentalInfo.Name = "pnlRentalInfo";
@@ -157,15 +157,15 @@
             this.pnlRentalInfo.Size = new System.Drawing.Size(643, 264);
             this.pnlRentalInfo.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvReaderBorrow
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(5, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(633, 258);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvReaderBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReaderBorrow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvReaderBorrow.Location = new System.Drawing.Point(5, 0);
+            this.dgvReaderBorrow.Name = "dgvReaderBorrow";
+            this.dgvReaderBorrow.RowTemplate.Height = 23;
+            this.dgvReaderBorrow.Size = new System.Drawing.Size(633, 258);
+            this.dgvReaderBorrow.TabIndex = 1;
             // 
             // pnlReaderInfo
             // 
@@ -180,9 +180,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSearchReader);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txbGender);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txbName);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txbReaderId);
@@ -204,13 +204,13 @@
             this.btnSearchReader.UseVisualStyleBackColor = true;
             this.btnSearchReader.Click += new System.EventHandler(this.btnSearchReader_Click);
             // 
-            // textBox3
+            // txbGender
             // 
-            this.textBox3.Location = new System.Drawing.Point(424, 21);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 5;
+            this.txbGender.Location = new System.Drawing.Point(424, 21);
+            this.txbGender.Name = "txbGender";
+            this.txbGender.ReadOnly = true;
+            this.txbGender.Size = new System.Drawing.Size(100, 21);
+            this.txbGender.TabIndex = 5;
             // 
             // label3
             // 
@@ -221,13 +221,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "读者性别";
             // 
-            // textBox2
+            // txbName
             // 
-            this.textBox2.Location = new System.Drawing.Point(244, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 3;
+            this.txbName.Location = new System.Drawing.Point(244, 20);
+            this.txbName.Name = "txbName";
+            this.txbName.ReadOnly = true;
+            this.txbName.Size = new System.Drawing.Size(100, 21);
+            this.txbName.TabIndex = 3;
             // 
             // label2
             // 
@@ -554,7 +554,7 @@
             this.tbpRental.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.pnlRentalInfo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReaderBorrow)).EndInit();
             this.pnlReaderInfo.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -592,13 +592,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbReaderId;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbGender;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel pnlRentalInfo;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvReaderBorrow;
         private System.Windows.Forms.Panel pnlReaderInfo;
         private System.Windows.Forms.Panel pnlReaderWrapper;
         private System.Windows.Forms.GroupBox groupBox4;
