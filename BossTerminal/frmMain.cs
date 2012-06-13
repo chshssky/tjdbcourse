@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace BossTerminal
 {
@@ -17,13 +18,10 @@ namespace BossTerminal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“libDataSet.book”中。您可以根据需要移动或删除它。
-            this.bookTableAdapter.Fill(this.libDataSet.book);
-            // TODO: 这行代码将数据加载到表“libDSlibrary.library”中。您可以根据需要移动或删除它。
-            this.libraryTableAdapter.Fill(this.libDSlibrary.library);
-            // TODO: 这行代码将数据加载到表“libDataSet.manager”中。您可以根据需要移动或删除它。
-            this.managerTableAdapter.Fill(this.libDataSet.manager);
-
+            // TODO: 这行代码将数据加载到表“dataSet.library”中。您可以根据需要移动或删除它。
+            this.libraryTableAdapter.Fill(this.dataSet.library);
+            // TODO: 这行代码将数据加载到表“dataSet.manager”中。您可以根据需要移动或删除它。
+            this.managerTableAdapter.Fill(this.dataSet.manager);
         }
 
         private void mnuToolAddLibrary_Click(object sender, EventArgs e)
@@ -55,24 +53,23 @@ namespace BossTerminal
             new frmPassword().ShowDialog();
         }
 
-        private void dgvMangers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void mnuToolRefresh_Click(object sender, EventArgs e)
         {
-
+            this.managerTableAdapter.Fill(this.dataSet.manager);
+            this.libraryTableAdapter.Fill(this.dataSet.library);
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void mnuToolSave_Click(object sender, EventArgs e)
         {
-
+            new SqlCommandBuilder(this.managerTableAdapter.Adapter);
+            this.managerTableAdapter.Update(this.dataSet);
+            new SqlCommandBuilder(this.libraryTableAdapter.Adapter);
+            this.libraryTableAdapter.Update(this.dataSet);
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
+        private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
         }
     }
 }
