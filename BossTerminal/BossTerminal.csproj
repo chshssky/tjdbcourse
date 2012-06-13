@@ -80,24 +80,6 @@
     <Compile Include="frmPassword.Designer.cs">
       <DependentUpon>frmPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="libDataSet.cs">
-      <DependentUpon>libDataSet.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="libDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>libDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="libDSlibrary.cs">
-      <DependentUpon>libDSlibrary.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="libDSlibrary.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>libDSlibrary.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAddLib.resx">
@@ -125,28 +107,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="libDataSet.xsc">
-      <DependentUpon>libDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="libDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>libDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="libDataSet.xss">
-      <DependentUpon>libDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="libDSlibrary.xsc">
-      <DependentUpon>libDSlibrary.xsd</DependentUpon>
-    </None>
-    <None Include="libDSlibrary.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>libDSlibrary.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="libDSlibrary.xss">
-      <DependentUpon>libDSlibrary.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
