@@ -20,9 +20,8 @@ namespace FrontTerminal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'frontDataSet.reader' table. You can move, or remove it, as needed.
-            this.readerTableAdapter.Fill(this.frontDataSet.reader);
-
+            // TODO: 这行代码将数据加载到表“frDataSet.overdue_reader”中。您可以根据需要移动或删除它。
+            this.overdue_readerTableAdapter.Fill(this.frDataSet.overdue_reader);
         }
 
         private void btnSearchReader_Click(object sender, EventArgs e)
