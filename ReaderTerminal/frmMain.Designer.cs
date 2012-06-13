@@ -200,6 +200,7 @@
             this.tpgReaderInfo.TabIndex = 1;
             this.tpgReaderInfo.Text = "读者信息";
             this.tpgReaderInfo.UseVisualStyleBackColor = true;
+            this.tpgReaderInfo.Click += new System.EventHandler(this.tpgReaderInfo_Click);
             // 
             // tpgBookRental
             // 

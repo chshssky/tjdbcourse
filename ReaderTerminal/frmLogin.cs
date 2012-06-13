@@ -36,9 +36,7 @@ namespace ReaderTerminal
                 frmMain main = new frmMain();
                 this.Hide();
                 readerId = id;
-
                 reader.Close();
-
                 main.ShowDialog();
             }
             else

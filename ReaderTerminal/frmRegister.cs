@@ -51,7 +51,7 @@ namespace ReaderTerminal
             bool doif = false;
             bool available = true;
             DateTime time = System.DateTime.Now;
-            DateTime expireTime = time; expireTime.AddYears(1);
+            DateTime expireTime = System.DateTime.Now.AddYears(1); 
             string usrPhone = txtPhoneNum.Text;
             string usrPassword2 = txtPsdc.Text;
             string usrMail = txtMail.Text;

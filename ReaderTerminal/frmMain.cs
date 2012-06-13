@@ -191,5 +191,36 @@ namespace ReaderTerminal
             this.Show();
 
         }
+
+        private void tpgReaderInfo_Click(object sender, EventArgs e)
+        {
+            
+            SqlDataReader book2 = null;
+            int readerId = frmLogin.readerId;
+            string sql =
+                "select *" +
+                "from reader" +
+                "where id = @readerid";
+            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@readerid", readerId);
+            book2 = cmd.ExecuteReader();
+            String[] str = new String[11];
+            str[0] = "用户账号是：" + book2[0].ToString()+'\t';
+            str[1] = "用户姓名是：" + book2[1].ToString() + '\t';
+            str[2] = "用户密码是：" + book2[2].ToString() + '\t';
+            str[3] = "用户账号是：" + book2[3].ToString() + '\t';
+            str[4] = "用户性别是：" + book2[4].ToString() + '\t';
+            str[5] = "用户注册号类型是：" + book2[5].ToString() + '\t';
+            str[6] = "用户注册号是：" + book2[6].ToString() + '\t';
+            str[7] = "用户电话是：" + book2[7].ToString() + '\t';
+            str[8] = "用户注册时间是：" + book2[8].ToString() + '\t';
+            str[9] = "用户到期时间是：" + book2[9].ToString() + '\t';
+            book2.Close();
+            lstBookResult.View = View.List;
+            ListViewItem item = new ListViewItem(str[0] + str[1] + str[2] + str[3] + str[4] + str[5] + str[6] + str[7] + str[8] + str[9]);
+            lstBookResult.Items.Add(item);
+            
+        }
     }
 }
