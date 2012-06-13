@@ -44,6 +44,12 @@
     <Compile Include="..\Common\Connection.cs">
       <Link>Common\Connection.cs</Link>
     </Compile>
+    <Compile Include="changepsw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="changepsw.Designer.cs">
+      <DependentUpon>changepsw.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="changepsw.resx">
+      <DependentUpon>changepsw.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBook.resx">
       <DependentUpon>frmBook.cs</DependentUpon>
     </EmbeddedResource>
