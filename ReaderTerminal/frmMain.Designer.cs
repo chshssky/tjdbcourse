@@ -75,7 +75,7 @@
             this.pnlWrapperMain.Location = new System.Drawing.Point(0, 25);
             this.pnlWrapperMain.Name = "pnlWrapperMain";
             this.pnlWrapperMain.Padding = new System.Windows.Forms.Padding(7, 0, 5, 6);
-            this.pnlWrapperMain.Size = new System.Drawing.Size(464, 257);
+            this.pnlWrapperMain.Size = new System.Drawing.Size(471, 290);
             this.pnlWrapperMain.TabIndex = 0;
             // 
             // tabMain
@@ -88,7 +88,7 @@
             this.tabMain.Location = new System.Drawing.Point(7, 0);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(452, 251);
+            this.tabMain.Size = new System.Drawing.Size(459, 284);
             this.tabMain.TabIndex = 1;
             // 
             // tpgBookSearch
@@ -224,7 +224,7 @@
             this.tpgBookRental.Location = new System.Drawing.Point(4, 22);
             this.tpgBookRental.Name = "tpgBookRental";
             this.tpgBookRental.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgBookRental.Size = new System.Drawing.Size(444, 225);
+            this.tpgBookRental.Size = new System.Drawing.Size(451, 258);
             this.tpgBookRental.TabIndex = 2;
             this.tpgBookRental.Text = "书刊借阅";
             this.tpgBookRental.UseVisualStyleBackColor = true;
@@ -235,7 +235,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(341, 65);
+            this.textBox1.Size = new System.Drawing.Size(341, 98);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -266,7 +266,7 @@
             this.帮助HToolStripMenuItem});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(464, 25);
+            this.mnuMain.Size = new System.Drawing.Size(471, 25);
             this.mnuMain.TabIndex = 1;
             this.mnuMain.Text = "menuStrip1";
             // 
@@ -347,7 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 282);
+            this.ClientSize = new System.Drawing.Size(471, 315);
             this.Controls.Add(this.pnlWrapperMain);
             this.Controls.Add(this.mnuMain);
             this.MainMenuStrip = this.mnuMain;
