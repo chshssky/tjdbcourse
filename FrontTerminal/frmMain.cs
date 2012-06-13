@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Library;
 
 namespace FrontTerminal
 {
@@ -35,7 +36,7 @@ namespace FrontTerminal
             {
                 cmd.CommandText = "select * from  Reader where id = "+readerID;
                 SqlDataReader record = cmd.ExecuteReader();
-                if (record.IsDBNull(0))
+                if (!record.HasRows)
                     MessageBox.Show("没有该用户！");
 
             }
@@ -43,7 +44,7 @@ namespace FrontTerminal
             {
                 MessageBox.Show(err.Message);
             }
-            
+            con.Close();
         }
     }
 }
