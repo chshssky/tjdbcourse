@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace BossTerminal
 {
@@ -15,62 +16,29 @@ namespace BossTerminal
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“libDataSet.book”中。您可以根据需要移动或删除它。
-            this.bookTableAdapter.Fill(this.libDataSet.book);
-            // TODO: 这行代码将数据加载到表“libDSlibrary.library”中。您可以根据需要移动或删除它。
-            this.libraryTableAdapter.Fill(this.libDSlibrary.library);
-            // TODO: 这行代码将数据加载到表“libDataSet.manager”中。您可以根据需要移动或删除它。
-            this.managerTableAdapter.Fill(this.libDataSet.manager);
-
+            // TODO: 这行代码将数据加载到表“dataSet.library”中。您可以根据需要移动或删除它。
+            this.libraryTableAdapter.Fill(this.dataSet.library);
+            // TODO: 这行代码将数据加载到表“dataSet.manager”中。您可以根据需要移动或删除它。
+            this.managerTableAdapter.Fill(this.dataSet.manager);
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void 添加图书馆ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuToolAddLibrary_Click(object sender, EventArgs e)
         {
             frmAddLib fm = new frmAddLib();
             fm.ShowDialog();
             fm.Close();
         }
 
-        private void 后台管理员管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuToolAddManager_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void 退出XToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuToolExit_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void 修改账号AToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,29 +50,53 @@ namespace BossTerminal
 
         private void 修改密码PToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPassword fm = new frmPassword();
-            fm.ShowDialog();
-            fm.Close();
+            new frmPassword().ShowDialog();
         }
 
-        private void dgvMangers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void mnuToolRefresh_Click(object sender, EventArgs e)
         {
-
+            this.managerTableAdapter.Fill(this.dataSet.manager);
+            this.libraryTableAdapter.Fill(this.dataSet.library);
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void mnuToolSave_Click(object sender, EventArgs e)
         {
-
+            new SqlCommandBuilder(this.managerTableAdapter.Adapter);
+            this.managerTableAdapter.Update(this.dataSet);
+            new SqlCommandBuilder(this.libraryTableAdapter.Adapter);
+            this.libraryTableAdapter.Update(this.dataSet);
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
+        private string lastPassword = "";
 
+        private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            DataGridViewRow row = view.Rows[e.RowIndex];
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("password"))
+            {
+                lastPassword = (string) cell.Value;
+                cell.Value = "";
+            }
+            else
+                Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvManager_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-
+            DataGridView view = (DataGridView)sender;
+            DataGridViewRow row = view.Rows[e.RowIndex];
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("password"))
+            {
+                if (((string)cell.Value).Length == 0)
+                    cell.Value = lastPassword;
+                else
+                    cell.Value = Library.Util.MD5((string)cell.Value);
+            }
         }
     }
 }
