@@ -65,6 +65,11 @@
       <Link>common\Connection.cs</Link>
     </Compile>
     <Compile Include="common\Util.cs" />
+    <Compile Include="FrDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FrDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +106,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
+    <None Include="FrDataSet.xsc">
+      <DependentUpon>FrDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FrDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FrDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FrDataSet.xss">
+      <DependentUpon>FrDataSet.xsd</DependentUpon>
+    </None>
     <None Include="FrontDataSet.xsc">
       <DependentUpon>FrontDataSet.xsd</DependentUpon>
     </None>
