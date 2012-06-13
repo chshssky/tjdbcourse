@@ -283,22 +283,31 @@ namespace ReaderTerminal
             String isbn = listView1.SelectedItems[0].Text.ToString();
             isbn = isbn.Substring(0, isbn.IndexOf(" ") + 1);
             String sql =
-                "select * " +
-                "from book " +
-                "where isbn = @isbn";
+                "SELECT	b.isbn, b.title, l.name, r.rent_time, r.due_time " +
+                "FROM	book AS b, particular_book AS p, rental AS r, library AS l " +
+                "WHERE	b.isbn = @isbn AND " +
+                "r.particular_book_id = p.id AND " +
+                "p.book_isbn = b.isbn AND " +
+                "p.library_id = l.id";
             cmd = new SqlCommand(sql, Library.Connection.Instance());
             cmd.Parameters.AddWithValue("@isbn", isbn);
             book = cmd.ExecuteReader();
-            String[] str = new String[4];
+            String[] str = new String[5];
             if (book != null && book.Read())
             {
 
-                str[0] = book[1].ToString();
-                str[1] = book[2].ToString();
-                str[2] = book[3].ToString();
-                str[3] = book[4].ToString();
-                for (int i = 0; i < 4; ++i)
-                    textBox1.Text = textBox1.Text + str[i] + System.Environment.NewLine;
+                str[0] = book[0].ToString();
+                str[1] = book[1].ToString();
+                str[2] = book[2].ToString();
+                str[3] = book[3].ToString();
+                str[4] = book[4].ToString();
+                String text;
+                text =        "ISBN:          " + str[0] + System.Environment.NewLine;
+                text = text + "Title:         " + str[1] + System.Environment.NewLine;
+                text = text + "Library:       " + str[2] + System.Environment.NewLine;
+                text = text + "RentTime:      " + str[3] + System.Environment.NewLine;
+                text = text + "ReturnTime:    " + str[4] + System.Environment.NewLine;
+                textBox1.Text = text;
 
             }
             
