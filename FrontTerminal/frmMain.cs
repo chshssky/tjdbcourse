@@ -151,7 +151,7 @@ namespace FrontTerminal
             SqlConnection con = Connection.Instance();
             SqlCommand cmd = new SqlCommand();
             int readerId = Convert.ToInt32(txbReaderId.Text);
-            //int bookId = Convert.ToInt32(textboxBookId.Text);
+            int bookId = Convert.ToInt32(textboxBookId.Text);
             String borrowTime = System.DateTime.Now.ToString();
             String dueTime = System.DateTime.Now.AddDays(30).ToString();
             try
@@ -175,10 +175,15 @@ namespace FrontTerminal
                     record2.Close();
                     DateTime nowTime = System.DateTime.Now;
                     DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
-                    SqlCommand cmd3 = new SqlCommand();
-                    cmd3.Connection = con;
-                    //cmd3.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
-                    cmd3.ExecuteNonQuery();//
+                    //SqlCommand cmd3 = new SqlCommand();
+                    //cmd3.Connection = con;
+                    String InsertSql = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
+                    SqlCommand com3 = new SqlCommand(InsertSql, con);
+                    com3.ExecuteNonQuery();
+                    con.Close();
+                    
+                   // cmd3.CommandText = ;
+                   // cmd3.ExecuteNonQuery();//
                 }
             }
             catch (Exception err)
