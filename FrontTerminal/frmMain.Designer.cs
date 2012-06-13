@@ -48,13 +48,23 @@
             this.pnlReaderWrapper = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.pnlReaderResult = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dbgReaderinfo = new System.Windows.Forms.DataGridView();
+            this.readId2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.readerName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.readerGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.credentialType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.credentialNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registerTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expireTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avaliable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlReaderCond = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbbReaderGender = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txbReadName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbpRude = new System.Windows.Forms.TabPage();
             this.dgvTimeOut = new System.Windows.Forms.DataGridView();
@@ -78,8 +88,8 @@
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readerTableAdapter = new FrontTerminal.FrontDataSetTableAdapters.readerTableAdapter();
             this.RentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReturnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,7 +105,7 @@
             this.pnlReaderWrapper.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.pnlReaderResult.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgReaderinfo)).BeginInit();
             this.pnlReaderCond.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tbpRude.SuspendLayout();
@@ -168,8 +178,8 @@
             this.dgvReaderBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReaderBorrow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RentId,
-            this.DueTime,
             this.RentTime,
+            this.DueTime,
             this.ReturnTime,
             this.BookId,
             this.ReadId});
@@ -302,7 +312,7 @@
             // 
             // pnlReaderResult
             // 
-            this.pnlReaderResult.Controls.Add(this.dataGridView2);
+            this.pnlReaderResult.Controls.Add(this.dbgReaderinfo);
             this.pnlReaderResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReaderResult.Location = new System.Drawing.Point(3, 17);
             this.pnlReaderResult.Name = "pnlReaderResult";
@@ -310,15 +320,76 @@
             this.pnlReaderResult.Size = new System.Drawing.Size(643, 274);
             this.pnlReaderResult.TabIndex = 0;
             // 
-            // dataGridView2
+            // dbgReaderinfo
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(641, 274);
-            this.dataGridView2.TabIndex = 0;
+            this.dbgReaderinfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dbgReaderinfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.readId2,
+            this.readerName2,
+            this.readerGender,
+            this.credentialType,
+            this.credentialNumber,
+            this.telephone,
+            this.registerTime,
+            this.expireTime,
+            this.avaliable,
+            this.groupId});
+            this.dbgReaderinfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dbgReaderinfo.Location = new System.Drawing.Point(0, 0);
+            this.dbgReaderinfo.Name = "dbgReaderinfo";
+            this.dbgReaderinfo.RowTemplate.Height = 23;
+            this.dbgReaderinfo.Size = new System.Drawing.Size(641, 274);
+            this.dbgReaderinfo.TabIndex = 0;
+            // 
+            // readId2
+            // 
+            this.readId2.HeaderText = "读者编号";
+            this.readId2.Name = "readId2";
+            // 
+            // readerName2
+            // 
+            this.readerName2.HeaderText = "读者姓名";
+            this.readerName2.Name = "readerName2";
+            // 
+            // readerGender
+            // 
+            this.readerGender.HeaderText = "读者性别";
+            this.readerGender.Name = "readerGender";
+            // 
+            // credentialType
+            // 
+            this.credentialType.HeaderText = "证件类型";
+            this.credentialType.Name = "credentialType";
+            // 
+            // credentialNumber
+            // 
+            this.credentialNumber.HeaderText = "证件号码";
+            this.credentialNumber.Name = "credentialNumber";
+            // 
+            // telephone
+            // 
+            this.telephone.HeaderText = "电话号码";
+            this.telephone.Name = "telephone";
+            // 
+            // registerTime
+            // 
+            this.registerTime.HeaderText = "注册时间";
+            this.registerTime.Name = "registerTime";
+            // 
+            // expireTime
+            // 
+            this.expireTime.HeaderText = "到期时间";
+            this.expireTime.Name = "expireTime";
+            // 
+            // avaliable
+            // 
+            this.avaliable.HeaderText = "账户可用否？";
+            this.avaliable.Name = "avaliable";
+            // 
+            // groupId
+            // 
+            this.groupId.HeaderText = "借书群组";
+            this.groupId.Name = "groupId";
             // 
             // pnlReaderCond
             // 
@@ -333,9 +404,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button1);
-            this.groupBox3.Controls.Add(this.comboBox1);
+            this.groupBox3.Controls.Add(this.cbbReaderGender);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.txbReadName);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
@@ -353,19 +424,20 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "查询";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // comboBox1
+            // cbbReaderGender
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbbReaderGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbReaderGender.FormattingEnabled = true;
+            this.cbbReaderGender.Items.AddRange(new object[] {
             "不限",
             "男",
             "女"});
-            this.comboBox1.Location = new System.Drawing.Point(200, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
-            this.comboBox1.TabIndex = 3;
+            this.cbbReaderGender.Location = new System.Drawing.Point(200, 14);
+            this.cbbReaderGender.Name = "cbbReaderGender";
+            this.cbbReaderGender.Size = new System.Drawing.Size(121, 20);
+            this.cbbReaderGender.TabIndex = 3;
             // 
             // label5
             // 
@@ -376,12 +448,12 @@
             this.label5.TabIndex = 2;
             this.label5.Text = "性别";
             // 
-            // textBox4
+            // txbReadName
             // 
-            this.textBox4.Location = new System.Drawing.Point(59, 14);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 1;
+            this.txbReadName.Location = new System.Drawing.Point(59, 14);
+            this.txbReadName.Name = "txbReadName";
+            this.txbReadName.Size = new System.Drawing.Size(100, 21);
+            this.txbReadName.TabIndex = 1;
             // 
             // label4
             // 
@@ -556,15 +628,15 @@
             this.RentId.HeaderText = "借阅编号";
             this.RentId.Name = "RentId";
             // 
-            // DueTime
-            // 
-            this.DueTime.HeaderText = "借阅时间";
-            this.DueTime.Name = "DueTime";
-            // 
             // RentTime
             // 
             this.RentTime.HeaderText = "借阅时间";
             this.RentTime.Name = "RentTime";
+            // 
+            // DueTime
+            // 
+            this.DueTime.HeaderText = "应归还时间";
+            this.DueTime.Name = "DueTime";
             // 
             // ReturnTime
             // 
@@ -606,7 +678,7 @@
             this.pnlReaderWrapper.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.pnlReaderResult.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dbgReaderinfo)).EndInit();
             this.pnlReaderCond.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -648,13 +720,13 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Panel pnlReaderCond;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txbReadName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbbReaderGender;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlReaderResult;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dbgReaderinfo;
         private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.TabPage tbpRude;
         private System.Windows.Forms.DataGridView dgvTimeOut;
@@ -673,9 +745,19 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn availableDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupidDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnSearchReader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn readId2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn readerName2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn readerGender;
+        private System.Windows.Forms.DataGridViewTextBoxColumn credentialType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn credentialNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telephone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registerTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expireTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn avaliable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn groupId;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DueTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn RentTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DueTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReadId;

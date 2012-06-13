@@ -69,7 +69,7 @@ namespace FrontTerminal
                 try
                 {
                     cmdshow.Connection = con;
-                    cmdshow.CommandText = "select * from rental where reader_id=" + readerID;
+                    cmdshow.CommandText= "select * from rental where reader_id=" + readerID;
                     SqlDataReader recRental = cmdshow.ExecuteReader();
                     while (recRental.Read())
                     {
@@ -89,6 +89,57 @@ namespace FrontTerminal
 
         private void dgvReaderBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String readerName = Convert.ToString(txbReadName.Text);
+            String readerGender = Convert.ToString(cbbReaderGender.Text);
+            int readerGenderI;
+            if (readerGender == "女")
+            {
+                readerGenderI = 0;
+            }
+            else if (readerGender == "男")
+            {
+                readerGenderI = 1;
+            }
+            else
+            {
+                readerGenderI = 2;
+            }
+            Console.Out.WriteLine(readerName);
+            SqlConnection con = Connection.Instance();
+            SqlCommand cmdReader = new SqlCommand();
+            try
+            {
+                cmdReader.Connection = con;
+                if (readerGenderI == 2)
+                {
+                    cmdReader.CommandText = "select * from  Reader where name like '*" + readerName + "%'";
+                }
+                else
+                    cmdReader.CommandText = "select * from  Reader where name like '*" + readerName + "%' and gender=" + readerGenderI;
+                SqlDataReader recordShow = cmdReader.ExecuteReader();
+
+                if (!recordShow.HasRows)
+                    MessageBox.Show("没有该用户！");
+                else
+                {
+                    while (recordShow.Read())
+                    {
+                        dbgReaderinfo.Rows.Add(new object[] { recordShow[0], recordShow[1], recordShow[3], recordShow[4], recordShow[5], recordShow[6], recordShow[7], recordShow[8], recordShow[9], recordShow[10] });
+                    }
+                    recordShow.Close();
+
+                }
+                con.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
 
         }
     }
