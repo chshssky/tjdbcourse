@@ -27,5 +27,18 @@ namespace Library
             reader.Close();
             return result;
         }
+
+        public static bool SetString(string key, string value)
+        {
+            string sql =
+                "update config " +
+                "set config_value = @value " +
+                "where config_key = @config_key";
+
+            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@config_key", key);
+            cmd.Parameters.AddWithValue("@value", value);
+            return cmd.ExecuteNonQuery() > 0;
+        }
     }
 }

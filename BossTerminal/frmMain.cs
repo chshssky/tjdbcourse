@@ -82,9 +82,7 @@ namespace BossTerminal
 
         private void 修改密码PToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPassword fm = new frmPassword();
-            fm.ShowDialog();
-            fm.Close();
+            new frmPassword().ShowDialog();
         }
 
         private void dgvMangers_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -40,7 +40,7 @@
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.老板BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改账号AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改密码PToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBossChangePassword = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.关于AToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.managerTableAdapter = new BossTerminal.libDataSetTableAdapters.managerTableAdapter();
@@ -55,19 +55,19 @@
             this.bookTableAdapter = new BossTerminal.libDataSetTableAdapters.bookTableAdapter();
             this.managerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tpgManager = new System.Windows.Forms.TabPage();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.libraryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permissionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.前台服务人员 = new System.Windows.Forms.TabControl();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libDSlibrary)).BeginInit();
@@ -112,8 +112,7 @@
             this.帮助HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(821, 34);
+            this.menuStrip1.Size = new System.Drawing.Size(547, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -125,27 +124,27 @@
             this.管理员管理ToolStripMenuItem,
             this.退出XToolStripMenuItem});
             this.工具TToolStripMenuItem.Name = "工具TToolStripMenuItem";
-            this.工具TToolStripMenuItem.Size = new System.Drawing.Size(80, 28);
+            this.工具TToolStripMenuItem.Size = new System.Drawing.Size(59, 21);
             this.工具TToolStripMenuItem.Text = "工具(&T)";
             // 
             // 添加图书馆ToolStripMenuItem
             // 
             this.添加图书馆ToolStripMenuItem.Name = "添加图书馆ToolStripMenuItem";
-            this.添加图书馆ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.添加图书馆ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.添加图书馆ToolStripMenuItem.Text = "添加图书馆";
             this.添加图书馆ToolStripMenuItem.Click += new System.EventHandler(this.添加图书馆ToolStripMenuItem_Click);
             // 
             // 管理员管理ToolStripMenuItem
             // 
             this.管理员管理ToolStripMenuItem.Name = "管理员管理ToolStripMenuItem";
-            this.管理员管理ToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.管理员管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.管理员管理ToolStripMenuItem.Text = "添加管理员";
             this.管理员管理ToolStripMenuItem.Click += new System.EventHandler(this.后台管理员管理ToolStripMenuItem_Click);
             // 
             // 退出XToolStripMenuItem
             // 
             this.退出XToolStripMenuItem.Name = "退出XToolStripMenuItem";
-            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(170, 28);
+            this.退出XToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.退出XToolStripMenuItem.Text = "退出(&X)";
             this.退出XToolStripMenuItem.Click += new System.EventHandler(this.退出XToolStripMenuItem_Click);
             // 
@@ -153,37 +152,37 @@
             // 
             this.老板BToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.修改账号AToolStripMenuItem,
-            this.修改密码PToolStripMenuItem});
+            this.mnuBossChangePassword});
             this.老板BToolStripMenuItem.Name = "老板BToolStripMenuItem";
-            this.老板BToolStripMenuItem.Size = new System.Drawing.Size(81, 28);
+            this.老板BToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
             this.老板BToolStripMenuItem.Text = "老板(&B)";
             // 
             // 修改账号AToolStripMenuItem
             // 
             this.修改账号AToolStripMenuItem.Name = "修改账号AToolStripMenuItem";
-            this.修改账号AToolStripMenuItem.Size = new System.Drawing.Size(179, 28);
+            this.修改账号AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.修改账号AToolStripMenuItem.Text = "修改名称(&N)";
             this.修改账号AToolStripMenuItem.Click += new System.EventHandler(this.修改账号AToolStripMenuItem_Click);
             // 
-            // 修改密码PToolStripMenuItem
+            // mnuBossChangePassword
             // 
-            this.修改密码PToolStripMenuItem.Name = "修改密码PToolStripMenuItem";
-            this.修改密码PToolStripMenuItem.Size = new System.Drawing.Size(179, 28);
-            this.修改密码PToolStripMenuItem.Text = "修改密码(&P)";
-            this.修改密码PToolStripMenuItem.Click += new System.EventHandler(this.修改密码PToolStripMenuItem_Click);
+            this.mnuBossChangePassword.Name = "mnuBossChangePassword";
+            this.mnuBossChangePassword.Size = new System.Drawing.Size(152, 22);
+            this.mnuBossChangePassword.Text = "修改密码(&P)";
+            this.mnuBossChangePassword.Click += new System.EventHandler(this.修改密码PToolStripMenuItem_Click);
             // 
             // 帮助HToolStripMenuItem
             // 
             this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.关于AToolStripMenuItem});
             this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
-            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(84, 28);
+            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
             this.帮助HToolStripMenuItem.Text = "帮助(&H)";
             // 
             // 关于AToolStripMenuItem
             // 
             this.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem";
-            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(141, 28);
+            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             // 
             // managerTableAdapter
@@ -256,13 +255,22 @@
             // 
             this.tabPage2.Controls.Add(this.progressBar3);
             this.tabPage2.Controls.Add(this.dataGridView4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(813, 477);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(539, 313);
             this.tabPage2.TabIndex = 7;
             this.tabPage2.Text = "图书馆管理";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.Location = new System.Drawing.Point(524, 0);
+            this.progressBar3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(21, 326);
+            this.progressBar3.TabIndex = 4;
             // 
             // dataGridView4
             // 
@@ -274,22 +282,11 @@
             this.addressDataGridViewTextBoxColumn});
             this.dataGridView4.DataSource = this.libraryBindingSource;
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowTemplate.Height = 30;
-            this.dataGridView4.Size = new System.Drawing.Size(786, 477);
+            this.dataGridView4.Size = new System.Drawing.Size(524, 318);
             this.dataGridView4.TabIndex = 3;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
-            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
-            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn2
-            // 
-            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn2.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
             // 
             // idDataGridViewTextBoxColumn2
             // 
@@ -297,32 +294,29 @@
             this.idDataGridViewTextBoxColumn2.HeaderText = "id";
             this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
             // 
-            // progressBar3
+            // nameDataGridViewTextBoxColumn2
             // 
-            this.progressBar3.Location = new System.Drawing.Point(786, 0);
-            this.progressBar3.Name = "progressBar3";
-            this.progressBar3.Size = new System.Drawing.Size(32, 489);
-            this.progressBar3.TabIndex = 4;
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
             // 
             // tpgManager
             // 
             this.tpgManager.Controls.Add(this.dataGridView1);
             this.tpgManager.Controls.Add(this.progressBar2);
-            this.tpgManager.Location = new System.Drawing.Point(4, 28);
-            this.tpgManager.Margin = new System.Windows.Forms.Padding(4);
+            this.tpgManager.Location = new System.Drawing.Point(4, 22);
             this.tpgManager.Name = "tpgManager";
-            this.tpgManager.Padding = new System.Windows.Forms.Padding(4);
-            this.tpgManager.Size = new System.Drawing.Size(813, 477);
+            this.tpgManager.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tpgManager.Size = new System.Drawing.Size(539, 311);
             this.tpgManager.TabIndex = 4;
             this.tpgManager.Text = "后台管理员";
             this.tpgManager.UseVisualStyleBackColor = true;
-            // 
-            // progressBar2
-            // 
-            this.progressBar2.Location = new System.Drawing.Point(785, 0);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(32, 489);
-            this.progressBar2.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -336,35 +330,12 @@
             this.libraryidDataGridViewTextBoxColumn1});
             this.dataGridView1.DataSource = this.managerBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(786, 477);
+            this.dataGridView1.Size = new System.Drawing.Size(524, 318);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // libraryidDataGridViewTextBoxColumn1
-            // 
-            this.libraryidDataGridViewTextBoxColumn1.DataPropertyName = "library_id";
-            this.libraryidDataGridViewTextBoxColumn1.HeaderText = "library_id";
-            this.libraryidDataGridViewTextBoxColumn1.Name = "libraryidDataGridViewTextBoxColumn1";
-            // 
-            // permissionDataGridViewTextBoxColumn1
-            // 
-            this.permissionDataGridViewTextBoxColumn1.DataPropertyName = "permission";
-            this.permissionDataGridViewTextBoxColumn1.HeaderText = "permission";
-            this.permissionDataGridViewTextBoxColumn1.Name = "permissionDataGridViewTextBoxColumn1";
-            // 
-            // passwordDataGridViewTextBoxColumn1
-            // 
-            this.passwordDataGridViewTextBoxColumn1.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn1.HeaderText = "password";
-            this.passwordDataGridViewTextBoxColumn1.Name = "passwordDataGridViewTextBoxColumn1";
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -372,27 +343,57 @@
             this.idDataGridViewTextBoxColumn1.HeaderText = "id";
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
             // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // passwordDataGridViewTextBoxColumn1
+            // 
+            this.passwordDataGridViewTextBoxColumn1.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn1.HeaderText = "password";
+            this.passwordDataGridViewTextBoxColumn1.Name = "passwordDataGridViewTextBoxColumn1";
+            // 
+            // permissionDataGridViewTextBoxColumn1
+            // 
+            this.permissionDataGridViewTextBoxColumn1.DataPropertyName = "permission";
+            this.permissionDataGridViewTextBoxColumn1.HeaderText = "permission";
+            this.permissionDataGridViewTextBoxColumn1.Name = "permissionDataGridViewTextBoxColumn1";
+            // 
+            // libraryidDataGridViewTextBoxColumn1
+            // 
+            this.libraryidDataGridViewTextBoxColumn1.DataPropertyName = "library_id";
+            this.libraryidDataGridViewTextBoxColumn1.HeaderText = "library_id";
+            this.libraryidDataGridViewTextBoxColumn1.Name = "libraryidDataGridViewTextBoxColumn1";
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(523, 0);
+            this.progressBar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(21, 326);
+            this.progressBar2.TabIndex = 1;
+            // 
             // 前台服务人员
             // 
             this.前台服务人员.Controls.Add(this.tpgManager);
             this.前台服务人员.Controls.Add(this.tabPage2);
             this.前台服务人员.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.前台服务人员.Location = new System.Drawing.Point(0, 34);
-            this.前台服务人员.Margin = new System.Windows.Forms.Padding(4);
+            this.前台服务人员.Location = new System.Drawing.Point(0, 25);
             this.前台服务人员.Name = "前台服务人员";
             this.前台服务人员.SelectedIndex = 0;
-            this.前台服务人员.Size = new System.Drawing.Size(821, 509);
+            this.前台服务人员.Size = new System.Drawing.Size(547, 337);
             this.前台服务人员.TabIndex = 0;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(821, 543);
+            this.ClientSize = new System.Drawing.Size(547, 362);
             this.Controls.Add(this.前台服务人员);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMain";
             this.Text = "老板管理工具";
             this.Load += new System.EventHandler(this.frmMain_Load);
@@ -424,7 +425,7 @@
         private System.Windows.Forms.ToolStripMenuItem 关于AToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 老板BToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改账号AToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 修改密码PToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuBossChangePassword;
         private libDataSet libDataSet;
         private System.Windows.Forms.BindingSource managerBindingSource;
         private libDataSetTableAdapters.managerTableAdapter managerTableAdapter;

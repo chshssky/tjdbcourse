@@ -35,14 +35,14 @@ namespace BossTerminal
                 (trimmedPassword == null || trimmedPassword.Length == 0) &&
                 txtBossPassword.Text.Trim().Length == 0)
             {
-                MessageBox.Show("老板您好。");
+                // MessageBox.Show("老板您好。");
                 frmMain frmMain = new frmMain();
                 this.Hide(); frmMain.ShowDialog(this);
                 this.Close(); this.Dispose();
             }
             else
             {
-                MessageBox.Show("不好意思，我们老板不在。");
+                MessageBox.Show("您的输入有误。");
             }
         }
 

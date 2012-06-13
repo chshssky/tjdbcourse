@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 16);
+            this.label1.Location = new System.Drawing.Point(21, 29);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 16);
@@ -49,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 64);
+            this.label2.Location = new System.Drawing.Point(53, 77);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
@@ -58,7 +58,7 @@
             // 
             // txtBossName
             // 
-            this.txtBossName.Location = new System.Drawing.Point(149, 13);
+            this.txtBossName.Location = new System.Drawing.Point(138, 26);
             this.txtBossName.Margin = new System.Windows.Forms.Padding(4);
             this.txtBossName.Name = "txtBossName";
             this.txtBossName.Size = new System.Drawing.Size(225, 26);
@@ -66,7 +66,7 @@
             // 
             // txtBossPassword
             // 
-            this.txtBossPassword.Location = new System.Drawing.Point(149, 61);
+            this.txtBossPassword.Location = new System.Drawing.Point(138, 74);
             this.txtBossPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtBossPassword.Name = "txtBossPassword";
             this.txtBossPassword.PasswordChar = '●';
@@ -75,7 +75,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(68, 111);
+            this.btnLogin.Location = new System.Drawing.Point(57, 124);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(88, 31);
@@ -87,7 +87,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(235, 111);
+            this.btnCancel.Location = new System.Drawing.Point(224, 124);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 31);
@@ -101,7 +101,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(387, 168);
+            this.ClientSize = new System.Drawing.Size(387, 177);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtBossPassword);
