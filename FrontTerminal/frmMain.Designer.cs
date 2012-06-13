@@ -93,6 +93,10 @@
             this.ReturnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txbBookId = new System.Windows.Forms.Label();
+            this.textboxBookId = new System.Windows.Forms.TextBox();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnBorrow = new System.Windows.Forms.Button();
             this.pnlWrapper.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tbpRental.SuspendLayout();
@@ -156,9 +160,9 @@
             // 
             this.groupBox2.Controls.Add(this.pnlRentalInfo);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 58);
+            this.groupBox2.Location = new System.Drawing.Point(3, 90);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(649, 284);
+            this.groupBox2.Size = new System.Drawing.Size(649, 252);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "读者借书信息";
@@ -170,7 +174,7 @@
             this.pnlRentalInfo.Location = new System.Drawing.Point(3, 17);
             this.pnlRentalInfo.Name = "pnlRentalInfo";
             this.pnlRentalInfo.Padding = new System.Windows.Forms.Padding(5, 0, 5, 6);
-            this.pnlRentalInfo.Size = new System.Drawing.Size(643, 264);
+            this.pnlRentalInfo.Size = new System.Drawing.Size(643, 232);
             this.pnlRentalInfo.TabIndex = 0;
             // 
             // dgvReaderBorrow
@@ -187,9 +191,10 @@
             this.dgvReaderBorrow.Location = new System.Drawing.Point(5, 0);
             this.dgvReaderBorrow.Name = "dgvReaderBorrow";
             this.dgvReaderBorrow.RowTemplate.Height = 23;
-            this.dgvReaderBorrow.Size = new System.Drawing.Size(633, 258);
+            this.dgvReaderBorrow.Size = new System.Drawing.Size(633, 226);
             this.dgvReaderBorrow.TabIndex = 1;
             this.dgvReaderBorrow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReaderBorrow_CellContentClick);
+            this.dgvReaderBorrow.SelectionChanged += new System.EventHandler(this.selectionChange);
             // 
             // pnlReaderInfo
             // 
@@ -198,11 +203,15 @@
             this.pnlReaderInfo.Location = new System.Drawing.Point(3, 3);
             this.pnlReaderInfo.Name = "pnlReaderInfo";
             this.pnlReaderInfo.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.pnlReaderInfo.Size = new System.Drawing.Size(649, 55);
+            this.pnlReaderInfo.Size = new System.Drawing.Size(649, 87);
             this.pnlReaderInfo.TabIndex = 3;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBorrow);
+            this.groupBox1.Controls.Add(this.btnReturn);
+            this.groupBox1.Controls.Add(this.textboxBookId);
+            this.groupBox1.Controls.Add(this.txbBookId);
             this.groupBox1.Controls.Add(this.btnSearchReader);
             this.groupBox1.Controls.Add(this.txbGender);
             this.groupBox1.Controls.Add(this.label3);
@@ -213,14 +222,14 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(649, 50);
+            this.groupBox1.Size = new System.Drawing.Size(649, 82);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "读者基本信息";
             // 
             // btnSearchReader
             // 
-            this.btnSearchReader.Location = new System.Drawing.Point(548, 21);
+            this.btnSearchReader.Location = new System.Drawing.Point(244, 51);
             this.btnSearchReader.Name = "btnSearchReader";
             this.btnSearchReader.Size = new System.Drawing.Size(75, 23);
             this.btnSearchReader.TabIndex = 6;
@@ -653,6 +662,41 @@
             this.ReadId.HeaderText = "读者编号";
             this.ReadId.Name = "ReadId";
             // 
+            // txbBookId
+            // 
+            this.txbBookId.AutoSize = true;
+            this.txbBookId.Location = new System.Drawing.Point(6, 51);
+            this.txbBookId.Name = "txbBookId";
+            this.txbBookId.Size = new System.Drawing.Size(53, 12);
+            this.txbBookId.TabIndex = 7;
+            this.txbBookId.Text = "图书编号";
+            // 
+            // textboxBookId
+            // 
+            this.textboxBookId.Location = new System.Drawing.Point(66, 51);
+            this.textboxBookId.Name = "textboxBookId";
+            this.textboxBookId.Size = new System.Drawing.Size(100, 21);
+            this.textboxBookId.TabIndex = 8;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Location = new System.Drawing.Point(357, 51);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(75, 23);
+            this.btnReturn.TabIndex = 9;
+            this.btnReturn.Text = "还书";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            // 
+            // btnBorrow
+            // 
+            this.btnBorrow.Location = new System.Drawing.Point(470, 51);
+            this.btnBorrow.Name = "btnBorrow";
+            this.btnBorrow.Size = new System.Drawing.Size(75, 23);
+            this.btnBorrow.TabIndex = 10;
+            this.btnBorrow.Text = "借书";
+            this.btnBorrow.UseVisualStyleBackColor = true;
+            this.btnBorrow.Click += new System.EventHandler(this.btnBorrow_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -761,6 +805,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReturnTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReadId;
+        private System.Windows.Forms.Button btnBorrow;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.TextBox textboxBookId;
+        private System.Windows.Forms.Label txbBookId;
 
     }
 }
