@@ -192,6 +192,7 @@ namespace ReaderTerminal
             cmbSearchType.SelectedIndex = 0;
             this.Size = new System.Drawing.Size(640, 480);
             showreaderinfo();
+            showrentinfo();
         }
 
         private void tpgReaderInfo_Click(object sender, EventArgs e)
@@ -247,6 +248,37 @@ namespace ReaderTerminal
             this.Close();
             frmLogin frm = new frmLogin();
             frm.Show();
+        }
+
+        public void showrentinfo()
+        {
+            SqlDataReader book3 = null;
+            int readerId = frmLogin.readerId;
+            string sql3 =
+                "SELECT b.isbn, b.title " +
+                "FROM book AS b, particular_book AS p, rental AS r " +
+                "WHERE r.reader_id = @readerId AND " +
+                "r.particular_book_id = p.id AND " +
+                "b.isbn = p.book_isbn";
+            SqlCommand cmd = new SqlCommand(sql3, Library.Connection.Instance());
+            cmd = new SqlCommand(sql3, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@readerid", readerId);
+            book3 = cmd.ExecuteReader();
+            String[] strb = new String[2];
+            while (book3.Read())
+            {
+                strb[0] = book3[0].ToString();
+                strb[1] = book3[1].ToString();
+                listView1.View = View.List;
+                ListViewItem item = new ListViewItem(strb[0] + strb[1]);
+                listView1.Items.Add(item);
+            }
+            book3.Close();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
