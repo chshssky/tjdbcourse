@@ -77,6 +77,12 @@
             this.终端TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出XToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readerTableAdapter = new FrontTerminal.FrontDataSetTableAdapters.readerTableAdapter();
+            this.RentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RentTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlWrapper.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tbpRental.SuspendLayout();
@@ -160,12 +166,20 @@
             // dgvReaderBorrow
             // 
             this.dgvReaderBorrow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReaderBorrow.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RentId,
+            this.DueTime,
+            this.RentTime,
+            this.ReturnTime,
+            this.BookId,
+            this.ReadId});
             this.dgvReaderBorrow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvReaderBorrow.Location = new System.Drawing.Point(5, 0);
             this.dgvReaderBorrow.Name = "dgvReaderBorrow";
             this.dgvReaderBorrow.RowTemplate.Height = 23;
             this.dgvReaderBorrow.Size = new System.Drawing.Size(633, 258);
             this.dgvReaderBorrow.TabIndex = 1;
+            this.dgvReaderBorrow.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReaderBorrow_CellContentClick);
             // 
             // pnlReaderInfo
             // 
@@ -196,7 +210,7 @@
             // 
             // btnSearchReader
             // 
-            this.btnSearchReader.Location = new System.Drawing.Point(545, 18);
+            this.btnSearchReader.Location = new System.Drawing.Point(548, 21);
             this.btnSearchReader.Name = "btnSearchReader";
             this.btnSearchReader.Size = new System.Drawing.Size(75, 23);
             this.btnSearchReader.TabIndex = 6;
@@ -272,7 +286,7 @@
             this.pnlReaderWrapper.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReaderWrapper.Location = new System.Drawing.Point(3, 3);
             this.pnlReaderWrapper.Name = "pnlReaderWrapper";
-            this.pnlReaderWrapper.Size = new System.Drawing.Size(605, 339);
+            this.pnlReaderWrapper.Size = new System.Drawing.Size(649, 339);
             this.pnlReaderWrapper.TabIndex = 0;
             // 
             // groupBox4
@@ -281,7 +295,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(0, 45);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(605, 294);
+            this.groupBox4.Size = new System.Drawing.Size(649, 294);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "读者搜索结果";
@@ -293,7 +307,7 @@
             this.pnlReaderResult.Location = new System.Drawing.Point(3, 17);
             this.pnlReaderResult.Name = "pnlReaderResult";
             this.pnlReaderResult.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.pnlReaderResult.Size = new System.Drawing.Size(599, 274);
+            this.pnlReaderResult.Size = new System.Drawing.Size(643, 274);
             this.pnlReaderResult.TabIndex = 0;
             // 
             // dataGridView2
@@ -303,7 +317,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(597, 274);
+            this.dataGridView2.Size = new System.Drawing.Size(641, 274);
             this.dataGridView2.TabIndex = 0;
             // 
             // pnlReaderCond
@@ -313,7 +327,7 @@
             this.pnlReaderCond.Location = new System.Drawing.Point(0, 0);
             this.pnlReaderCond.Name = "pnlReaderCond";
             this.pnlReaderCond.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.pnlReaderCond.Size = new System.Drawing.Size(605, 45);
+            this.pnlReaderCond.Size = new System.Drawing.Size(649, 45);
             this.pnlReaderCond.TabIndex = 1;
             // 
             // groupBox3
@@ -326,7 +340,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(605, 40);
+            this.groupBox3.Size = new System.Drawing.Size(649, 40);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "读者查询条件";
@@ -409,7 +423,7 @@
             this.dgvTimeOut.Location = new System.Drawing.Point(0, 0);
             this.dgvTimeOut.Name = "dgvTimeOut";
             this.dgvTimeOut.RowTemplate.Height = 23;
-            this.dgvTimeOut.Size = new System.Drawing.Size(613, 345);
+            this.dgvTimeOut.Size = new System.Drawing.Size(657, 345);
             this.dgvTimeOut.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
@@ -506,7 +520,7 @@
             this.dataGridView4.Location = new System.Drawing.Point(0, 0);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowTemplate.Height = 23;
-            this.dataGridView4.Size = new System.Drawing.Size(613, 345);
+            this.dataGridView4.Size = new System.Drawing.Size(657, 345);
             this.dataGridView4.TabIndex = 2;
             // 
             // menuStrip1
@@ -536,6 +550,36 @@
             // readerTableAdapter
             // 
             this.readerTableAdapter.ClearBeforeFill = true;
+            // 
+            // RentId
+            // 
+            this.RentId.HeaderText = "借阅编号";
+            this.RentId.Name = "RentId";
+            // 
+            // DueTime
+            // 
+            this.DueTime.HeaderText = "借阅时间";
+            this.DueTime.Name = "DueTime";
+            // 
+            // RentTime
+            // 
+            this.RentTime.HeaderText = "借阅时间";
+            this.RentTime.Name = "RentTime";
+            // 
+            // ReturnTime
+            // 
+            this.ReturnTime.HeaderText = "归还时间";
+            this.ReturnTime.Name = "ReturnTime";
+            // 
+            // BookId
+            // 
+            this.BookId.HeaderText = "书籍编号";
+            this.BookId.Name = "BookId";
+            // 
+            // ReadId
+            // 
+            this.ReadId.HeaderText = "读者编号";
+            this.ReadId.Name = "ReadId";
             // 
             // frmMain
             // 
@@ -629,6 +673,12 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn availableDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn groupidDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button btnSearchReader;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DueTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RentTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BookId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReadId;
 
     }
 }

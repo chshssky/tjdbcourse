@@ -37,11 +37,15 @@ namespace FrontTerminal
                 Console.Out.WriteLine(readerID);
                 SqlConnection con = Connection.Instance();
                 SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
+                SqlCommand cmdshow = new SqlCommand();
+                
+                
                 try
                 {
+                    cmd.Connection = con;
                     cmd.CommandText = "select * from  Reader where id = " + readerID;
                     SqlDataReader record = cmd.ExecuteReader();
+
                     if (!record.HasRows)
                         MessageBox.Show("没有该用户！");
                     else
@@ -62,9 +66,30 @@ namespace FrontTerminal
                 {
                     MessageBox.Show(err.Message);
                 }
+                try
+                {
+                    cmdshow.Connection = con;
+                    cmdshow.CommandText = "select * from rental where reader_id=" + readerID;
+                    SqlDataReader recRental = cmdshow.ExecuteReader();
+                    while (recRental.Read())
+                    {
+                        dgvReaderBorrow.Rows.Add(new object[] { recRental[0], recRental[1], recRental[2], recRental[3], recRental[4], recRental[5] });
+                    }
+                    recRental.Close();
+                    
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
                 con.Close();
             }
            
+        }
+
+        private void dgvReaderBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
