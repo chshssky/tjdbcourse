@@ -109,12 +109,12 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLogin);
-            this.Font = new System.Drawing.Font("SimSun", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmLogin";
-            this.Text = "读者登录";
+            this.Text = "管理员登录";
             this.ResumeLayout(false);
             this.PerformLayout();
 

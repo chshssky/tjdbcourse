@@ -67,9 +67,36 @@ namespace BossTerminal
             this.libraryTableAdapter.Update(this.dataSet);
         }
 
+        private string lastPassword = "";
+
         private void DataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
+            DataGridView view = (DataGridView)sender;
+            DataGridViewRow row = view.Rows[e.RowIndex];
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("password"))
+            {
+                lastPassword = (string) cell.Value;
+                cell.Value = "";
+            }
+            else
+                Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
+        }
+
+        private void dgvManager_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            DataGridViewRow row = view.Rows[e.RowIndex];
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("password"))
+            {
+                if (((string)cell.Value).Length == 0)
+                    cell.Value = lastPassword;
+                else
+                    cell.Value = Library.Util.MD5((string)cell.Value);
+            }
         }
     }
 }

@@ -2564,6 +2564,8 @@ namespace BossTerminal {
             
             private global::System.Data.DataColumn columnpassword;
             
+            private global::System.Data.DataColumn columnreal_name;
+            
             private global::System.Data.DataColumn columnpermission;
             
             private global::System.Data.DataColumn columnlibrary_id;
@@ -2627,6 +2629,14 @@ namespace BossTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn real_nameColumn {
+                get {
+                    return this.columnreal_name;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn permissionColumn {
                 get {
                     return this.columnpermission;
@@ -2678,16 +2688,17 @@ namespace BossTerminal {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public managerRow AddmanagerRow(string name, string password, int permission, libraryRow parentlibraryRowByfk_manager_library) {
+            public managerRow AddmanagerRow(string name, string password, string real_name, int permission, libraryRow parentlibraryRowByfk_manager_library) {
                 managerRow rowmanagerRow = ((managerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         name,
                         password,
+                        real_name,
                         permission,
                         null};
                 if ((parentlibraryRowByfk_manager_library != null)) {
-                    columnValuesArray[4] = parentlibraryRowByfk_manager_library[0];
+                    columnValuesArray[5] = parentlibraryRowByfk_manager_library[0];
                 }
                 rowmanagerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowmanagerRow);
@@ -2727,6 +2738,7 @@ namespace BossTerminal {
                 this.columnid = base.Columns["id"];
                 this.columnname = base.Columns["name"];
                 this.columnpassword = base.Columns["password"];
+                this.columnreal_name = base.Columns["real_name"];
                 this.columnpermission = base.Columns["permission"];
                 this.columnlibrary_id = base.Columns["library_id"];
             }
@@ -2740,6 +2752,8 @@ namespace BossTerminal {
                 base.Columns.Add(this.columnname);
                 this.columnpassword = new global::System.Data.DataColumn("password", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpassword);
+                this.columnreal_name = new global::System.Data.DataColumn("real_name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnreal_name);
                 this.columnpermission = new global::System.Data.DataColumn("permission", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpermission);
                 this.columnlibrary_id = new global::System.Data.DataColumn("library_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -2756,6 +2770,8 @@ namespace BossTerminal {
                 this.columnname.MaxLength = 32;
                 this.columnpassword.AllowDBNull = false;
                 this.columnpassword.MaxLength = 32;
+                this.columnreal_name.AllowDBNull = false;
+                this.columnreal_name.MaxLength = 16;
                 this.columnpermission.AllowDBNull = false;
             }
             
@@ -4590,6 +4606,17 @@ namespace BossTerminal {
                 }
                 set {
                     this[this.tablemanager.passwordColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string real_name {
+                get {
+                    return ((string)(this[this.tablemanager.real_nameColumn]));
+                }
+                set {
+                    this[this.tablemanager.real_nameColumn] = value;
                 }
             }
             
@@ -7630,41 +7657,45 @@ SELECT id, name, max_borrow_time, max_borrow_amount, can_reserve, penalty_per_da
             tableMapping.ColumnMappings.Add("id", "id");
             tableMapping.ColumnMappings.Add("name", "name");
             tableMapping.ColumnMappings.Add("password", "password");
+            tableMapping.ColumnMappings.Add("real_name", "real_name");
             tableMapping.ColumnMappings.Add("permission", "permission");
             tableMapping.ColumnMappings.Add("library_id", "library_id");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[manager] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ([password] = @Original_password) AND ([permission] = @Original_permission) AND ((@IsNull_library_id = 1 AND [library_id] IS NULL) OR ([library_id] = @Original_library_id)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[manager] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ([password] = @Original_password) AND ([real_name] = @Original_real_name) AND ([permission] = @Original_permission) AND ((@IsNull_library_id = 1 AND [library_id] IS NULL) OR ([library_id] = @Original_library_id)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_real_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "real_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_permission", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "permission", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_library_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "library_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_library_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "library_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[manager] ([name], [password], [permission], [library_id]) VALU" +
-                "ES (@name, @password, @permission, @library_id);\r\nSELECT id, name, password, per" +
-                "mission, library_id FROM manager WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[manager] ([name], [password], [real_name], [permission], [library_id]) VALUES (@name, @password, @real_name, @permission, @library_id);
+SELECT id, name, password, real_name, permission, library_id FROM manager WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@real_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "real_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@permission", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "permission", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@library_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "library_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[manager] SET [name] = @name, [password] = @password, [permission] = @permission, [library_id] = @library_id WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ([password] = @Original_password) AND ([permission] = @Original_permission) AND ((@IsNull_library_id = 1 AND [library_id] IS NULL) OR ([library_id] = @Original_library_id)));
-SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[manager] SET [name] = @name, [password] = @password, [real_name] = @real_name, [permission] = @permission, [library_id] = @library_id WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ([password] = @Original_password) AND ([real_name] = @Original_real_name) AND ([permission] = @Original_permission) AND ((@IsNull_library_id = 1 AND [library_id] IS NULL) OR ([library_id] = @Original_library_id)));
+SELECT id, name, password, real_name, permission, library_id FROM manager WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@real_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "real_name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@permission", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "permission", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@library_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "library_id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_password", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_real_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "real_name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_permission", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "permission", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_library_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "library_id", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_library_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "library_id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -7684,7 +7715,7 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, name, password, permission, library_id FROM dbo.manager";
+            this._commandCollection[0].CommandText = "SELECT id, name, password, real_name, permission, library_id FROM dbo.manager";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7745,7 +7776,7 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_name, string Original_password, int Original_permission, global::System.Nullable<int> Original_library_id) {
+        public virtual int Delete(int Original_id, string Original_name, string Original_password, string Original_real_name, int Original_permission, global::System.Nullable<int> Original_library_id) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
@@ -7759,14 +7790,20 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_password));
             }
-            this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(Original_permission));
-            if ((Original_library_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_library_id.Value));
+            if ((Original_real_name == null)) {
+                throw new global::System.ArgumentNullException("Original_real_name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_real_name));
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_permission));
+            if ((Original_library_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_library_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7788,7 +7825,7 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string password, int permission, global::System.Nullable<int> library_id) {
+        public virtual int Insert(string name, string password, string real_name, int permission, global::System.Nullable<int> library_id) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -7801,12 +7838,18 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(password));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(permission));
-            if ((library_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(library_id.Value));
+            if ((real_name == null)) {
+                throw new global::System.ArgumentNullException("real_name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(real_name));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(permission));
+            if ((library_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(library_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7828,7 +7871,7 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string password, int permission, global::System.Nullable<int> library_id, int Original_id, string Original_name, string Original_password, int Original_permission, global::System.Nullable<int> Original_library_id, int id) {
+        public virtual int Update(string name, string password, string real_name, int permission, global::System.Nullable<int> library_id, int Original_id, string Original_name, string Original_password, string Original_real_name, int Original_permission, global::System.Nullable<int> Original_library_id, int id) {
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -7841,36 +7884,48 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(password));
             }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(permission));
-            if ((library_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(library_id.Value));
+            if ((real_name == null)) {
+                throw new global::System.ArgumentNullException("real_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(real_name));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(permission));
+            if ((library_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(library_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id));
             if ((Original_name == null)) {
                 throw new global::System.ArgumentNullException("Original_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_name));
             }
             if ((Original_password == null)) {
                 throw new global::System.ArgumentNullException("Original_password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_password));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_password));
             }
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_permission));
-            if ((Original_library_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_library_id.Value));
+            if ((Original_real_name == null)) {
+                throw new global::System.ArgumentNullException("Original_real_name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_real_name));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_permission));
+            if ((Original_library_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_library_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -7891,8 +7946,8 @@ SELECT id, name, password, permission, library_id FROM manager WHERE (id = @id)"
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string password, int permission, global::System.Nullable<int> library_id, int Original_id, string Original_name, string Original_password, int Original_permission, global::System.Nullable<int> Original_library_id) {
-            return this.Update(name, password, permission, library_id, Original_id, Original_name, Original_password, Original_permission, Original_library_id, Original_id);
+        public virtual int Update(string name, string password, string real_name, int permission, global::System.Nullable<int> library_id, int Original_id, string Original_name, string Original_password, string Original_real_name, int Original_permission, global::System.Nullable<int> Original_library_id) {
+            return this.Update(name, password, real_name, permission, library_id, Original_id, Original_name, Original_password, Original_real_name, Original_permission, Original_library_id, Original_id);
         }
     }
     

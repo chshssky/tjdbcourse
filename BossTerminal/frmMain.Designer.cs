@@ -55,15 +55,16 @@
             this.dataSet = new BossTerminal.DataSet();
             this.tpgManager = new System.Windows.Forms.TabPage();
             this.dgvManager = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passwordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.permissionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbvMain = new System.Windows.Forms.TabControl();
             this.managerTableAdapter = new BossTerminal.DataSetTableAdapters.managerTableAdapter();
             this.libraryTableAdapter = new BossTerminal.DataSetTableAdapters.libraryTableAdapter();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.real_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.permissionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mstMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMangers)).BeginInit();
             this.tpgLibrary.SuspendLayout();
@@ -211,7 +212,7 @@
             // 
             this.tpgLibrary.Controls.Add(this.dgvLibrary);
             this.tpgLibrary.Location = new System.Drawing.Point(4, 22);
-            this.tpgLibrary.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.tpgLibrary.Margin = new System.Windows.Forms.Padding(0);
             this.tpgLibrary.Name = "tpgLibrary";
             this.tpgLibrary.Padding = new System.Windows.Forms.Padding(3);
             this.tpgLibrary.Size = new System.Drawing.Size(672, 381);
@@ -243,6 +244,7 @@
             this.idDataGridViewTextBoxColumn2.DataPropertyName = "id";
             this.idDataGridViewTextBoxColumn2.HeaderText = "编号";
             this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
+            this.idDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn2
             // 
@@ -287,6 +289,7 @@
             this.dgvManager.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
             this.nameDataGridViewTextBoxColumn1,
+            this.real_name,
             this.passwordDataGridViewTextBoxColumn1,
             this.permissionDataGridViewTextBoxColumn1,
             this.libraryidDataGridViewTextBoxColumn1});
@@ -299,38 +302,7 @@
             this.dgvManager.Size = new System.Drawing.Size(666, 375);
             this.dgvManager.TabIndex = 2;
             this.dgvManager.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView_CellBeginEdit);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "编号";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "名称";
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            // 
-            // passwordDataGridViewTextBoxColumn1
-            // 
-            this.passwordDataGridViewTextBoxColumn1.DataPropertyName = "password";
-            this.passwordDataGridViewTextBoxColumn1.HeaderText = "密码";
-            this.passwordDataGridViewTextBoxColumn1.Name = "passwordDataGridViewTextBoxColumn1";
-            // 
-            // permissionDataGridViewTextBoxColumn1
-            // 
-            this.permissionDataGridViewTextBoxColumn1.DataPropertyName = "permission";
-            this.permissionDataGridViewTextBoxColumn1.HeaderText = "权限";
-            this.permissionDataGridViewTextBoxColumn1.Name = "permissionDataGridViewTextBoxColumn1";
-            // 
-            // libraryidDataGridViewTextBoxColumn1
-            // 
-            this.libraryidDataGridViewTextBoxColumn1.DataPropertyName = "library_id";
-            this.libraryidDataGridViewTextBoxColumn1.HeaderText = "图书馆编号";
-            this.libraryidDataGridViewTextBoxColumn1.Name = "libraryidDataGridViewTextBoxColumn1";
-            this.libraryidDataGridViewTextBoxColumn1.Width = 200;
+            this.dgvManager.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManager_CellEndEdit);
             // 
             // managerBindingSource
             // 
@@ -355,6 +327,43 @@
             // libraryTableAdapter
             // 
             this.libraryTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "编号";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "登录名";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            // 
+            // real_name
+            // 
+            this.real_name.DataPropertyName = "real_name";
+            this.real_name.HeaderText = "真实姓名";
+            this.real_name.Name = "real_name";
+            // 
+            // passwordDataGridViewTextBoxColumn1
+            // 
+            this.passwordDataGridViewTextBoxColumn1.DataPropertyName = "password";
+            this.passwordDataGridViewTextBoxColumn1.HeaderText = "密码";
+            this.passwordDataGridViewTextBoxColumn1.Name = "passwordDataGridViewTextBoxColumn1";
+            // 
+            // permissionDataGridViewTextBoxColumn1
+            // 
+            this.permissionDataGridViewTextBoxColumn1.DataPropertyName = "permission";
+            this.permissionDataGridViewTextBoxColumn1.HeaderText = "权限";
+            this.permissionDataGridViewTextBoxColumn1.Name = "permissionDataGridViewTextBoxColumn1";
+            // 
+            // libraryidDataGridViewTextBoxColumn1
+            // 
+            this.libraryidDataGridViewTextBoxColumn1.DataPropertyName = "library_id";
+            this.libraryidDataGridViewTextBoxColumn1.HeaderText = "图书馆编号";
+            this.libraryidDataGridViewTextBoxColumn1.Name = "libraryidDataGridViewTextBoxColumn1";
             // 
             // frmMain
             // 
@@ -412,13 +421,14 @@
         private System.Windows.Forms.ToolStripMenuItem mnuToolSave;
         private System.Windows.Forms.BindingSource libraryBindingSource;
         private DataSetTableAdapters.libraryTableAdapter libraryTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn permissionDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libraryidDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn real_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn permissionDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libraryidDataGridViewTextBoxColumn1;
     }
 }
