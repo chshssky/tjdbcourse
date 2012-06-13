@@ -15,31 +15,6 @@ namespace BossTerminal
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton4_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“libDataSet.book”中。您可以根据需要移动或删除它。
@@ -51,26 +26,21 @@ namespace BossTerminal
 
         }
 
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void 添加图书馆ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuToolAddLibrary_Click(object sender, EventArgs e)
         {
             frmAddLib fm = new frmAddLib();
             fm.ShowDialog();
             fm.Close();
         }
 
-        private void 后台管理员管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuToolAddManager_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void 退出XToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuToolExit_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void 修改账号AToolStripMenuItem_Click(object sender, EventArgs e)
