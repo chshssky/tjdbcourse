@@ -18,39 +18,39 @@ namespace ReaderTerminal
 
         private void confirm_Click(object sender, EventArgs e)
         {
-            string oldpsw = oripsd.Text;
-            string newpsw = newpsd.Text;
-            string newpswcfm = newpsdcfm.Text;
-            string sql1 = 
-                "select password " +
-                "from reader "+
-                "where id = @id and password = @psd";
-            if (newpsw.Equals(newpswcfm))
+            string newpsw = txtNewPassword.Text;
+            string newpswcfm = txtPasswordConfirm.Text;
+            if (!newpsw.Equals(newpswcfm))
             {
-                SqlCommand cmd = new SqlCommand(sql1, Library.Connection.Instance());
-                cmd.Parameters.AddWithValue("@id", frmLogin.readerId);
-                cmd.Parameters.AddWithValue("@psd", oldpsw);
-                SqlDataReader reader = cmd.ExecuteReader();
-                if (reader.Read())
-                {
-                    string sql2 = "update reader set password = @password where id = @id";
-                    SqlCommand cmd2 = new SqlCommand(sql2, Library.Connection.Instance());
-                    cmd2.Parameters.AddWithValue("@id", frmLogin.readerId);
-                    cmd2.Parameters.AddWithValue("@password", newpsw);
-                    reader.Close();
-                    cmd2.ExecuteNonQuery();
-                    MessageBox.Show("修改成功!");
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("你密码输错啦");
-                    reader.Close();
-                }
+                MessageBox.Show("两次输入的密码不相同，请重新输入。", "无法更改密码",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string npwmd5 = Library.Util.MD5(newpsw);
+            string oldpsw = txtOldPassword.Text;
+            string opwmd5 = Library.Util.MD5(oldpsw);
+
+            string sql1 = 
+                "update reader " +
+                "set password = @password " +
+                "where id = @id and password = @oldpassword";
+
+            SqlCommand cmd = new SqlCommand(sql1, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@id", frmLogin.readerId);
+            cmd.Parameters.AddWithValue("@oldpassword", opwmd5);
+            cmd.Parameters.AddWithValue("@password", npwmd5);
+
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                MessageBox.Show("密码修改成功。", "修改成功",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else
             {
-                MessageBox.Show("两次密码不一致，请重新输入");
+                MessageBox.Show("密码修改失败，请重新检查是否填写了正确的旧密码。", "修改失败",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

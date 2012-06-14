@@ -35,12 +35,17 @@ namespace BossTerminal
             {
                 this.Hide();
                 new frmMain().ShowDialog();
-                this.Show();
+                this.Close();
             }
             else
             {
                 MessageBox.Show("您的输入有误。");
             }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
