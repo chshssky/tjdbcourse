@@ -57,7 +57,7 @@
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sstMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tspMain = new System.Windows.Forms.ToolStrip();
             this.tsbStatus = new System.Windows.Forms.ToolStripButton();
             this.tsbAdd = new System.Windows.Forms.ToolStripButton();
             this.tsbDelete = new System.Windows.Forms.ToolStripButton();
@@ -75,7 +75,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.sstMain.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.tspMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // readablebookBindingSource
@@ -148,6 +148,7 @@
             this.mnuBookBuy.Name = "mnuBookBuy";
             this.mnuBookBuy.Size = new System.Drawing.Size(152, 22);
             this.mnuBookBuy.Text = "购买新书(&N)...";
+            this.mnuBookBuy.Click += new System.EventHandler(this.mnuBookBuy_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -159,6 +160,7 @@
             this.mnuToolExit.Name = "mnuToolExit";
             this.mnuToolExit.Size = new System.Drawing.Size(152, 22);
             this.mnuToolExit.Text = "退出(&X)";
+            this.mnuToolExit.Click += new System.EventHandler(this.mnuToolExit_Click);
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -187,6 +189,7 @@
             this.mnuCategoryManage.Name = "mnuCategoryManage";
             this.mnuCategoryManage.Size = new System.Drawing.Size(152, 22);
             this.mnuCategoryManage.Text = "管理(&M)...";
+            this.mnuCategoryManage.Click += new System.EventHandler(this.mnuCategoryManage_Click);
             // 
             // panel2
             // 
@@ -275,9 +278,9 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(92, 17);
             this.toolStripStatusLabel1.Text = "书籍管理工具。";
             // 
-            // toolStrip1
+            // tspMain
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbStatus,
             this.tsbAdd,
             this.tsbDelete,
@@ -289,11 +292,11 @@
             this.toolStripLabel1,
             this.txtSearch,
             this.tsbSearch});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(617, 25);
-            this.toolStrip1.TabIndex = 15;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tspMain.Location = new System.Drawing.Point(0, 25);
+            this.tspMain.Name = "tspMain";
+            this.tspMain.Size = new System.Drawing.Size(617, 25);
+            this.tspMain.TabIndex = 15;
+            this.tspMain.Text = "toolStrip1";
             // 
             // tsbStatus
             // 
@@ -335,6 +338,7 @@
             this.tsbBuy.Name = "tsbBuy";
             this.tsbBuy.Size = new System.Drawing.Size(23, 22);
             this.tsbBuy.Text = "购买新书";
+            this.tsbBuy.Click += new System.EventHandler(this.mnuBookBuy_Click);
             // 
             // toolStripSeparator2
             // 
@@ -349,6 +353,7 @@
             this.tsbCategory.Name = "tsbCategory";
             this.tsbCategory.Size = new System.Drawing.Size(23, 22);
             this.tsbCategory.Text = "分类管理";
+            this.tsbCategory.Click += new System.EventHandler(this.mnuCategoryManage_Click);
             // 
             // toolStripSeparator3
             // 
@@ -381,7 +386,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 457);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tspMain);
             this.Controls.Add(this.mnsMain);
             this.Controls.Add(this.sstMain);
             this.MainMenuStrip = this.mnsMain;
@@ -396,8 +401,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.sstMain.ResumeLayout(false);
             this.sstMain.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tspMain.ResumeLayout(false);
+            this.tspMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,7 +437,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.StatusStrip sstMain;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tspMain;
         private System.Windows.Forms.ToolStripButton tsbStatus;
         private System.Windows.Forms.ToolStripButton tsbAdd;
         private System.Windows.Forms.ToolStripButton tsbDelete;

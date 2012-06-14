@@ -22,5 +22,20 @@ namespace BackTerminal
             this.readablebookTableAdapter.Fill(this.dataSet.readable_book);
 
         }
+
+        private void mnuToolExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mnuCategoryManage_Click(object sender, EventArgs e)
+        {
+            new frmCatMan().ShowDialog();
+        }
+
+        private void mnuBookBuy_Click(object sender, EventArgs e)
+        {
+            new frmBookNew().ShowDialog();
+        }
     }
 }
