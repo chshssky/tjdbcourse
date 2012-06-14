@@ -29,13 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBookMan));
             this.readablebookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new BackTerminal.DataSet();
             this.readablebookTableAdapter = new BackTerminal.DataSetTableAdapters.readable_bookTableAdapter();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.mnsMain = new System.Windows.Forms.MenuStrip();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.图书BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,38 +55,28 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sstMain = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsbStatus = new System.Windows.Forms.ToolStripButton();
+            this.tsbAdd = new System.Windows.Forms.ToolStripButton();
+            this.tsbDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbBuy = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbCategory = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
+            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            this.panel1.SuspendLayout();
             this.mnsMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
+            this.sstMain.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(71, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(462, 21);
-            this.textBox1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 12);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "图书搜索";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(539, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "搜索";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // readablebookBindingSource
             // 
@@ -104,17 +91,6 @@
             // readablebookTableAdapter
             // 
             this.readablebookTableAdapter.ClearBeforeFill = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(617, 32);
-            this.panel1.TabIndex = 11;
             // 
             // mnsMain
             // 
@@ -216,9 +192,9 @@
             // 
             this.panel2.Controls.Add(this.dgvBook);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 57);
+            this.panel2.Location = new System.Drawing.Point(0, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(617, 400);
+            this.panel2.Size = new System.Drawing.Size(617, 385);
             this.panel2.TabIndex = 13;
             // 
             // dgvBook
@@ -238,7 +214,7 @@
             this.dgvBook.Location = new System.Drawing.Point(0, 0);
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.RowTemplate.Height = 23;
-            this.dgvBook.Size = new System.Drawing.Size(617, 400);
+            this.dgvBook.Size = new System.Drawing.Size(617, 385);
             this.dgvBook.TabIndex = 6;
             // 
             // isbnDataGridViewTextBoxColumn
@@ -283,26 +259,145 @@
             this.countDataGridViewTextBoxColumn.HeaderText = "数量";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             // 
+            // sstMain
+            // 
+            this.sstMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.sstMain.Location = new System.Drawing.Point(0, 435);
+            this.sstMain.Name = "sstMain";
+            this.sstMain.Size = new System.Drawing.Size(617, 22);
+            this.sstMain.TabIndex = 14;
+            this.sstMain.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(92, 17);
+            this.toolStripStatusLabel1.Text = "书籍管理工具。";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbStatus,
+            this.tsbAdd,
+            this.tsbDelete,
+            this.toolStripSeparator1,
+            this.tsbBuy,
+            this.toolStripSeparator2,
+            this.tsbCategory,
+            this.toolStripSeparator3,
+            this.toolStripLabel1,
+            this.txtSearch,
+            this.tsbSearch});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 25);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(617, 25);
+            this.toolStrip1.TabIndex = 15;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tsbStatus
+            // 
+            this.tsbStatus.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbStatus.Image = ((System.Drawing.Image)(resources.GetObject("tsbStatus.Image")));
+            this.tsbStatus.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbStatus.Name = "tsbStatus";
+            this.tsbStatus.Size = new System.Drawing.Size(23, 22);
+            this.tsbStatus.Text = "状态";
+            // 
+            // tsbAdd
+            // 
+            this.tsbAdd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAdd.Image = ((System.Drawing.Image)(resources.GetObject("tsbAdd.Image")));
+            this.tsbAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAdd.Name = "tsbAdd";
+            this.tsbAdd.Size = new System.Drawing.Size(23, 22);
+            this.tsbAdd.Text = "增购";
+            // 
+            // tsbDelete
+            // 
+            this.tsbDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbDelete.Image = ((System.Drawing.Image)(resources.GetObject("tsbDelete.Image")));
+            this.tsbDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbDelete.Name = "tsbDelete";
+            this.tsbDelete.Size = new System.Drawing.Size(23, 22);
+            this.tsbDelete.Text = "删除";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbBuy
+            // 
+            this.tsbBuy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbBuy.Image = ((System.Drawing.Image)(resources.GetObject("tsbBuy.Image")));
+            this.tsbBuy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBuy.Name = "tsbBuy";
+            this.tsbBuy.Size = new System.Drawing.Size(23, 22);
+            this.tsbBuy.Text = "购买新书";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbCategory
+            // 
+            this.tsbCategory.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCategory.Image = ((System.Drawing.Image)(resources.GetObject("tsbCategory.Image")));
+            this.tsbCategory.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCategory.Name = "tsbCategory";
+            this.tsbCategory.Size = new System.Drawing.Size(23, 22);
+            this.tsbCategory.Text = "分类管理";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripLabel1.Text = "搜索";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(100, 25);
+            // 
+            // tsbSearch
+            // 
+            this.tsbSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSearch.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearch.Image")));
+            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSearch.Name = "tsbSearch";
+            this.tsbSearch.Size = new System.Drawing.Size(23, 22);
+            this.tsbSearch.Text = "搜索";
+            // 
             // frmBookMan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 457);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.mnsMain);
+            this.Controls.Add(this.sstMain);
             this.MainMenuStrip = this.mnsMain;
             this.Name = "frmBookMan";
             this.Text = "书籍管理";
             this.Load += new System.EventHandler(this.frmBookMan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.mnsMain.ResumeLayout(false);
             this.mnsMain.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
+            this.sstMain.ResumeLayout(false);
+            this.sstMain.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,13 +405,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private DataSet dataSet;
         private System.Windows.Forms.BindingSource readablebookBindingSource;
         private DataSetTableAdapters.readable_bookTableAdapter readablebookTableAdapter;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip mnsMain;
         private System.Windows.Forms.ToolStripMenuItem 工具TToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuToolExit;
@@ -339,6 +430,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
+        private System.Windows.Forms.StatusStrip sstMain;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbStatus;
+        private System.Windows.Forms.ToolStripButton tsbAdd;
+        private System.Windows.Forms.ToolStripButton tsbDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbBuy;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsbCategory;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox txtSearch;
+        private System.Windows.Forms.ToolStripButton tsbSearch;
 
     }
 }
