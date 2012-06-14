@@ -20,8 +20,14 @@ namespace FrontTerminal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“frDataSet.overdue_reader”中。您可以根据需要移动或删除它。
-            this.overdue_readerTableAdapter.Fill(this.frDataSet.overdue_reader);
+            // TODO: This line of code loads data into the 'dataSet.borrowing' table. You can move, or remove it, as needed.
+            this.borrowingTableAdapter.Fill(this.dataSet.borrowing);
+            // TODO: This line of code loads data into the 'dataSet.damaged_book' table. You can move, or remove it, as needed.
+            this.damaged_bookTableAdapter.Fill(this.dataSet.damaged_book);
+            // TODO: This line of code loads data into the 'dataSet.overdue_reader' table. You can move, or remove it, as needed.
+            this.overdue_readerTableAdapter.Fill(this.dataSet.overdue_reader);
+            // TODO: This line of code loads data into the 'dataSet.reader' table. You can move, or remove it, as needed.
+            this.readerTableAdapter.Fill(this.dataSet.reader);
         }
         private void btnSearchReader_Click(object sender, EventArgs e)
         {
@@ -78,57 +84,6 @@ namespace FrontTerminal
         private void selectionChange(object sender, EventArgs e)
         {
 
-        }
-
-
-        private void button1_Click(object sender, EventArgs e) //这是搜索读者信息的
-        {
-            String readerName = Convert.ToString(txbReadName.Text);
-            String readerGender = Convert.ToString(cbbReaderGender.Text);
-            int readerGenderI;
-            if (readerGender == "女")
-            {
-                readerGenderI = 0;
-            }
-            else if (readerGender == "男")
-            {
-                readerGenderI = 1;
-            }
-            else
-            {
-                readerGenderI = 2;
-            }
-            Console.Out.WriteLine(readerName);
-            
-            try
-            {
-                String commandText;
-                if (readerGenderI == 2)
-                {
-                    commandText = "select * from  Reader where name like '%" + readerName + "%'";
-                }
-                else
-                {
-                    commandText = "select * from  Reader where name like '%" + readerName + "%' and gender=" + readerGenderI;
-                }
-                SqlCommand cmdReader = new SqlCommand(commandText, Connection.Instance());
-                SqlDataReader recordShow = cmdReader.ExecuteReader();
-
-                if (!recordShow.HasRows)
-                    MessageBox.Show("没有该用户！");
-                else
-                {
-                    while (recordShow.Read())
-                    {
-                        dbgReaderinfo.Rows.Add(new object[] { recordShow[0], recordShow[1], recordShow[3], recordShow[4], recordShow[5], recordShow[6], recordShow[7], recordShow[8], recordShow[9], recordShow[10] });
-                    }
-                }
-                recordShow.Close();
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err.Message);
-            }
         }
         private void button3_Click(object sender, EventArgs e) //这是借书的
         {

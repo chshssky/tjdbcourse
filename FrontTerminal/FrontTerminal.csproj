@@ -65,16 +65,16 @@
       <Link>common\Connection.cs</Link>
     </Compile>
     <Compile Include="common\Util.cs" />
+    <Compile Include="DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="formRecordLost.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formRecordLost.Designer.cs">
       <DependentUpon>formRecordLost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FrDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -87,11 +87,6 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrontDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FrontDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,27 +111,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.config" />
-    <None Include="FrDataSet.xsc">
-      <DependentUpon>FrDataSet.xsd</DependentUpon>
+    <None Include="DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
-    <None Include="FrDataSet.xsd">
+    <None Include="DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FrDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="FrDataSet.xss">
-      <DependentUpon>FrDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FrontDataSet.xsc">
-      <DependentUpon>FrontDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="FrontDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>FrontDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="FrontDataSet.xss">
-      <DependentUpon>FrontDataSet.xsd</DependentUpon>
+    <None Include="DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
