@@ -32,25 +32,23 @@ namespace ReaderTerminal
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
-                int id = reader.GetInt32(0);
-                frmMain main = new frmMain();
-                this.Hide();
-                readerId = id;
+                readerId = reader.GetInt32(0);
                 reader.Close();
-                main.ShowDialog();
+                this.Hide();
+                new frmMain().ShowDialog();
+                this.Show();
             }
             else
             {
-                MessageBox.Show("你的账号或密码错误。");
                 reader.Close();
+                MessageBox.Show("你的账号或密码错误。");
             }
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegister frm = new frmRegister();
-            frm.ShowDialog();
+            new frmRegister().ShowDialog();
             this.Show();
         }
 

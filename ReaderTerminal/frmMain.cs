@@ -316,14 +316,9 @@ namespace ReaderTerminal
             book.Close();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void mnuReaderChangePassword_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
+            new frmPassword().ShowDialog();
         }
 
         private void tpgBookReserve_Click(object sender, EventArgs e)

@@ -120,4 +120,22 @@
   <metadata name="mnuMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>125, 17</value>
+  </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>246, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tsbChangePassword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEiSURBVDhPY2AYfuD+7cv/T23L/L95TtD/WQ2W/yfkq/7v
+        y5L8//Dutf9E+XblBPf//7/O////17r/H55PAtIb/3992fU/w4uFOAMmlRr8//993f/3j9v/Vyfq/f/4
+        tPf//x/r/sc7sRJnQGeG8v+fb9r///88+///983//39b9P/e2dz/DlpsxBnw/PHd/9XRMv//v64BGtD1
+        /+mlhP/Oxrz/t61fRJwBoIC6eHLv/+4suf//Xpb/93WQ+3/q2F7iNcNCujtb7v//53n/b+9x/h/ra0a6
+        ATVx4v//Pwj/72PK/f/y+eOkG1AYKPT//+O4/4cWG/+3M1Qi3YAkJ+7/bw4Z/vezV/2/d+dG0g24eu7w
+        /ygHyf/HDu4kXTNRSZZaigAMiKKABnZG+QAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
