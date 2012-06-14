@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 
 namespace BackTerminal
 {
@@ -36,6 +36,28 @@ namespace BackTerminal
         private void mnuBookBuy_Click(object sender, EventArgs e)
         {
             new frmBookNew().ShowDialog();
+        }
+
+        private void tsbSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text;
+            this.dataSet.readable_book.Clear();
+
+            string sql;
+            if (searchText.Length > 0)
+                sql = "select * from readable_book where title like @title";
+            else
+                sql = "select * from readable_book";
+
+            this.readablebookTableAdapter.Adapter.SelectCommand
+                .CommandText = sql;
+
+            this.readablebookTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            if (searchText.Length > 0)
+                this.readablebookTableAdapter.Adapter.SelectCommand.Parameters
+                    .AddWithValue("@title", "%" + searchText + "%");
+
+            this.readablebookTableAdapter.Fill(dataSet.readable_book);
         }
     }
 }
