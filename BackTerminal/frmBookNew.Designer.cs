@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxLibrary = new System.Windows.Forms.ComboBox();
             this.tvCategory = new System.Windows.Forms.TreeView();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,6 +49,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.comboBoxLibrary = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
@@ -83,7 +83,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxLibrary, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.tvCategory, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.textBoxTitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
@@ -98,6 +97,7 @@
             this.tableLayoutPanel1.Controls.Add(this.numericUpDown, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBoxDescription, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxLibrary, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -122,15 +122,6 @@
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 11;
             this.label1.Text = "书名";
-            // 
-            // comboBoxLibrary
-            // 
-            this.comboBoxLibrary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxLibrary.FormattingEnabled = true;
-            this.comboBoxLibrary.Location = new System.Drawing.Point(67, 153);
-            this.comboBoxLibrary.Name = "comboBoxLibrary";
-            this.comboBoxLibrary.Size = new System.Drawing.Size(497, 20);
-            this.comboBoxLibrary.TabIndex = 25;
             // 
             // tvCategory
             // 
@@ -236,9 +227,19 @@
             // 
             this.numericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDown.Location = new System.Drawing.Point(67, 128);
+            this.numericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(497, 21);
             this.numericUpDown.TabIndex = 28;
+            this.numericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label8
             // 
@@ -287,6 +288,16 @@
             this.button1.Text = "取消(&C)";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // comboBoxLibrary
+            // 
+            this.comboBoxLibrary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxLibrary.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLibrary.FormattingEnabled = true;
+            this.comboBoxLibrary.Location = new System.Drawing.Point(67, 153);
+            this.comboBoxLibrary.Name = "comboBoxLibrary";
+            this.comboBoxLibrary.Size = new System.Drawing.Size(497, 20);
+            this.comboBoxLibrary.TabIndex = 31;
+            // 
             // frmBookNew
             // 
             this.AcceptButton = this.buttonOK;
@@ -314,7 +325,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxLibrary;
         private System.Windows.Forms.TreeView tvCategory;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.Label label6;
@@ -332,5 +342,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.ComboBox comboBoxLibrary;
     }
 }
