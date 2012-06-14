@@ -191,7 +191,6 @@ namespace ReaderTerminal
         {
             cmbSearchType.SelectedIndex = 0;
             this.Size = new System.Drawing.Size(640, 480);
-            showreaderinfo();
             showrentinfo();
         }
 
@@ -200,53 +199,12 @@ namespace ReaderTerminal
             btnReaderCancel_Click(sender, e);
         }
 
-        public void showreaderinfo()
-        {
-            SqlDataReader book2 = null;
-            int readerId = frmLogin.readerId;
-            string sql =
-                "select * " +
-                "from reader " +
-                "where id = @readerid";
-            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
-            cmd = new SqlCommand(sql, Library.Connection.Instance());
-            cmd.Parameters.AddWithValue("@readerid", readerId);
-            book2 = cmd.ExecuteReader();
-            String[] str = new String[11];
-            if (book2.Read())
-            {
-                str[0] = "用户账号是：" + book2[0].ToString() + System.Environment.NewLine;
-                str[1] = "用户姓名是：" + book2[1].ToString() + System.Environment.NewLine;
-                str[3] = "用户性别是：" + book2[3].ToString() + System.Environment.NewLine;
-                str[4] = "用户性别是：" + book2[4].ToString() + System.Environment.NewLine;
-                str[5] = "用户注册号类型是：" + book2[5].ToString() + System.Environment.NewLine;
-                str[6] = "用户注册号是：" + book2[6].ToString() + System.Environment.NewLine;
-                str[7] = "用户电话是：" + book2[7].ToString() + System.Environment.NewLine;
-                str[8] = "用户注册时间是：" + book2[8].ToString() + System.Environment.NewLine;
-                str[9] = "用户到期时间是：" + book2[9].ToString() + System.Environment.NewLine;
-                book2.Close();
-                for (int i = 0; i < 8; i++)
-                {
-                    //readerInfo.Text += str[i];
-                }
-            }
-           
-        }
-
         private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             frmPassword frm = new frmPassword();
             frm.ShowDialog();
             this.Show();
-        }
-
-        private void mnuReaderLogout_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("退出成功！！！");
-            this.Close();
-            frmLogin frm = new frmLogin();
-            frm.Show();
         }
 
         public void showrentinfo()
@@ -311,18 +269,12 @@ namespace ReaderTerminal
                 textBox1.Text = text;
 
             }
-          
             book.Close();
         }
 
         private void mnuReaderChangePassword_Click(object sender, EventArgs e)
         {
             new frmPassword().ShowDialog();
-        }
-
-        private void tpgBookReserve_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnReaderCancel_Click(object sender, EventArgs e)
