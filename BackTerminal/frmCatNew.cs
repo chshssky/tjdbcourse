@@ -30,12 +30,7 @@ namespace BackTerminal
                     "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 this.DialogResult = DialogResult.None;
             }
-            else result = textBox.Text;            
-        }
-
-        private void textBox_TextChanged(object sender, EventArgs e)
-        {
-
+            else result = textBox.Text;
         }
     }
 }

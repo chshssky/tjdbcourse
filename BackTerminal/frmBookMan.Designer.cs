@@ -35,26 +35,21 @@
             this.readablebookTableAdapter = new BackTerminal.DataSetTableAdapters.readable_bookTableAdapter();
             this.mnsMain = new System.Windows.Forms.MenuStrip();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuToolRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuToolExit = new System.Windows.Forms.ToolStripMenuItem();
             this.图书BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBookStatus = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuBookDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBookAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuBookBuy = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBookDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.mnuToolExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBookBuy = new System.Windows.Forms.ToolStripMenuItem();
             this.分类CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCategoryManage = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvBook = new System.Windows.Forms.DataGridView();
-            this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sstMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tspMain = new System.Windows.Forms.ToolStrip();
@@ -69,6 +64,13 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearch = new System.Windows.Forms.ToolStripButton();
+            this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.mnsMain.SuspendLayout();
@@ -108,10 +110,31 @@
             // 工具TToolStripMenuItem
             // 
             this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuToolRefresh,
+            this.toolStripMenuItem2,
             this.mnuToolExit});
             this.工具TToolStripMenuItem.Name = "工具TToolStripMenuItem";
             this.工具TToolStripMenuItem.Size = new System.Drawing.Size(59, 21);
             this.工具TToolStripMenuItem.Text = "工具(&T)";
+            // 
+            // mnuToolRefresh
+            // 
+            this.mnuToolRefresh.Name = "mnuToolRefresh";
+            this.mnuToolRefresh.Size = new System.Drawing.Size(152, 22);
+            this.mnuToolRefresh.Text = "刷新(&R)";
+            this.mnuToolRefresh.Click += new System.EventHandler(this.mnuToolRefresh_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 6);
+            // 
+            // mnuToolExit
+            // 
+            this.mnuToolExit.Name = "mnuToolExit";
+            this.mnuToolExit.Size = new System.Drawing.Size(152, 22);
+            this.mnuToolExit.Text = "退出(&X)";
+            this.mnuToolExit.Click += new System.EventHandler(this.mnuToolExit_Click);
             // 
             // 图书BToolStripMenuItem
             // 
@@ -128,53 +151,32 @@
             // mnuBookStatus
             // 
             this.mnuBookStatus.Name = "mnuBookStatus";
-            this.mnuBookStatus.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookStatus.Size = new System.Drawing.Size(151, 22);
             this.mnuBookStatus.Text = "状态(&S)...";
-            // 
-            // mnuBookDelete
-            // 
-            this.mnuBookDelete.Name = "mnuBookDelete";
-            this.mnuBookDelete.Size = new System.Drawing.Size(152, 22);
-            this.mnuBookDelete.Text = "删除(&D)";
             // 
             // mnuBookAdd
             // 
             this.mnuBookAdd.Name = "mnuBookAdd";
-            this.mnuBookAdd.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookAdd.Size = new System.Drawing.Size(151, 22);
             this.mnuBookAdd.Text = "增购(&A)...";
             // 
-            // mnuBookBuy
+            // mnuBookDelete
             // 
-            this.mnuBookBuy.Name = "mnuBookBuy";
-            this.mnuBookBuy.Size = new System.Drawing.Size(152, 22);
-            this.mnuBookBuy.Text = "购买新书(&N)...";
-            this.mnuBookBuy.Click += new System.EventHandler(this.mnuBookBuy_Click);
+            this.mnuBookDelete.Name = "mnuBookDelete";
+            this.mnuBookDelete.Size = new System.Drawing.Size(151, 22);
+            this.mnuBookDelete.Text = "删除(&D)";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 6);
             // 
-            // mnuToolExit
+            // mnuBookBuy
             // 
-            this.mnuToolExit.Name = "mnuToolExit";
-            this.mnuToolExit.Size = new System.Drawing.Size(152, 22);
-            this.mnuToolExit.Text = "退出(&X)";
-            this.mnuToolExit.Click += new System.EventHandler(this.mnuToolExit_Click);
-            // 
-            // 帮助HToolStripMenuItem
-            // 
-            this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHelpAbout});
-            this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
-            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
-            this.帮助HToolStripMenuItem.Text = "帮助(&H)";
-            // 
-            // mnuHelpAbout
-            // 
-            this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(152, 22);
-            this.mnuHelpAbout.Text = "关于(&A)";
+            this.mnuBookBuy.Name = "mnuBookBuy";
+            this.mnuBookBuy.Size = new System.Drawing.Size(151, 22);
+            this.mnuBookBuy.Text = "购买新书(&N)...";
+            this.mnuBookBuy.Click += new System.EventHandler(this.mnuBookBuy_Click);
             // 
             // 分类CToolStripMenuItem
             // 
@@ -187,9 +189,23 @@
             // mnuCategoryManage
             // 
             this.mnuCategoryManage.Name = "mnuCategoryManage";
-            this.mnuCategoryManage.Size = new System.Drawing.Size(152, 22);
+            this.mnuCategoryManage.Size = new System.Drawing.Size(129, 22);
             this.mnuCategoryManage.Text = "管理(&M)...";
             this.mnuCategoryManage.Click += new System.EventHandler(this.mnuCategoryManage_Click);
+            // 
+            // 帮助HToolStripMenuItem
+            // 
+            this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuHelpAbout});
+            this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
+            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
+            this.帮助HToolStripMenuItem.Text = "帮助(&H)";
+            // 
+            // mnuHelpAbout
+            // 
+            this.mnuHelpAbout.Name = "mnuHelpAbout";
+            this.mnuHelpAbout.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelpAbout.Text = "关于(&A)";
             // 
             // panel2
             // 
@@ -202,6 +218,7 @@
             // 
             // dgvBook
             // 
+            this.dgvBook.AllowUserToAddRows = false;
             this.dgvBook.AutoGenerateColumns = false;
             this.dgvBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBook.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -219,48 +236,8 @@
             this.dgvBook.RowTemplate.Height = 23;
             this.dgvBook.Size = new System.Drawing.Size(617, 385);
             this.dgvBook.TabIndex = 6;
-            // 
-            // isbnDataGridViewTextBoxColumn
-            // 
-            this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
-            this.isbnDataGridViewTextBoxColumn.HeaderText = "ISBN";
-            this.isbnDataGridViewTextBoxColumn.Name = "isbnDataGridViewTextBoxColumn";
-            // 
-            // titleDataGridViewTextBoxColumn
-            // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "书名";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            // 
-            // authorDataGridViewTextBoxColumn
-            // 
-            this.authorDataGridViewTextBoxColumn.DataPropertyName = "author";
-            this.authorDataGridViewTextBoxColumn.HeaderText = "作者";
-            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
-            // 
-            // publisherDataGridViewTextBoxColumn
-            // 
-            this.publisherDataGridViewTextBoxColumn.DataPropertyName = "publisher";
-            this.publisherDataGridViewTextBoxColumn.HeaderText = "出版社";
-            this.publisherDataGridViewTextBoxColumn.Name = "publisherDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "描述";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "分类";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "数量";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.dgvBook.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvBook_CellBeginEdit);
+            this.dgvBook.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBook_CellEndEdit);
             // 
             // sstMain
             // 
@@ -296,7 +273,6 @@
             this.tspMain.Name = "tspMain";
             this.tspMain.Size = new System.Drawing.Size(617, 25);
             this.tspMain.TabIndex = 15;
-            this.tspMain.Text = "toolStrip1";
             // 
             // tsbStatus
             // 
@@ -379,6 +355,55 @@
             this.tsbSearch.Name = "tsbSearch";
             this.tsbSearch.Size = new System.Drawing.Size(23, 22);
             this.tsbSearch.Text = "搜索";
+            this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
+            // 
+            // isbnDataGridViewTextBoxColumn
+            // 
+            this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
+            this.isbnDataGridViewTextBoxColumn.HeaderText = "ISBN";
+            this.isbnDataGridViewTextBoxColumn.Name = "isbnDataGridViewTextBoxColumn";
+            this.isbnDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "书名";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            // 
+            // authorDataGridViewTextBoxColumn
+            // 
+            this.authorDataGridViewTextBoxColumn.DataPropertyName = "author";
+            this.authorDataGridViewTextBoxColumn.HeaderText = "作者";
+            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            this.authorDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // publisherDataGridViewTextBoxColumn
+            // 
+            this.publisherDataGridViewTextBoxColumn.DataPropertyName = "publisher";
+            this.publisherDataGridViewTextBoxColumn.HeaderText = "出版社";
+            this.publisherDataGridViewTextBoxColumn.Name = "publisherDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "描述";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "分类";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "数量";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 64;
             // 
             // frmBookMan
             // 
@@ -391,7 +416,7 @@
             this.Controls.Add(this.sstMain);
             this.MainMenuStrip = this.mnsMain;
             this.Name = "frmBookMan";
-            this.Text = "书籍管理";
+            this.Text = "书目管理";
             this.Load += new System.EventHandler(this.frmBookMan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
@@ -428,13 +453,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuCategoryManage;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvBook;
-        private System.Windows.Forms.DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn publisherDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.StatusStrip sstMain;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStrip tspMain;
@@ -449,6 +467,15 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox txtSearch;
         private System.Windows.Forms.ToolStripButton tsbSearch;
+        private System.Windows.Forms.ToolStripMenuItem mnuToolRefresh;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publisherDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
 
     }
 }
