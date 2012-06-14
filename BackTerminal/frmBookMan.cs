@@ -59,5 +59,29 @@ namespace BackTerminal
 
             this.readablebookTableAdapter.Fill(dataSet.readable_book);
         }
+
+        private void mnuToolRefresh_Click(object sender, EventArgs e)
+        {
+            this.readablebookTableAdapter.Fill(this.dataSet.readable_book);
+        }
+
+        private void dgvBook_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
+        }
+
+        private void dgvBook_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("category") ||
+                column.DataPropertyName.Equals("count"))
+            {
+                return;
+            }
+
+            Library.Util.UpdateGridCellForBook(
+                (DataGridView)sender, "book", e.RowIndex, e.ColumnIndex);
+        }
     }
 }
