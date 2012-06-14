@@ -44,6 +44,9 @@
     <Compile Include="..\Common\Connection.cs">
       <Link>Common\Connection.cs</Link>
     </Compile>
+    <Compile Include="..\Common\Util.cs">
+      <Link>Common\Util.cs</Link>
+    </Compile>
     <Compile Include="frmPassword.cs">
       <SubType>Form</SubType>
     </Compile>

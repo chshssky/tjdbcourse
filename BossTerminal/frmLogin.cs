@@ -17,38 +17,30 @@ namespace BossTerminal
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string trimmedBossName = Library.ConfigUtil.GetString("boss_name").Trim();
             string trimmedPassword = Library.ConfigUtil.GetString("boss_password").Trim();
 
             string enteredBossName = txtBossName.Text.Trim();
-            string encryptedPassword = Library.Util.MD5(txtBossPassword.Text.Trim());
+            string encryptedPassword = Library.Util.MD5(txtBossPassword.Text);
 
-            if ((enteredBossName.Equals(trimmedBossName) &&
-                encryptedPassword.Equals(trimmedPassword)) ||
-                (trimmedPassword == null || trimmedPassword.Length == 0) &&
-                txtBossPassword.Text.Trim().Length == 0)
+            bool correctBossName = enteredBossName.Equals(trimmedBossName);
+            bool correctPassword = encryptedPassword.Equals(trimmedPassword);
+            bool noPasswordWasSet = trimmedPassword == null || trimmedPassword.Length == 0;
+            bool noPasswordEntered = txtBossPassword.Text.Length == 0;
+
+            if ((correctBossName && correctPassword) ||
+                (noPasswordWasSet && noPasswordEntered))
             {
-                // MessageBox.Show("老板您好。");
-                frmMain frmMain = new frmMain();
-                this.Hide(); frmMain.ShowDialog(this);
-                this.Close(); this.Dispose();
+                this.Hide();
+                new frmMain().ShowDialog();
+                this.Show();
             }
             else
             {
                 MessageBox.Show("您的输入有误。");
             }
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

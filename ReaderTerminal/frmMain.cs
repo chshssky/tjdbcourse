@@ -191,47 +191,12 @@ namespace ReaderTerminal
         {
             cmbSearchType.SelectedIndex = 0;
             this.Size = new System.Drawing.Size(640, 480);
-            showreaderinfo();
             showrentinfo();
         }
 
         private void tpgReaderInfo_Click(object sender, EventArgs e)
         {
-
-
-
-        }
-        public void showreaderinfo()
-        {
-            SqlDataReader book2 = null;
-            int readerId = frmLogin.readerId;
-            string sql =
-                "select * " +
-                "from reader " +
-                "where id = @readerid";
-            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
-            cmd = new SqlCommand(sql, Library.Connection.Instance());
-            cmd.Parameters.AddWithValue("@readerid", readerId);
-            book2 = cmd.ExecuteReader();
-            String[] str = new String[11];
-            if (book2.Read())
-            {
-                str[0] = "用户账号是：" + book2[0].ToString() + System.Environment.NewLine;
-                str[1] = "用户姓名是：" + book2[1].ToString() + System.Environment.NewLine;
-                str[3] = "用户性别是：" + book2[3].ToString() + System.Environment.NewLine;
-                str[4] = "用户性别是：" + book2[4].ToString() + System.Environment.NewLine;
-                str[5] = "用户注册号类型是：" + book2[5].ToString() + System.Environment.NewLine;
-                str[6] = "用户注册号是：" + book2[6].ToString() + System.Environment.NewLine;
-                str[7] = "用户电话是：" + book2[7].ToString() + System.Environment.NewLine;
-                str[8] = "用户注册时间是：" + book2[8].ToString() + System.Environment.NewLine;
-                str[9] = "用户到期时间是：" + book2[9].ToString() + System.Environment.NewLine;
-                book2.Close();
-                for (int i = 0; i < 8; i++)
-                {
-                    readerInfo.Text += str[i];
-                }
-            }
-           
+            btnReaderCancel_Click(sender, e);
         }
 
         private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -240,14 +205,6 @@ namespace ReaderTerminal
             frmPassword frm = new frmPassword();
             frm.ShowDialog();
             this.Show();
-        }
-
-        private void mnuReaderLogout_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("退出成功！！！");
-            this.Close();
-            frmLogin frm = new frmLogin();
-            frm.Show();
         }
 
         public void showrentinfo()
@@ -312,7 +269,6 @@ namespace ReaderTerminal
                 textBox1.Text = text;
 
             }
-          
             book.Close();
         }
 
@@ -321,9 +277,86 @@ namespace ReaderTerminal
             new frmPassword().ShowDialog();
         }
 
-        private void tpgBookReserve_Click(object sender, EventArgs e)
+        private void btnReaderCancel_Click(object sender, EventArgs e)
         {
+            SqlDataReader reader = null;
+            int readerId = frmLogin.readerId;
+            string sql =
+                "select * " +
+                "from readable_reader " +
+                "where id = @readerid";
+            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@readerid", readerId);
+            reader = cmd.ExecuteReader();
 
+            if (reader.Read())
+            {
+                txtReaderName.Text = reader["name"].ToString().Trim();
+                txtReaderRealName.Text = reader["real_name"].ToString().Trim();
+
+                Boolean? gender = null;
+                if (!(reader["gender"] is DBNull))
+                    gender = (Boolean)reader["gender"];
+                if (gender == null)
+                    cmbReaderGender.SelectedIndex = 2;
+                else if (gender == false)
+                    cmbReaderGender.SelectedIndex = 1;
+                else
+                    cmbReaderGender.SelectedIndex = 0;
+
+                int credType = (int)reader["credential_type"];
+                cmbReaderCredType.SelectedIndex = credType - 1;
+                txtReaderCredNumber.Text = ((string)reader["credential_number"]).Trim();
+
+                txtPhone.Text = reader["telephone"].ToString().Trim();
+                txtRegTime.Text = reader["register_time"].ToString().Trim();
+                txtExpTime.Text = reader["expire_time"].ToString().Trim();
+                bool available = (bool)reader["available"];
+                if (available)
+                    txtAvailable.Text = "是";
+                else
+                    txtAvailable.Text = "否";
+
+                txtGroupName.Text = reader["group"].ToString().Trim();
+
+                reader.Close();
+            }
+        }
+
+        private void btnReaderSubmit_Click(object sender, EventArgs e)
+        {
+            string sql = "update reader set " +
+                "   real_name = @real_name, " +
+                "   gender = @gender, " +
+                "   credential_type = @credential_type, " +
+                "   credential_number = @credential_number, " +
+                "   telephone = @telephone " +
+                "where id = @id";
+
+            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
+
+            cmd.Parameters.AddWithValue("@id", frmLogin.readerId);
+
+            cmd.Parameters.AddWithValue("@real_name", txtReaderRealName.Text);
+
+            Boolean? gender = null;
+            if (cmbReaderGender.SelectedIndex == 1)
+                gender = false;
+            else if (cmbReaderGender.SelectedIndex == 0)
+                gender = true;
+
+            cmd.Parameters.AddWithValue("@gender", gender);
+            cmd.Parameters.AddWithValue("@credential_type", cmbReaderCredType.SelectedIndex + 1);
+            cmd.Parameters.AddWithValue("@credential_number", txtReaderCredNumber.Text);
+            cmd.Parameters.AddWithValue("@telephone", txtPhone.Text);
+
+            if (cmd.ExecuteNonQuery() > 0)
+                MessageBox.Show("成功更改读者信息。", "更改成功",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                MessageBox.Show("无法更改读者信息。", "无法更改",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

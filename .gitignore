@@ -30,3 +30,6 @@ _ReSharper*/
 .picasa.ini
 *.psd
 *.jpg
+
+# KDiff temp files.
+*.orig

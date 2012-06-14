@@ -114,7 +114,6 @@
             this.MaximizeBox = false;
             this.Name = "frmLogin";
             this.Text = "人事终端登录";
-            this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
