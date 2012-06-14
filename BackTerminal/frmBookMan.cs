@@ -96,5 +96,13 @@ namespace BackTerminal
             frmBookNew form = new frmBookNew();
             form.ShowDialog();
         }
+
+        private void dgvBook_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            if (e.Button != MouseButtons.Right || e.RowIndex < 0) return;
+            view.ClearSelection();
+            view.Rows[e.RowIndex].Selected = true;
+        }
     }
 }
