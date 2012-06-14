@@ -58,6 +58,12 @@
     <Compile Include="frmBookMan.Designer.cs">
       <DependentUpon>frmBookMan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBookStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBookStatus.Designer.cs">
+      <DependentUpon>frmBookStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCatEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmBookMan.resx">
       <DependentUpon>frmBookMan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBookStatus.resx">
+      <DependentUpon>frmBookStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCatEdit.resx">
       <DependentUpon>frmCatEdit.cs</DependentUpon>

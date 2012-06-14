@@ -116,9 +116,8 @@ namespace BackTerminal
             string description = textBoxDescription.Text;
 
             // 检查各控件的值
-            if (CheckString(title, 20) && CheckString(author, 50) && CheckString(publisher, 50)
-                && (CheckString(description, 100) || description.Length == 0)) ;
-            else
+            if (!(CheckString(title, 20) && CheckString(author, 50) && CheckString(publisher, 50)
+                && (CheckString(description, 100) || description.Length == 0)))
             {
                 ErrorMessage("您输入的字符车过长或为空");
                 return;

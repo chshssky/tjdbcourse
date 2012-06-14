@@ -83,5 +83,11 @@ namespace BackTerminal
             Library.Util.UpdateGridCellForBook(
                 (DataGridView)sender, "book", e.RowIndex, e.ColumnIndex);
         }
+
+        private void toolStripMenuItemStatus_Click(object sender, EventArgs e)
+        {
+            frmBookStatus form = new frmBookStatus();
+            form.ShowDialog();
+        }
     }
 }
