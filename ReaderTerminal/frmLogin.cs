@@ -40,7 +40,8 @@ namespace ReaderTerminal
                 this.txtName.Text = "";
                 this.txtPassword.Text = "";
                 new frmMain().ShowDialog();
-                this.Show();
+                // this.Show();
+                this.Close();
             }
             else
             {

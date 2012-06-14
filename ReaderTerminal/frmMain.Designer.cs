@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlWrapperMain = new System.Windows.Forms.Panel();
             this.tabMain = new System.Windows.Forms.TabControl();
@@ -66,8 +67,16 @@
             this.btnReaderSubmit = new System.Windows.Forms.Button();
             this.btnReaderCancel = new System.Windows.Forms.Button();
             this.tpgBookRental = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dgvBorrowed = new System.Windows.Forms.DataGridView();
+            this.bookisbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.booktitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookauthorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookpublisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duetimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.borrowingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new ReaderTerminal.DataSet();
             this.tpgBookReserve = new System.Windows.Forms.TabPage();
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.终端TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +89,7 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbChangePassword = new System.Windows.Forms.ToolStripButton();
+            this.borrowingTableAdapter = new ReaderTerminal.DataSetTableAdapters.borrowingTableAdapter();
             this.pnlWrapperMain.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tpgBookSearch.SuspendLayout();
@@ -93,6 +103,10 @@
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tpgBookRental.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowingBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -510,33 +524,101 @@
             // 
             // tpgBookRental
             // 
-            this.tpgBookRental.Controls.Add(this.textBox1);
-            this.tpgBookRental.Controls.Add(this.listView1);
+            this.tpgBookRental.Controls.Add(this.panel4);
             this.tpgBookRental.Location = new System.Drawing.Point(4, 22);
             this.tpgBookRental.Name = "tpgBookRental";
             this.tpgBookRental.Padding = new System.Windows.Forms.Padding(3);
             this.tpgBookRental.Size = new System.Drawing.Size(604, 328);
             this.tpgBookRental.TabIndex = 2;
-            this.tpgBookRental.Text = "所借书刊";
+            this.tpgBookRental.Text = "在借书刊";
             this.tpgBookRental.UseVisualStyleBackColor = true;
+            this.tpgBookRental.Enter += new System.EventHandler(this.tpgBookRental_Enter);
             // 
-            // textBox1
+            // panel4
             // 
-            this.textBox1.Location = new System.Drawing.Point(41, 158);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(341, 98);
-            this.textBox1.TabIndex = 1;
+            this.panel4.Controls.Add(this.dgvBorrowed);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Padding = new System.Windows.Forms.Padding(3);
+            this.panel4.Size = new System.Drawing.Size(598, 322);
+            this.panel4.TabIndex = 1;
             // 
-            // listView1
+            // dgvBorrowed
             // 
-            this.listView1.Location = new System.Drawing.Point(41, 18);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(341, 134);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
+            this.dgvBorrowed.AllowUserToAddRows = false;
+            this.dgvBorrowed.AllowUserToDeleteRows = false;
+            this.dgvBorrowed.AutoGenerateColumns = false;
+            this.dgvBorrowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBorrowed.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bookisbnDataGridViewTextBoxColumn,
+            this.booktitleDataGridViewTextBoxColumn,
+            this.bookauthorDataGridViewTextBoxColumn,
+            this.bookpublisherDataGridViewTextBoxColumn,
+            this.renttimeDataGridViewTextBoxColumn,
+            this.duetimeDataGridViewTextBoxColumn});
+            this.dgvBorrowed.DataSource = this.borrowingBindingSource;
+            this.dgvBorrowed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBorrowed.Location = new System.Drawing.Point(3, 3);
+            this.dgvBorrowed.Name = "dgvBorrowed";
+            this.dgvBorrowed.ReadOnly = true;
+            this.dgvBorrowed.RowTemplate.Height = 23;
+            this.dgvBorrowed.Size = new System.Drawing.Size(592, 316);
+            this.dgvBorrowed.TabIndex = 0;
+            // 
+            // bookisbnDataGridViewTextBoxColumn
+            // 
+            this.bookisbnDataGridViewTextBoxColumn.DataPropertyName = "book_isbn";
+            this.bookisbnDataGridViewTextBoxColumn.HeaderText = "ISBN";
+            this.bookisbnDataGridViewTextBoxColumn.Name = "bookisbnDataGridViewTextBoxColumn";
+            this.bookisbnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookisbnDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // booktitleDataGridViewTextBoxColumn
+            // 
+            this.booktitleDataGridViewTextBoxColumn.DataPropertyName = "book_title";
+            this.booktitleDataGridViewTextBoxColumn.HeaderText = "书名";
+            this.booktitleDataGridViewTextBoxColumn.Name = "booktitleDataGridViewTextBoxColumn";
+            this.booktitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookauthorDataGridViewTextBoxColumn
+            // 
+            this.bookauthorDataGridViewTextBoxColumn.DataPropertyName = "book_author";
+            this.bookauthorDataGridViewTextBoxColumn.HeaderText = "作者";
+            this.bookauthorDataGridViewTextBoxColumn.Name = "bookauthorDataGridViewTextBoxColumn";
+            this.bookauthorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bookauthorDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // bookpublisherDataGridViewTextBoxColumn
+            // 
+            this.bookpublisherDataGridViewTextBoxColumn.DataPropertyName = "book_publisher";
+            this.bookpublisherDataGridViewTextBoxColumn.HeaderText = "出版社";
+            this.bookpublisherDataGridViewTextBoxColumn.Name = "bookpublisherDataGridViewTextBoxColumn";
+            this.bookpublisherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // renttimeDataGridViewTextBoxColumn
+            // 
+            this.renttimeDataGridViewTextBoxColumn.DataPropertyName = "rent_time";
+            this.renttimeDataGridViewTextBoxColumn.HeaderText = "借阅时间";
+            this.renttimeDataGridViewTextBoxColumn.Name = "renttimeDataGridViewTextBoxColumn";
+            this.renttimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // duetimeDataGridViewTextBoxColumn
+            // 
+            this.duetimeDataGridViewTextBoxColumn.DataPropertyName = "due_time";
+            this.duetimeDataGridViewTextBoxColumn.HeaderText = "应还时间";
+            this.duetimeDataGridViewTextBoxColumn.Name = "duetimeDataGridViewTextBoxColumn";
+            this.duetimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // borrowingBindingSource
+            // 
+            this.borrowingBindingSource.DataMember = "borrowing";
+            this.borrowingBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpgBookReserve
             // 
@@ -546,7 +628,6 @@
             this.tpgBookReserve.TabIndex = 3;
             this.tpgBookReserve.Text = "预约查询";
             this.tpgBookReserve.UseVisualStyleBackColor = true;
-            this.tpgBookReserve.Click += new System.EventHandler(this.tpgBookReserve_Click);
             // 
             // mnuMain
             // 
@@ -640,6 +721,10 @@
             this.tsbChangePassword.Text = "toolStripButton1";
             this.tsbChangePassword.Click += new System.EventHandler(this.mnuReaderChangePassword_Click);
             // 
+            // borrowingTableAdapter
+            // 
+            this.borrowingTableAdapter.ClearBeforeFill = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -669,7 +754,10 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tpgBookRental.ResumeLayout(false);
-            this.tpgBookRental.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.borrowingBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -703,8 +791,6 @@
         private System.Windows.Forms.TabPage tpgBookReserve;
         private System.Windows.Forms.ListView lstBookResult;
         private System.Windows.Forms.TabPage tpgReaderInfo;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -734,6 +820,17 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button btnReaderSubmit;
         private System.Windows.Forms.Button btnReaderCancel;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView dgvBorrowed;
+        private DataSet dataSet;
+        private System.Windows.Forms.BindingSource borrowingBindingSource;
+        private DataSetTableAdapters.borrowingTableAdapter borrowingTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookisbnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn booktitleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookauthorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn bookpublisherDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn renttimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn duetimeDataGridViewTextBoxColumn;
 
 
     }

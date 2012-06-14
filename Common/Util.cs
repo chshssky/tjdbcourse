@@ -122,5 +122,40 @@ namespace Library
             }
             return false;
         }
+
+        public static bool ValidateStringInput(string input, string desc, int maxlen)
+        {
+            if (input.Length > maxlen)
+            {
+                MessageBox.Show("您在" + desc + "处的输入过长，字段最大长度为 " + maxlen + "。",
+                    "输入有误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ValidateIntegerInput(string input, string desc)
+        {
+            Int32 i;
+            if (!Int32.TryParse(input, out i))
+            {
+                MessageBox.Show("您在" + desc + "处的输入必须填写有效整数。",
+                    "输入有误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ValidateFloatInput(string input, string desc)
+        {
+            Double i;
+            if (!Double.TryParse(input, out i))
+            {
+                MessageBox.Show("您在" + desc + "处的输入必须填写有效浮点数。",
+                    "输入有误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
     }
 }

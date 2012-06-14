@@ -189,9 +189,10 @@ namespace ReaderTerminal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“dataSet.borrowing”中。您可以根据需要移动或删除它。
+            this.borrowingTableAdapter.Fill(this.dataSet.borrowing);
             cmbSearchType.SelectedIndex = 0;
             this.Size = new System.Drawing.Size(640, 480);
-            showrentinfo();
         }
 
         private void tpgReaderInfo_Click(object sender, EventArgs e)
@@ -205,71 +206,6 @@ namespace ReaderTerminal
             frmPassword frm = new frmPassword();
             frm.ShowDialog();
             this.Show();
-        }
-
-        public void showrentinfo()
-        {
-            SqlDataReader book3 = null;
-            int readerId = frmLogin.readerId;
-            string sql3 =
-                "SELECT b.isbn, b.title " +
-                "FROM book AS b, particular_book AS p, rental AS r " +
-                "WHERE r.reader_id = @readerId AND " +
-                "r.particular_book_id = p.id AND " +
-                "b.isbn = p.book_isbn";
-            SqlCommand cmd = new SqlCommand(sql3, Library.Connection.Instance());
-            cmd = new SqlCommand(sql3, Library.Connection.Instance());
-            cmd.Parameters.AddWithValue("@readerid", readerId);
-            book3 = cmd.ExecuteReader();
-            String[] strb = new String[2];
-            while (book3.Read())
-            {
-                strb[0] = book3[0].ToString();
-                strb[1] = book3[1].ToString();
-                listView1.View = View.List;
-                ListViewItem item = new ListViewItem(strb[0] + strb[1]);
-                listView1.Items.Add(item);
-            }
-            book3.Close();
-        }
-
-        private void listView1_DoubleClick(object sender, EventArgs e)
-        {
-             if (this.listView1.SelectedItems[0].Text.ToString() == null)
-                 textBox1.Text = null;
-            SqlCommand cmd;
-            SqlDataReader book = null;
-            String isbn = listView1.SelectedItems[0].Text.ToString();
-            isbn = isbn.Substring(0, isbn.IndexOf(" ") + 1);
-            String sql =
-                "SELECT	b.isbn, b.title, l.name, r.rent_time, r.due_time " +
-                "FROM	book AS b, particular_book AS p, rental AS r, library AS l " +
-                "WHERE	b.isbn = @isbn AND " +
-                "r.particular_book_id = p.id AND " +
-                "p.book_isbn = b.isbn AND " +
-                "p.library_id = l.id";
-            cmd = new SqlCommand(sql, Library.Connection.Instance());
-            cmd.Parameters.AddWithValue("@isbn", isbn);
-            book = cmd.ExecuteReader();
-            String[] str = new String[5];
-            if (book != null && book.Read())
-            {
-
-                str[0] = book[0].ToString();
-                str[1] = book[1].ToString();
-                str[2] = book[2].ToString();
-                str[3] = book[3].ToString();
-                str[4] = book[4].ToString();
-                String text;
-                text =        "ISBN:          " + str[0] + System.Environment.NewLine;
-                text = text + "Title:         " + str[1] + System.Environment.NewLine;
-                text = text + "Library:       " + str[2] + System.Environment.NewLine;
-                text = text + "RentTime:      " + str[3] + System.Environment.NewLine;
-                text = text + "ReturnTime:    " + str[4] + System.Environment.NewLine;
-                textBox1.Text = text;
-
-            }
-            book.Close();
         }
 
         private void mnuReaderChangePassword_Click(object sender, EventArgs e)
@@ -357,6 +293,22 @@ namespace ReaderTerminal
             else
                 MessageBox.Show("无法更改读者信息。", "无法更改",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void tpgBookRental_Enter(object sender, EventArgs e)
+        {
+            this.dataSet.borrowing.Clear();
+
+            string sql = "select * from borrowing where reader_id = @reader_id";
+
+            this.borrowingTableAdapter.Adapter.SelectCommand
+                .CommandText = sql;
+
+            this.borrowingTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            this.borrowingTableAdapter.Adapter.SelectCommand.Parameters
+                .AddWithValue("@reader_id", frmLogin.readerId);
+
+            this.borrowingTableAdapter.Fill(dataSet.borrowing);
         }
     }
 }
