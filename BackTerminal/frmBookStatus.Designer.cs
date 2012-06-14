@@ -30,15 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.booklibrarydamagedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookLibraryDamagedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet = new BackTerminal.DataSet();
-            this.book_library_damagedTableAdapter = new BackTerminal.DataSetTableAdapters.book_library_damagedTableAdapter();
+            this.bookLibraryDamagedTableAdapter = new BackTerminal.DataSetTableAdapters.book_library_damagedTableAdapter();
+            this.libraryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.libraryTableAdapter = new BackTerminal.DataSetTableAdapters.libraryTableAdapter();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.library_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booklibrarydamagedBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -47,51 +50,67 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.titleDataGridViewTextBoxColumn,
-            this.libraryDataGridViewTextBoxColumn,
+            this.library_id,
             this.damagedDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.booklibrarydamagedBindingSource;
+            this.dataGridView1.DataSource = this.bookLibraryDamagedBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 13);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.RowTemplate.Height = 21;
             this.dataGridView1.Size = new System.Drawing.Size(452, 288);
             this.dataGridView1.TabIndex = 0;
             // 
-            // titleDataGridViewTextBoxColumn
+            // bookLibraryDamagedBindingSource
             // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "title";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // libraryDataGridViewTextBoxColumn
-            // 
-            this.libraryDataGridViewTextBoxColumn.DataPropertyName = "library";
-            this.libraryDataGridViewTextBoxColumn.HeaderText = "library";
-            this.libraryDataGridViewTextBoxColumn.Name = "libraryDataGridViewTextBoxColumn";
-            this.libraryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.libraryDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // damagedDataGridViewCheckBoxColumn
-            // 
-            this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "damaged";
-            this.damagedDataGridViewCheckBoxColumn.HeaderText = "damaged";
-            this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
-            this.damagedDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
-            // booklibrarydamagedBindingSource
-            // 
-            this.booklibrarydamagedBindingSource.DataMember = "book_library_damaged";
-            this.booklibrarydamagedBindingSource.DataSource = this.dataSet;
+            this.bookLibraryDamagedBindingSource.DataMember = "book_library_damaged";
+            this.bookLibraryDamagedBindingSource.DataSource = this.dataSet;
             // 
             // dataSet
             // 
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // book_library_damagedTableAdapter
+            // bookLibraryDamagedTableAdapter
             // 
-            this.book_library_damagedTableAdapter.ClearBeforeFill = true;
+            this.bookLibraryDamagedTableAdapter.ClearBeforeFill = true;
+            // 
+            // libraryBindingSource
+            // 
+            this.libraryBindingSource.DataMember = "library";
+            this.libraryBindingSource.DataSource = this.dataSet;
+            // 
+            // libraryTableAdapter
+            // 
+            this.libraryTableAdapter.ClearBeforeFill = true;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "书名";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // library_id
+            // 
+            this.library_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.library_id.DataPropertyName = "library_id";
+            this.library_id.DataSource = this.libraryBindingSource;
+            this.library_id.DisplayMember = "name";
+            this.library_id.DisplayStyleForCurrentCellOnly = true;
+            this.library_id.HeaderText = "图书馆";
+            this.library_id.Name = "library_id";
+            this.library_id.ReadOnly = true;
+            this.library_id.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.library_id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.library_id.ValueMember = "id";
+            // 
+            // damagedDataGridViewCheckBoxColumn
+            // 
+            this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "damaged";
+            this.damagedDataGridViewCheckBoxColumn.HeaderText = "损否";
+            this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
+            this.damagedDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.damagedDataGridViewCheckBoxColumn.Width = 40;
             // 
             // frmBookStatus
             // 
@@ -100,11 +119,12 @@
             this.ClientSize = new System.Drawing.Size(477, 313);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmBookStatus";
-            this.Text = "frmBookStatus";
+            this.Text = "书籍状态";
             this.Load += new System.EventHandler(this.frmBookStatus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.booklibrarydamagedBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,10 +133,12 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet dataSet;
-        private System.Windows.Forms.BindingSource booklibrarydamagedBindingSource;
-        private DataSetTableAdapters.book_library_damagedTableAdapter book_library_damagedTableAdapter;
+        private System.Windows.Forms.BindingSource bookLibraryDamagedBindingSource;
+        private DataSetTableAdapters.book_library_damagedTableAdapter bookLibraryDamagedTableAdapter;
+        private System.Windows.Forms.BindingSource libraryBindingSource;
+        private DataSetTableAdapters.libraryTableAdapter libraryTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libraryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn library_id;
         private System.Windows.Forms.DataGridViewCheckBoxColumn damagedDataGridViewCheckBoxColumn;
     }
 }
