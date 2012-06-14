@@ -93,6 +93,15 @@ namespace BackTerminal
             if (!TreeViewSelected()) return;
             string categoryTitle = tvCategory.SelectedNode.Text;
 
+            // 获取各控件的值
+            string title = textBoxTitle.Text;
+            string author = textBoxAuthor.Text;
+            string publisher = textBoxPublisher.Text;
+            string ISBN = textBoxISBN.Text;
+            int quantity = (int)numericUpDown.Value;
+            string libraryName = (string)comboBoxLibrary.SelectedItem;
+            string description = textBoxDescription.Text;
+
             // 获取 category id
             SqlConnection connection = Library.Connection.Instance();
             string queryString = "SELECT id FROM dbo.category where title='" + categoryTitle + "';";
@@ -102,25 +111,25 @@ namespace BackTerminal
             while (reader.Read())
             {
                 categoryId = (int)reader[0];
-                Console.Out.WriteLine(categoryId);
             }
             reader.Close();
 
+            // 获取 library id
+            queryString = "SELECT id FROM dbo.library where name='" + libraryName + "';";
+            command = new SqlCommand(queryString, connection);
+            reader = command.ExecuteReader();
+            int libraryId = 1;
+            while (reader.Read())
+            {
+                libraryId = (int)reader[0];
+                Console.Out.WriteLine(libraryId);
+            }
+            reader.Close();
 
-            // 获取各控件的值
-            string title = textBoxTitle.Text;
-            string author = textBoxAuthor.Text;
-            string publisher = textBoxPublisher.Text;
-            string ISBN = textBoxISBN.Text;
-            int quantity = (int)numericUpDown.Value;
-            string libraryName = (string)comboBoxLibrary.SelectedItem;
-            string description = textBoxDescription.Text;
-            
-            
+            // INSERT INTO dbo.book
             string sql = "INSERT INTO dbo.book (isbn, title, author, publisher, description, category_id)" +
                 "VALUES(@ISBN, @title, @author, @publisher, @description, @category_id);";
             command = new SqlCommand(sql, connection);
-
             command.Parameters.AddWithValue("@ISBN", ISBN);
             command.Parameters.AddWithValue("@title", title);
             command.Parameters.AddWithValue("@author", author);
@@ -128,6 +137,17 @@ namespace BackTerminal
             command.Parameters.AddWithValue("@description", description);
             command.Parameters.AddWithValue("@category_id", categoryId);
             command.ExecuteNonQuery();
+
+            // INSERT INTO dbo.particular_book
+            for (int i = 0; i < quantity; i++)
+            {
+                sql = "INSERT INTO dbo.particular_book (book_isbn, library_id)" +
+                    "VALUES(@book_isbn, @library_id);";
+                command = new SqlCommand(sql, connection);
+                command.Parameters.AddWithValue("@book_isbn", ISBN);
+                command.Parameters.AddWithValue("@library_id", libraryId);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }
