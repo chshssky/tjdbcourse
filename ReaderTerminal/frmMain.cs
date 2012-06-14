@@ -189,6 +189,16 @@ namespace ReaderTerminal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“dataSet.active_reserve”中。您可以根据需要移动或删除它。
+            this.activeReserveTableAdapter.Fill(this.dataSet.active_reserve);
+            // TODO: 这行代码将数据加载到表“dataSet.active_reserve”中。您可以根据需要移动或删除它。
+            this.activeReserveTableAdapter.Fill(this.dataSet.active_reserve);
+            // TODO: 这行代码将数据加载到表“dataSet.returned”中。您可以根据需要移动或删除它。
+            this.returnedTableAdapter.Fill(this.dataSet.returned);
+            // TODO: 这行代码将数据加载到表“dataSet.borrowing”中。您可以根据需要移动或删除它。
+            this.borrowingTableAdapter.Fill(this.dataSet.borrowing);
+            // TODO: 这行代码将数据加载到表“dataSet.returned”中。您可以根据需要移动或删除它。
+            this.returnedTableAdapter.Fill(this.dataSet.returned);
             // TODO: 这行代码将数据加载到表“dataSet.borrowing”中。您可以根据需要移动或删除它。
             this.borrowingTableAdapter.Fill(this.dataSet.borrowing);
             cmbSearchType.SelectedIndex = 0;
@@ -301,14 +311,48 @@ namespace ReaderTerminal
 
             string sql = "select * from borrowing where reader_id = @reader_id";
 
-            this.borrowingTableAdapter.Adapter.SelectCommand
-                .CommandText = sql;
+            this.borrowingTableAdapter.Adapter.SelectCommand.CommandText = sql;
 
             this.borrowingTableAdapter.Adapter.SelectCommand.Parameters.Clear();
             this.borrowingTableAdapter.Adapter.SelectCommand.Parameters
                 .AddWithValue("@reader_id", frmLogin.readerId);
 
             this.borrowingTableAdapter.Fill(dataSet.borrowing);
+        }
+
+        private void tpgHistory_Enter(object sender, EventArgs e)
+        {
+            this.dataSet.returned.Clear();
+
+            string sql = "select * from returned where reader_id = @reader_id";
+
+            this.returnedTableAdapter.Adapter.SelectCommand.CommandText = sql;
+
+            this.returnedTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            this.returnedTableAdapter.Adapter.SelectCommand.Parameters
+                .AddWithValue("@reader_id", frmLogin.readerId);
+
+            this.returnedTableAdapter.Fill(dataSet.returned);
+        }
+
+        private void tpgBookReserve_Enter(object sender, EventArgs e)
+        {
+            this.dataSet.active_reserve.Clear();
+
+            string sql = "select * from active_reserve where reader_id = @reader_id";
+
+            this.activeReserveTableAdapter.Adapter.SelectCommand.CommandText = sql;
+
+            this.activeReserveTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            this.activeReserveTableAdapter.Adapter.SelectCommand.Parameters
+                .AddWithValue("@reader_id", frmLogin.readerId);
+
+            this.activeReserveTableAdapter.Fill(dataSet.active_reserve);
+        }
+
+        private void dgvBorrowed_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

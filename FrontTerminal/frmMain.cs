@@ -105,11 +105,11 @@ namespace FrontTerminal
                 String commandText;
                 if (readerGenderI == 2)
                 {
-                    commandText = "select * from  Reader where name like '*" + readerName + "%'";
+                    commandText = "select * from  Reader where name like '%" + readerName + "%'";
                 }
                 else
                 {
-                    commandText = "select * from  Reader where name like '*" + readerName + "%' and gender=" + readerGenderI;
+                    commandText = "select * from  Reader where name like '%" + readerName + "%' and gender=" + readerGenderI;
                 }
                 SqlCommand cmdReader = new SqlCommand(commandText, Connection.Instance());
                 SqlDataReader recordShow = cmdReader.ExecuteReader();
@@ -243,7 +243,10 @@ namespace FrontTerminal
                 SqlCommand cmdFindReserve = new SqlCommand(findReserve, Connection.Instance());
                 SqlDataReader drFindReserve = cmdFindReserve.ExecuteReader();
                 if (!drFindReserve.HasRows)
+                {
+                    drFindReserve.Close();
                     ifOrder = "no one has reserved this book";
+                }
                 else
                 {
                     do
@@ -257,15 +260,17 @@ namespace FrontTerminal
                         }
                     }
                     while (Convert.ToUInt32(drFindReserve[4]) == 0);//此读者的借书卡无效，接着找下一个人
-                    if(ifOrder != "no valid one has reserved")
-                        ifOrder = "studentId:"+drFindReserve[1].ToString()+"has reserved it";
-                    drFindReserve.Close();
-                    MessageBox.Show(ifOrder); 
+                    if (ifOrder != "no valid one has reserved")
+                        ifOrder = "studentId:" + drFindReserve[1].ToString() + "has reserved it";
+                    
+                    MessageBox.Show(ifOrder);
+
                 }
-
+                drFindReserve.Close();
                  //在预约读者中找出有没有人预约此书
-
-
+                if (txbReaderId.Text != "")
+                    UserRental.showRental(Convert.ToInt32(txbReaderId.Text), dgvReaderBorrow);
+                MessageBox.Show("还书成功！");
             }
 
         }
