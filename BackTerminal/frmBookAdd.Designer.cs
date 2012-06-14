@@ -81,9 +81,8 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(577, 341);
             this.tableLayoutPanel1.TabIndex = 27;
             // 
@@ -91,7 +90,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 177);
+            this.label6.Location = new System.Drawing.Point(20, 249);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 24;
@@ -101,7 +100,7 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 6);
+            this.label5.Location = new System.Drawing.Point(32, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 12);
             this.label5.TabIndex = 22;
@@ -130,7 +129,7 @@
             this.comboBoxLibrary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxLibrary.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLibrary.FormattingEnabled = true;
-            this.comboBoxLibrary.Location = new System.Drawing.Point(67, 28);
+            this.comboBoxLibrary.Location = new System.Drawing.Point(67, 173);
             this.comboBoxLibrary.Name = "comboBoxLibrary";
             this.comboBoxLibrary.Size = new System.Drawing.Size(507, 20);
             this.comboBoxLibrary.TabIndex = 7;
@@ -181,7 +180,7 @@
             this.ClientSize = new System.Drawing.Size(597, 416);
             this.Controls.Add(this.panel1);
             this.Name = "frmBookAdd";
-            this.Text = "frmBookAdd";
+            this.Text = "增购图书";
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

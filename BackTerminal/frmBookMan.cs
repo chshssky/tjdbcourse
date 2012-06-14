@@ -100,7 +100,7 @@ namespace BackTerminal
         private void toolStripMenuItemAddBook_Click(object sender, EventArgs e)
         {
             frmBookAdd form = new frmBookAdd();
-            form.setISDN((string)dgvBook.SelectedRows[0].Cells[0].Value);
+            form.setISBN((string)dgvBook.SelectedRows[0].Cells[0].Value);
             form.ShowDialog();
         }
     }
