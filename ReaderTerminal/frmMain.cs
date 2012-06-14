@@ -180,7 +180,7 @@ namespace ReaderTerminal
             }
             book2.Close();
 
-            frmBook frmbook = new frmBook(str[0], str[3], str[1], str[2], coinfo);
+            frmBook frmbook = new frmBook(str[0], str[3], str[1], str[2], isbn, coinfo);
             this.Hide();
             frmbook.ShowDialog();
             this.Show();
@@ -351,6 +351,16 @@ namespace ReaderTerminal
         }
 
         private void dgvBorrowed_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvReserve_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvHistory_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
