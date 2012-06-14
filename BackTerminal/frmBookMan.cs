@@ -96,5 +96,10 @@ namespace BackTerminal
             frmBookNew form = new frmBookNew();
             form.ShowDialog();
         }
+
+        private void toolStripMenuItemAddBook_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
