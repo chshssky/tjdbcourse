@@ -458,7 +458,7 @@
             this.Controls.Add(this.sttMain);
             this.MainMenuStrip = this.mstMain;
             this.Name = "frmMain";
-            this.Text = "人事管理工具";
+            this.Text = "人事管理";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.mstMain.ResumeLayout(false);
             this.mstMain.PerformLayout();
