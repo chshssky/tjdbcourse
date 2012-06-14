@@ -58,7 +58,7 @@
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemNewBook = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -299,19 +299,20 @@
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripSeparator4,
+            this.toolStripMenuItemStatus,
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
-            this.toolStripMenuItemStatus});
+            this.toolStripSeparator4,
+            this.toolStripMenuItemNewBook});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(152, 98);
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 120);
             // 
-            // toolStripMenuItem3
+            // toolStripMenuItemNewBook
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem3.Text = "购买新书(&N)...";
+            this.toolStripMenuItemNewBook.Name = "toolStripMenuItemNewBook";
+            this.toolStripMenuItemNewBook.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemNewBook.Text = "购买新书(&N)...";
+            this.toolStripMenuItemNewBook.Click += new System.EventHandler(this.toolStripMenuItemNewBook_Click);
             // 
             // toolStripSeparator4
             // 
@@ -528,7 +529,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewBook;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
