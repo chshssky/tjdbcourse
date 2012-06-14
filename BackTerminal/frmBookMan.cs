@@ -21,6 +21,7 @@ namespace BackTerminal
             frmBookStatus form = new frmBookStatus();
             form.Reload((string)dgvBook.SelectedRows[0].Cells[0].Value);
             form.ShowDialog();
+            refreshDGV();
         }
 
         private void ShowBookAdd()
@@ -28,6 +29,7 @@ namespace BackTerminal
             frmBookAdd form = new frmBookAdd();
             form.setISBN((string)dgvBook.SelectedRows[0].Cells[0].Value);
             form.ShowDialog();
+            refreshDGV();
         }
 
         private void frmBookMan_Load(object sender, EventArgs e)
@@ -45,11 +47,13 @@ namespace BackTerminal
         private void mnuCategoryManage_Click(object sender, EventArgs e)
         {
             new frmCatMan().ShowDialog();
+            refreshDGV();
         }
 
         private void mnuBookBuy_Click(object sender, EventArgs e)
         {
             new frmBookNew().ShowDialog();
+            refreshDGV();
         }
 
         private void tsbSearch_Click(object sender, EventArgs e)
@@ -155,6 +159,12 @@ namespace BackTerminal
             command.Parameters.AddWithValue("@ISBN", ISBN);
             command.ExecuteNonQuery();
             command.Dispose();
+            refreshDGV();
+        }
+
+        private void refreshDGV()
+        {
+            this.readablebookTableAdapter.Fill(this.dataSet.readable_book);
         }
 
         private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
