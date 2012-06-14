@@ -24,13 +24,6 @@ namespace BossTerminal
             this.managerTableAdapter.Fill(this.dataSet.manager);
         }
 
-        private void mnuToolAddLibrary_Click(object sender, EventArgs e)
-        {
-            frmAddLib fm = new frmAddLib();
-            fm.ShowDialog();
-            fm.Close();
-        }
-
         private void mnuToolExit_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -46,13 +46,43 @@ namespace Library
                 "set [" + column + "] = @value " +
                 "where id = @id";
             SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
-            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@id", idObj);
             if (value is string)
-                cmd.Parameters.AddWithValue("@value", (string) value);
+                cmd.Parameters.AddWithValue("@value", (string)value);
             else if (value is bool)
-                cmd.Parameters.AddWithValue("@value", (bool) value);
+                cmd.Parameters.AddWithValue("@value", (bool)value);
             else if (value is int)
-                cmd.Parameters.AddWithValue("@value", (int) value);
+                cmd.Parameters.AddWithValue("@value", (int)value);
+            else throw new Exception("类型不支持");
+            cmd.ExecuteNonQuery();
+        }
+
+        public static void UpdateGridCellForBook(
+            DataGridView view, string tableName, int row, int col)
+        {
+            DataGridViewRow theRow = view.Rows[row];
+            if (theRow.IsNewRow)
+                return;
+
+            object idObj = theRow.Cells[0].Value;
+            if (idObj == null || idObj is DBNull)
+                return;
+
+            string id = (string)idObj;
+            object value = view.Rows[row].Cells[col].Value;
+
+            string column = view.Columns[col].DataPropertyName;
+            string sql = "update [" + tableName + "] " +
+                "set [" + column + "] = @value " +
+                "where isbn = @id";
+            SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
+            cmd.Parameters.AddWithValue("@id", idObj);
+            if (value is string)
+                cmd.Parameters.AddWithValue("@value", (string)value);
+            else if (value is bool)
+                cmd.Parameters.AddWithValue("@value", (bool)value);
+            else if (value is int)
+                cmd.Parameters.AddWithValue("@value", (int)value);
             else throw new Exception("类型不支持");
             cmd.ExecuteNonQuery();
         }

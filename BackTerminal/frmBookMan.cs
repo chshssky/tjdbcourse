@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 
 namespace BackTerminal
 {
@@ -36,6 +36,52 @@ namespace BackTerminal
         private void mnuBookBuy_Click(object sender, EventArgs e)
         {
             new frmBookNew().ShowDialog();
+        }
+
+        private void tsbSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text;
+            this.dataSet.readable_book.Clear();
+
+            string sql;
+            if (searchText.Length > 0)
+                sql = "select * from readable_book where title like @title";
+            else
+                sql = "select * from readable_book";
+
+            this.readablebookTableAdapter.Adapter.SelectCommand
+                .CommandText = sql;
+
+            this.readablebookTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            if (searchText.Length > 0)
+                this.readablebookTableAdapter.Adapter.SelectCommand.Parameters
+                    .AddWithValue("@title", "%" + searchText + "%");
+
+            this.readablebookTableAdapter.Fill(dataSet.readable_book);
+        }
+
+        private void mnuToolRefresh_Click(object sender, EventArgs e)
+        {
+            this.readablebookTableAdapter.Fill(this.dataSet.readable_book);
+        }
+
+        private void dgvBook_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
+        }
+
+        private void dgvBook_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("category") ||
+                column.DataPropertyName.Equals("count"))
+            {
+                return;
+            }
+
+            Library.Util.UpdateGridCellForBook(
+                (DataGridView)sender, "book", e.RowIndex, e.ColumnIndex);
         }
     }
 }

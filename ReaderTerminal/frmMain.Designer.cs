@@ -282,14 +282,14 @@
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.修改密码ToolStripMenuItem.Text = "修改密码";
             this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
             // 
             // mnuTerminalExit
             // 
             this.mnuTerminalExit.Name = "mnuTerminalExit";
-            this.mnuTerminalExit.Size = new System.Drawing.Size(124, 22);
+            this.mnuTerminalExit.Size = new System.Drawing.Size(152, 22);
             this.mnuTerminalExit.Text = "退出(&X)";
             this.mnuTerminalExit.Click += new System.EventHandler(this.mnuTerminalExit_Click);
             // 
@@ -307,25 +307,25 @@
             // mnuReaderLogin
             // 
             this.mnuReaderLogin.Name = "mnuReaderLogin";
-            this.mnuReaderLogin.Size = new System.Drawing.Size(118, 22);
+            this.mnuReaderLogin.Size = new System.Drawing.Size(152, 22);
             this.mnuReaderLogin.Text = "登录(&L)";
             this.mnuReaderLogin.Click += new System.EventHandler(this.mnuReaderLogin_Click);
             // 
             // mnuReaderRegister
             // 
             this.mnuReaderRegister.Name = "mnuReaderRegister";
-            this.mnuReaderRegister.Size = new System.Drawing.Size(118, 22);
+            this.mnuReaderRegister.Size = new System.Drawing.Size(152, 22);
             this.mnuReaderRegister.Text = "注册(&R)";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(115, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuReaderLogout
             // 
             this.mnuReaderLogout.Name = "mnuReaderLogout";
-            this.mnuReaderLogout.Size = new System.Drawing.Size(118, 22);
+            this.mnuReaderLogout.Size = new System.Drawing.Size(152, 22);
             this.mnuReaderLogout.Text = "登出(&O)";
             this.mnuReaderLogout.Click += new System.EventHandler(this.mnuReaderLogout_Click);
             // 
@@ -340,7 +340,7 @@
             // 关于AToolStripMenuItem
             // 
             this.关于AToolStripMenuItem.Name = "关于AToolStripMenuItem";
-            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.关于AToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.关于AToolStripMenuItem.Text = "关于(&A)";
             // 
             // frmMain
