@@ -48,7 +48,6 @@ namespace ReaderTerminal
             string usrName = txtName.Text;
             string usrPassword = txtPsw.Text;
             bool gender = true;
-            bool doif = false;
             bool available = true;
             DateTime time = System.DateTime.Now;
             DateTime expireTime = System.DateTime.Now.AddYears(1); 
@@ -58,14 +57,13 @@ namespace ReaderTerminal
             if (!usrPassword.Equals(usrPassword2))
             {
                 MessageBox.Show("两次密码不一致，请重新输入");
-                doif = true;
             }
-            else doif = false;
+            else 
+            {
             string sql =
                 "insert into reader (name, password, gender, credential_type, credential_number, telephone, register_time, expire_time, available) " +
                 "values (@name, @password, @gender, @credential_type, @credential_number, @telephone, @register_time, @expire_time, @available)";
-            if (!doif)
-            {
+            
                 SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
                 cmd.Parameters.AddWithValue("@name", usrName);
                 cmd.Parameters.AddWithValue("@password", usrPassword);
@@ -81,7 +79,7 @@ namespace ReaderTerminal
                 {
                     MessageBox.Show("用户名已被注册。");
                 }
-                if (cmd.ExecuteNonQuery() != 0)
+                else
                 {
                     this.Close();
                     MessageBox.Show("注册成功");

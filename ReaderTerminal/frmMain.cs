@@ -231,6 +231,7 @@ namespace ReaderTerminal
                     readerInfo.Text += str[i];
                 }
             }
+           
         }
 
         private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -321,6 +322,11 @@ namespace ReaderTerminal
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpgBookReserve_Click(object sender, EventArgs e)
         {
 
         }

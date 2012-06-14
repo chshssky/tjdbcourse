@@ -257,6 +257,7 @@
             this.tpgBookReserve.TabIndex = 3;
             this.tpgBookReserve.Text = "预约查询";
             this.tpgBookReserve.UseVisualStyleBackColor = true;
+            this.tpgBookReserve.Click += new System.EventHandler(this.tpgBookReserve_Click);
             // 
             // mnuMain
             // 
