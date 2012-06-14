@@ -8,8 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Library;
-using System.Data.OleDb; 
-
 
 namespace FrontTerminal
 {
@@ -25,7 +23,6 @@ namespace FrontTerminal
             // TODO: 这行代码将数据加载到表“frDataSet.overdue_reader”中。您可以根据需要移动或删除它。
             this.overdue_readerTableAdapter.Fill(this.frDataSet.overdue_reader);
         }
-
         private void btnSearchReader_Click(object sender, EventArgs e)
         {
             if (txbReaderId.Text.Trim() == "")
@@ -233,10 +230,46 @@ namespace FrontTerminal
                 SqlCommand cmdReturn = new SqlCommand(update, Connection.Instance());
                 SqlDataReader drReturn = cmdReturn.ExecuteReader();
                 drReturn.Close();
-                MessageBox.Show("还书成功，哈哈！");
-                //SqlDataReader drReturn = cmdReturn.ExecuteReader();
+                
+                // 走到这一步，把rental表中的return_time填上了
+                //，接下来就要看看有谁预约了这本书,因为预约中的书是用isbn表示，
+                //而还书的书籍编号是用ID，所以要多一步，在book表中换成ID对应的isbn
 
-                //zhuyi   drReturn close 
+                String getBookisbn = "select * from  particular_book where id = " + bookId;
+                SqlCommand cmdFindIsbn = new SqlCommand(getBookisbn, Connection.Instance());
+                SqlDataReader drFindIsbn = cmdFindIsbn.ExecuteReader();
+                drFindIsbn.Read();
+                String theIsbn = drFindIsbn[2].ToString(); //找出该id的isbn
+                drFindIsbn.Close();
+                
+                String ifOrder = "";
+                String findReserve = "select * from  reserve where book_isbn='" + theIsbn+"'";
+                SqlCommand cmdFindReserve = new SqlCommand(findReserve, Connection.Instance());
+                SqlDataReader drFindReserve = cmdFindReserve.ExecuteReader();
+                if (!drFindReserve.HasRows)
+                    ifOrder = "no one has reserved this book";
+                else
+                {
+                    do
+                    {
+                        if (drFindReserve.Read())
+                            continue;
+                        else
+                        {
+                            ifOrder = "no valid one has reserved";
+                            break; //当当前已经到了最后一列，说明所有预约者的借书卡都无效了（不过可能性有点小也）
+                        }
+                    }
+                    while (Convert.ToUInt32(drFindReserve[4]) == 0);//此读者的借书卡无效，接着找下一个人
+                    if(ifOrder != "no valid one has reserved")
+                        ifOrder = "studentId:"+drFindReserve[1].ToString()+"has reserved it";
+                    drFindReserve.Close();
+                    MessageBox.Show(ifOrder); 
+                }
+
+                 //在预约读者中找出有没有人预约此书
+
+
             }
 
         }
