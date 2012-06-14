@@ -66,6 +66,7 @@ namespace BackTerminal
                 command.Parameters.AddWithValue("@library_id", libraryId);
                 command.ExecuteNonQuery();
             }
+            this.Close();
         }
     }
 }
