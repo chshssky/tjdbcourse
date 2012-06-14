@@ -146,7 +146,7 @@ namespace FrontTerminal
             }
 
         }
-        private void btnBorrow_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             SqlConnection con = Connection.Instance();
             SqlCommand cmd = new SqlCommand();
@@ -175,15 +175,31 @@ namespace FrontTerminal
                     record2.Close();
                     DateTime nowTime = System.DateTime.Now;
                     DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
-                    //SqlCommand cmd3 = new SqlCommand();
+                    SqlCommand cmd3 = new SqlCommand();
+                    cmd3.Connection = con;
+                    cmd3.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)";
+                    cmd3.Parameters.Add("@nowTime", SqlDbType.DateTime,8,"rent_time");
+                    cmd3.Parameters["@nowTime"].Value = nowTime;
+
+                    cmd3.Parameters.Add("@oughtToReturn", SqlDbType.DateTime, 8, "due_time");
+                    cmd3.Parameters["@oughtToReturn"].Value = oughtToReturn;
+
+                    cmd3.Parameters.Add("@bookId", SqlDbType.Int, 4, "particular_book_id");
+                    cmd3.Parameters["@bookId"].Value = bookId;
+
+                    cmd3.Parameters.Add("@readerId", SqlDbType.Int, 4, "reader_id");
+                    cmd3.Parameters["@readerId"].Value = readerId;
+
+                    cmd3.ExecuteNonQuery();
                     //cmd3.Connection = con;
-                    String InsertSql = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
-                    SqlCommand com3 = new SqlCommand(InsertSql, con);
-                    com3.ExecuteNonQuery();
+                    //String InsertSql = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
+                    //SqlCommand com3 = new SqlCommand(InsertSql, con);
+                    //com3.ExecuteNonQuery();
+
                     con.Close();
-                    
-                   // cmd3.CommandText = ;
-                   // cmd3.ExecuteNonQuery();//
+
+                    // cmd3.CommandText = ;
+                    // cmd3.ExecuteNonQuery();//
                 }
             }
             catch (Exception err)
@@ -192,5 +208,11 @@ namespace FrontTerminal
             }
             con.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
