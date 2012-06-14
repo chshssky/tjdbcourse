@@ -16,31 +16,26 @@ namespace BackTerminal
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void frmBookMan_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“dataSet.readable_book”中。您可以根据需要移动或删除它。
             this.readablebookTableAdapter.Fill(this.dataSet.readable_book);
 
+        }
+
+        private void mnuToolExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mnuCategoryManage_Click(object sender, EventArgs e)
+        {
+            new frmCatMan().ShowDialog();
+        }
+
+        private void mnuBookBuy_Click(object sender, EventArgs e)
+        {
+            new frmBookNew().ShowDialog();
         }
     }
 }

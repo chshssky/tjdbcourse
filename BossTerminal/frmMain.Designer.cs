@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.mstMain = new System.Windows.Forms.MenuStrip();
             this.mnuTool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuToolSave = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,16 +56,24 @@
             this.dataSet = new BossTerminal.DataSet();
             this.tpgManager = new System.Windows.Forms.TabPage();
             this.dgvManager = new System.Windows.Forms.DataGridView();
-            this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tbvMain = new System.Windows.Forms.TabControl();
-            this.managerTableAdapter = new BossTerminal.DataSetTableAdapters.managerTableAdapter();
-            this.libraryTableAdapter = new BossTerminal.DataSetTableAdapters.libraryTableAdapter();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.real_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.passwordDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.permissionDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.libraryidDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.managerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tbvMain = new System.Windows.Forms.TabControl();
+            this.managerTableAdapter = new BossTerminal.DataSetTableAdapters.managerTableAdapter();
+            this.libraryTableAdapter = new BossTerminal.DataSetTableAdapters.libraryTableAdapter();
+            this.sttMain = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tolMain = new System.Windows.Forms.ToolStrip();
+            this.tsbRefresh = new System.Windows.Forms.ToolStripButton();
+            this.tsbSave = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbChangeName = new System.Windows.Forms.ToolStripButton();
+            this.tsbChangePassword = new System.Windows.Forms.ToolStripButton();
             this.mstMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMangers)).BeginInit();
             this.tpgLibrary.SuspendLayout();
@@ -75,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).BeginInit();
             this.tbvMain.SuspendLayout();
+            this.sttMain.SuspendLayout();
+            this.tolMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // mstMain
@@ -141,16 +152,16 @@
             // mnuBossChangeName
             // 
             this.mnuBossChangeName.Name = "mnuBossChangeName";
-            this.mnuBossChangeName.Size = new System.Drawing.Size(142, 22);
+            this.mnuBossChangeName.Size = new System.Drawing.Size(152, 22);
             this.mnuBossChangeName.Text = "修改名称(&N)";
-            this.mnuBossChangeName.Click += new System.EventHandler(this.修改账号AToolStripMenuItem_Click);
+            this.mnuBossChangeName.Click += new System.EventHandler(this.mnuBossChangeName_Click);
             // 
             // mnuBossChangePassword
             // 
             this.mnuBossChangePassword.Name = "mnuBossChangePassword";
-            this.mnuBossChangePassword.Size = new System.Drawing.Size(142, 22);
+            this.mnuBossChangePassword.Size = new System.Drawing.Size(152, 22);
             this.mnuBossChangePassword.Text = "修改密码(&P)";
-            this.mnuBossChangePassword.Click += new System.EventHandler(this.修改密码PToolStripMenuItem_Click);
+            this.mnuBossChangePassword.Click += new System.EventHandler(this.mnuBossChangePassword_Click);
             // 
             // mnuHelp
             // 
@@ -215,7 +226,7 @@
             this.tpgLibrary.Margin = new System.Windows.Forms.Padding(0);
             this.tpgLibrary.Name = "tpgLibrary";
             this.tpgLibrary.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgLibrary.Size = new System.Drawing.Size(672, 381);
+            this.tpgLibrary.Size = new System.Drawing.Size(672, 356);
             this.tpgLibrary.TabIndex = 7;
             this.tpgLibrary.Text = "图书馆管理";
             this.tpgLibrary.UseVisualStyleBackColor = true;
@@ -276,7 +287,7 @@
             this.tpgManager.Location = new System.Drawing.Point(4, 22);
             this.tpgManager.Name = "tpgManager";
             this.tpgManager.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgManager.Size = new System.Drawing.Size(672, 381);
+            this.tpgManager.Size = new System.Drawing.Size(672, 334);
             this.tpgManager.TabIndex = 4;
             this.tpgManager.Text = "管理员管理";
             this.tpgManager.UseVisualStyleBackColor = true;
@@ -299,34 +310,10 @@
             this.dgvManager.Margin = new System.Windows.Forms.Padding(2);
             this.dgvManager.Name = "dgvManager";
             this.dgvManager.RowTemplate.Height = 30;
-            this.dgvManager.Size = new System.Drawing.Size(666, 375);
+            this.dgvManager.Size = new System.Drawing.Size(666, 328);
             this.dgvManager.TabIndex = 2;
             this.dgvManager.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DataGridView_CellBeginEdit);
             this.dgvManager.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvManager_CellEndEdit);
-            // 
-            // managerBindingSource
-            // 
-            this.managerBindingSource.DataMember = "manager";
-            this.managerBindingSource.DataSource = this.dataSet;
-            // 
-            // tbvMain
-            // 
-            this.tbvMain.Controls.Add(this.tpgManager);
-            this.tbvMain.Controls.Add(this.tpgLibrary);
-            this.tbvMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbvMain.Location = new System.Drawing.Point(0, 25);
-            this.tbvMain.Name = "tbvMain";
-            this.tbvMain.SelectedIndex = 0;
-            this.tbvMain.Size = new System.Drawing.Size(680, 407);
-            this.tbvMain.TabIndex = 0;
-            // 
-            // managerTableAdapter
-            // 
-            this.managerTableAdapter.ClearBeforeFill = true;
-            // 
-            // libraryTableAdapter
-            // 
-            this.libraryTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -365,13 +352,114 @@
             this.libraryidDataGridViewTextBoxColumn1.HeaderText = "图书馆编号";
             this.libraryidDataGridViewTextBoxColumn1.Name = "libraryidDataGridViewTextBoxColumn1";
             // 
+            // managerBindingSource
+            // 
+            this.managerBindingSource.DataMember = "manager";
+            this.managerBindingSource.DataSource = this.dataSet;
+            // 
+            // tbvMain
+            // 
+            this.tbvMain.Controls.Add(this.tpgManager);
+            this.tbvMain.Controls.Add(this.tpgLibrary);
+            this.tbvMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbvMain.Location = new System.Drawing.Point(0, 50);
+            this.tbvMain.Name = "tbvMain";
+            this.tbvMain.SelectedIndex = 0;
+            this.tbvMain.Size = new System.Drawing.Size(680, 360);
+            this.tbvMain.TabIndex = 0;
+            // 
+            // managerTableAdapter
+            // 
+            this.managerTableAdapter.ClearBeforeFill = true;
+            // 
+            // libraryTableAdapter
+            // 
+            this.libraryTableAdapter.ClearBeforeFill = true;
+            // 
+            // sttMain
+            // 
+            this.sttMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.sttMain.Location = new System.Drawing.Point(0, 410);
+            this.sttMain.Name = "sttMain";
+            this.sttMain.Size = new System.Drawing.Size(680, 22);
+            this.sttMain.TabIndex = 2;
+            this.sttMain.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(92, 17);
+            this.toolStripStatusLabel1.Text = "人事管理工具。";
+            // 
+            // tolMain
+            // 
+            this.tolMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbRefresh,
+            this.tsbSave,
+            this.toolStripSeparator1,
+            this.tsbChangeName,
+            this.tsbChangePassword});
+            this.tolMain.Location = new System.Drawing.Point(0, 25);
+            this.tolMain.Name = "tolMain";
+            this.tolMain.Size = new System.Drawing.Size(680, 25);
+            this.tolMain.TabIndex = 3;
+            this.tolMain.Text = "toolStrip1";
+            // 
+            // tsbRefresh
+            // 
+            this.tsbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
+            this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRefresh.Name = "tsbRefresh";
+            this.tsbRefresh.Size = new System.Drawing.Size(23, 22);
+            this.tsbRefresh.Text = "刷新";
+            this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
+            // 
+            // tsbSave
+            // 
+            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
+            this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSave.Name = "tsbSave";
+            this.tsbSave.Size = new System.Drawing.Size(23, 22);
+            this.tsbSave.Text = "保存";
+            this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tsbChangeName
+            // 
+            this.tsbChangeName.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbChangeName.Image = ((System.Drawing.Image)(resources.GetObject("tsbChangeName.Image")));
+            this.tsbChangeName.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbChangeName.Name = "tsbChangeName";
+            this.tsbChangeName.Size = new System.Drawing.Size(23, 22);
+            this.tsbChangeName.Text = "更改名称";
+            this.tsbChangeName.Click += new System.EventHandler(this.tsbChangeName_Click);
+            // 
+            // tsbChangePassword
+            // 
+            this.tsbChangePassword.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("tsbChangePassword.Image")));
+            this.tsbChangePassword.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbChangePassword.Name = "tsbChangePassword";
+            this.tsbChangePassword.Size = new System.Drawing.Size(23, 22);
+            this.tsbChangePassword.Text = "更改密码";
+            this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 432);
             this.Controls.Add(this.tbvMain);
+            this.Controls.Add(this.tolMain);
             this.Controls.Add(this.mstMain);
+            this.Controls.Add(this.sttMain);
             this.MainMenuStrip = this.mstMain;
             this.Name = "frmMain";
             this.Text = "人事管理工具";
@@ -387,6 +475,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvManager)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.managerBindingSource)).EndInit();
             this.tbvMain.ResumeLayout(false);
+            this.sttMain.ResumeLayout(false);
+            this.sttMain.PerformLayout();
+            this.tolMain.ResumeLayout(false);
+            this.tolMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -430,5 +522,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn permissionDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn libraryidDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.StatusStrip sttMain;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStrip tolMain;
+        private System.Windows.Forms.ToolStripButton tsbRefresh;
+        private System.Windows.Forms.ToolStripButton tsbSave;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbChangeName;
+        private System.Windows.Forms.ToolStripButton tsbChangePassword;
     }
 }
