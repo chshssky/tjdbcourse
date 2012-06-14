@@ -101,7 +101,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "formRecordLost";
-            this.Text = "formRecordLost";
+            this.Text = "书籍遗失登记";
             this.ResumeLayout(false);
             this.PerformLayout();
 

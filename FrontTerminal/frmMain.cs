@@ -233,6 +233,18 @@ namespace FrontTerminal
         {
             formRecordLost inputLostInfo = new formRecordLost();
             inputLostInfo.Show();
+            this.damaged_bookTableAdapter.Fill(this.dataSet.damaged_book);
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            this.readerTableAdapter.Fill(this.dataSet.reader);
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            new SqlCommandBuilder(this.readerTableAdapter.Adapter);
+            this.readerTableAdapter.Update(this.dataSet);
         }
 
     }
