@@ -97,6 +97,14 @@ namespace BackTerminal
             form.ShowDialog();
         }
 
+        private void dgvBook_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            if (e.Button != MouseButtons.Right || e.RowIndex < 0) return;
+            view.ClearSelection();
+            view.Rows[e.RowIndex].Selected = true;
+        }
+
         private void toolStripMenuItemAddBook_Click(object sender, EventArgs e)
         {
             frmBookAdd form = new frmBookAdd();
