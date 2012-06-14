@@ -32,7 +32,9 @@
             this.pnlWrapperMain = new System.Windows.Forms.Panel();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tpgBookSearch = new System.Windows.Forms.TabPage();
-            this.lstBookResult = new System.Windows.Forms.ListView();
+            this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new ReaderTerminal.DataSet();
             this.pnlSearchWrapper = new System.Windows.Forms.Panel();
             this.grpBookSearch = new System.Windows.Forms.GroupBox();
             this.pnlSearchBar = new System.Windows.Forms.Panel();
@@ -68,15 +70,34 @@
             this.tpgBookRental = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dgvBorrowed = new System.Windows.Forms.DataGridView();
+            this.booktitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookauthorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookpublisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.duetimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.borrowingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new ReaderTerminal.DataSet();
             this.tpgHistory = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
+            this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.renttimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.returntimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.returnedBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpgBookReserve = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvReserve = new System.Windows.Forms.DataGridView();
+            this.isbnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisherDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reservetimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeReserveBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mnuMain = new System.Windows.Forms.MenuStrip();
             this.终端TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuToolExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,30 +109,23 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.borrowingTableAdapter = new ReaderTerminal.DataSetTableAdapters.borrowingTableAdapter();
             this.returnedTableAdapter = new ReaderTerminal.DataSetTableAdapters.returnedTableAdapter();
-            this.activeReserveBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.activeReserveTableAdapter = new ReaderTerminal.DataSetTableAdapters.active_reserveTableAdapter();
-            this.isbnDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publisherDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.reservetimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.renttimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.returntimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.booktitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookauthorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookpublisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.renttimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.duetimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryTableAdapter = new ReaderTerminal.DataSetTableAdapters.categoryTableAdapter();
+            this.readableBookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.readableBookTableAdapter = new ReaderTerminal.DataSetTableAdapters.readable_bookTableAdapter();
+            this.isbnDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publisherDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlWrapperMain.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tpgBookSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.pnlSearchWrapper.SuspendLayout();
             this.grpBookSearch.SuspendLayout();
             this.pnlSearchBar.SuspendLayout();
@@ -125,7 +139,6 @@
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.borrowingBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.tpgHistory.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
@@ -133,9 +146,10 @@
             this.tpgBookReserve.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReserve)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activeReserveBindingSource)).BeginInit();
             this.mnuMain.SuspendLayout();
             this.sspMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activeReserveBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.readableBookBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlWrapperMain
@@ -164,26 +178,49 @@
             // 
             // tpgBookSearch
             // 
-            this.tpgBookSearch.Controls.Add(this.lstBookResult);
+            this.tpgBookSearch.Controls.Add(this.dgvSearch);
             this.tpgBookSearch.Controls.Add(this.pnlSearchWrapper);
             this.tpgBookSearch.Location = new System.Drawing.Point(4, 22);
             this.tpgBookSearch.Name = "tpgBookSearch";
             this.tpgBookSearch.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgBookSearch.Size = new System.Drawing.Size(604, 328);
+            this.tpgBookSearch.Size = new System.Drawing.Size(604, 353);
             this.tpgBookSearch.TabIndex = 0;
             this.tpgBookSearch.Text = "书籍检索";
             this.tpgBookSearch.UseVisualStyleBackColor = true;
             // 
-            // lstBookResult
+            // dgvSearch
             // 
-            this.lstBookResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstBookResult.Location = new System.Drawing.Point(3, 66);
-            this.lstBookResult.Name = "lstBookResult";
-            this.lstBookResult.Size = new System.Drawing.Size(598, 259);
-            this.lstBookResult.TabIndex = 7;
-            this.lstBookResult.UseCompatibleStateImageBehavior = false;
-            this.lstBookResult.SelectedIndexChanged += new System.EventHandler(this.lstBookResult_SelectedIndexChanged);
-            this.lstBookResult.DoubleClick += new System.EventHandler(this.lstBookResult_DoubleClick);
+            this.dgvSearch.AllowUserToAddRows = false;
+            this.dgvSearch.AllowUserToDeleteRows = false;
+            this.dgvSearch.AutoGenerateColumns = false;
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.isbnDataGridViewTextBoxColumn2,
+            this.titleDataGridViewTextBoxColumn2,
+            this.authorDataGridViewTextBoxColumn2,
+            this.publisherDataGridViewTextBoxColumn2,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.categoryDataGridViewTextBoxColumn2,
+            this.countDataGridViewTextBoxColumn});
+            this.dgvSearch.DataSource = this.readableBookBindingSource;
+            this.dgvSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSearch.Location = new System.Drawing.Point(3, 73);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.ReadOnly = true;
+            this.dgvSearch.RowTemplate.Height = 21;
+            this.dgvSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSearch.Size = new System.Drawing.Size(598, 277);
+            this.dgvSearch.TabIndex = 7;
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataMember = "category";
+            this.categoryBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // pnlSearchWrapper
             // 
@@ -192,7 +229,7 @@
             this.pnlSearchWrapper.Location = new System.Drawing.Point(3, 3);
             this.pnlSearchWrapper.Name = "pnlSearchWrapper";
             this.pnlSearchWrapper.Padding = new System.Windows.Forms.Padding(8);
-            this.pnlSearchWrapper.Size = new System.Drawing.Size(598, 63);
+            this.pnlSearchWrapper.Size = new System.Drawing.Size(598, 70);
             this.pnlSearchWrapper.TabIndex = 6;
             // 
             // grpBookSearch
@@ -201,7 +238,7 @@
             this.grpBookSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpBookSearch.Location = new System.Drawing.Point(8, 8);
             this.grpBookSearch.Name = "grpBookSearch";
-            this.grpBookSearch.Size = new System.Drawing.Size(582, 47);
+            this.grpBookSearch.Size = new System.Drawing.Size(582, 54);
             this.grpBookSearch.TabIndex = 3;
             this.grpBookSearch.TabStop = false;
             this.grpBookSearch.Text = "检索方式及关键字";
@@ -212,7 +249,7 @@
             this.pnlSearchBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlSearchBar.Location = new System.Drawing.Point(3, 17);
             this.pnlSearchBar.Name = "pnlSearchBar";
-            this.pnlSearchBar.Size = new System.Drawing.Size(576, 27);
+            this.pnlSearchBar.Size = new System.Drawing.Size(576, 28);
             this.pnlSearchBar.TabIndex = 0;
             // 
             // tblSearchBar
@@ -229,12 +266,12 @@
             this.tblSearchBar.Name = "tblSearchBar";
             this.tblSearchBar.RowCount = 1;
             this.tblSearchBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tblSearchBar.Size = new System.Drawing.Size(576, 27);
+            this.tblSearchBar.Size = new System.Drawing.Size(576, 28);
             this.tblSearchBar.TabIndex = 4;
             // 
             // cmbSearchType
             // 
-            this.cmbSearchType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmbSearchType.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.cmbSearchType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSearchType.FormattingEnabled = true;
             this.cmbSearchType.Items.AddRange(new object[] {
@@ -243,7 +280,7 @@
             "ISBN",
             "分类",
             "出版社"});
-            this.cmbSearchType.Location = new System.Drawing.Point(3, 3);
+            this.cmbSearchType.Location = new System.Drawing.Point(3, 4);
             this.cmbSearchType.Name = "cmbSearchType";
             this.cmbSearchType.Size = new System.Drawing.Size(74, 20);
             this.cmbSearchType.TabIndex = 0;
@@ -254,7 +291,7 @@
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSearch.Location = new System.Drawing.Point(499, 3);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(74, 21);
+            this.btnSearch.Size = new System.Drawing.Size(74, 22);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "检索";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -262,12 +299,11 @@
             // 
             // txtSearchContent
             // 
-            this.txtSearchContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtSearchContent.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.txtSearchContent.Location = new System.Drawing.Point(83, 3);
             this.txtSearchContent.Name = "txtSearchContent";
             this.txtSearchContent.Size = new System.Drawing.Size(410, 21);
             this.txtSearchContent.TabIndex = 1;
-            this.txtSearchContent.TextChanged += new System.EventHandler(this.txtSearchContent_TextChanged);
             // 
             // tpgReaderInfo
             // 
@@ -275,7 +311,7 @@
             this.tpgReaderInfo.Controls.Add(this.panel2);
             this.tpgReaderInfo.Location = new System.Drawing.Point(4, 22);
             this.tpgReaderInfo.Name = "tpgReaderInfo";
-            this.tpgReaderInfo.Size = new System.Drawing.Size(604, 328);
+            this.tpgReaderInfo.Size = new System.Drawing.Size(604, 353);
             this.tpgReaderInfo.TabIndex = 1;
             this.tpgReaderInfo.Text = "读者信息";
             this.tpgReaderInfo.UseVisualStyleBackColor = true;
@@ -288,7 +324,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(0, 12, 6, 6);
-            this.panel1.Size = new System.Drawing.Size(604, 288);
+            this.panel1.Size = new System.Drawing.Size(604, 313);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -328,7 +364,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(598, 270);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(598, 295);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // label1
@@ -514,7 +550,7 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 288);
+            this.panel2.Location = new System.Drawing.Point(0, 313);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(604, 40);
             this.panel2.TabIndex = 3;
@@ -589,19 +625,50 @@
             this.dgvBorrowed.Name = "dgvBorrowed";
             this.dgvBorrowed.ReadOnly = true;
             this.dgvBorrowed.RowTemplate.Height = 23;
+            this.dgvBorrowed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBorrowed.Size = new System.Drawing.Size(592, 341);
             this.dgvBorrowed.TabIndex = 0;
             this.dgvBorrowed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBorrowed_CellContentClick);
+            // 
+            // booktitleDataGridViewTextBoxColumn
+            // 
+            this.booktitleDataGridViewTextBoxColumn.DataPropertyName = "book_title";
+            this.booktitleDataGridViewTextBoxColumn.HeaderText = "书名";
+            this.booktitleDataGridViewTextBoxColumn.Name = "booktitleDataGridViewTextBoxColumn";
+            this.booktitleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookauthorDataGridViewTextBoxColumn
+            // 
+            this.bookauthorDataGridViewTextBoxColumn.DataPropertyName = "book_author";
+            this.bookauthorDataGridViewTextBoxColumn.HeaderText = "作者";
+            this.bookauthorDataGridViewTextBoxColumn.Name = "bookauthorDataGridViewTextBoxColumn";
+            this.bookauthorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookpublisherDataGridViewTextBoxColumn
+            // 
+            this.bookpublisherDataGridViewTextBoxColumn.DataPropertyName = "book_publisher";
+            this.bookpublisherDataGridViewTextBoxColumn.HeaderText = "出版社";
+            this.bookpublisherDataGridViewTextBoxColumn.Name = "bookpublisherDataGridViewTextBoxColumn";
+            this.bookpublisherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // renttimeDataGridViewTextBoxColumn
+            // 
+            this.renttimeDataGridViewTextBoxColumn.DataPropertyName = "rent_time";
+            this.renttimeDataGridViewTextBoxColumn.HeaderText = "借出时间";
+            this.renttimeDataGridViewTextBoxColumn.Name = "renttimeDataGridViewTextBoxColumn";
+            this.renttimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // duetimeDataGridViewTextBoxColumn
+            // 
+            this.duetimeDataGridViewTextBoxColumn.DataPropertyName = "due_time";
+            this.duetimeDataGridViewTextBoxColumn.HeaderText = "应还时间";
+            this.duetimeDataGridViewTextBoxColumn.Name = "duetimeDataGridViewTextBoxColumn";
+            this.duetimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // borrowingBindingSource
             // 
             this.borrowingBindingSource.DataMember = "borrowing";
             this.borrowingBindingSource.DataSource = this.dataSet;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tpgHistory
             // 
@@ -609,7 +676,7 @@
             this.tpgHistory.Location = new System.Drawing.Point(4, 22);
             this.tpgHistory.Name = "tpgHistory";
             this.tpgHistory.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgHistory.Size = new System.Drawing.Size(604, 328);
+            this.tpgHistory.Size = new System.Drawing.Size(604, 353);
             this.tpgHistory.TabIndex = 4;
             this.tpgHistory.Text = "历史借阅";
             this.tpgHistory.UseVisualStyleBackColor = true;
@@ -622,7 +689,7 @@
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(3);
-            this.panel5.Size = new System.Drawing.Size(598, 322);
+            this.panel5.Size = new System.Drawing.Size(598, 347);
             this.panel5.TabIndex = 0;
             // 
             // dgvHistory
@@ -646,8 +713,68 @@
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.RowTemplate.Height = 23;
-            this.dgvHistory.Size = new System.Drawing.Size(592, 316);
+            this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHistory.Size = new System.Drawing.Size(592, 341);
             this.dgvHistory.TabIndex = 0;
+            // 
+            // isbnDataGridViewTextBoxColumn
+            // 
+            this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
+            this.isbnDataGridViewTextBoxColumn.HeaderText = "ISBN";
+            this.isbnDataGridViewTextBoxColumn.Name = "isbnDataGridViewTextBoxColumn";
+            this.isbnDataGridViewTextBoxColumn.ReadOnly = true;
+            this.isbnDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "书名";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // authorDataGridViewTextBoxColumn
+            // 
+            this.authorDataGridViewTextBoxColumn.DataPropertyName = "author";
+            this.authorDataGridViewTextBoxColumn.HeaderText = "作者";
+            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            this.authorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.authorDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // publisherDataGridViewTextBoxColumn
+            // 
+            this.publisherDataGridViewTextBoxColumn.DataPropertyName = "publisher";
+            this.publisherDataGridViewTextBoxColumn.HeaderText = "出版社";
+            this.publisherDataGridViewTextBoxColumn.Name = "publisherDataGridViewTextBoxColumn";
+            this.publisherDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn
+            // 
+            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "category";
+            this.categoryDataGridViewTextBoxColumn.HeaderText = "分类";
+            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
+            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // libraryDataGridViewTextBoxColumn
+            // 
+            this.libraryDataGridViewTextBoxColumn.DataPropertyName = "library";
+            this.libraryDataGridViewTextBoxColumn.HeaderText = "图书馆";
+            this.libraryDataGridViewTextBoxColumn.Name = "libraryDataGridViewTextBoxColumn";
+            this.libraryDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // renttimeDataGridViewTextBoxColumn1
+            // 
+            this.renttimeDataGridViewTextBoxColumn1.DataPropertyName = "rent_time";
+            this.renttimeDataGridViewTextBoxColumn1.HeaderText = "借出时间";
+            this.renttimeDataGridViewTextBoxColumn1.Name = "renttimeDataGridViewTextBoxColumn1";
+            this.renttimeDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // returntimeDataGridViewTextBoxColumn
+            // 
+            this.returntimeDataGridViewTextBoxColumn.DataPropertyName = "return_time";
+            this.returntimeDataGridViewTextBoxColumn.HeaderText = "归还时间";
+            this.returntimeDataGridViewTextBoxColumn.Name = "returntimeDataGridViewTextBoxColumn";
+            this.returntimeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // returnedBindingSource
             // 
@@ -659,7 +786,7 @@
             this.tpgBookReserve.Controls.Add(this.panel6);
             this.tpgBookReserve.Location = new System.Drawing.Point(4, 22);
             this.tpgBookReserve.Name = "tpgBookReserve";
-            this.tpgBookReserve.Size = new System.Drawing.Size(604, 328);
+            this.tpgBookReserve.Size = new System.Drawing.Size(604, 353);
             this.tpgBookReserve.TabIndex = 3;
             this.tpgBookReserve.Text = "当前预约";
             this.tpgBookReserve.UseVisualStyleBackColor = true;
@@ -672,7 +799,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(6);
-            this.panel6.Size = new System.Drawing.Size(604, 328);
+            this.panel6.Size = new System.Drawing.Size(604, 353);
             this.panel6.TabIndex = 0;
             // 
             // dgvReserve
@@ -694,8 +821,59 @@
             this.dgvReserve.Name = "dgvReserve";
             this.dgvReserve.ReadOnly = true;
             this.dgvReserve.RowTemplate.Height = 23;
-            this.dgvReserve.Size = new System.Drawing.Size(592, 316);
+            this.dgvReserve.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvReserve.Size = new System.Drawing.Size(592, 341);
             this.dgvReserve.TabIndex = 0;
+            // 
+            // isbnDataGridViewTextBoxColumn1
+            // 
+            this.isbnDataGridViewTextBoxColumn1.DataPropertyName = "isbn";
+            this.isbnDataGridViewTextBoxColumn1.HeaderText = "ISBN";
+            this.isbnDataGridViewTextBoxColumn1.Name = "isbnDataGridViewTextBoxColumn1";
+            this.isbnDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.isbnDataGridViewTextBoxColumn1.Width = 64;
+            // 
+            // titleDataGridViewTextBoxColumn1
+            // 
+            this.titleDataGridViewTextBoxColumn1.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn1.HeaderText = "书名";
+            this.titleDataGridViewTextBoxColumn1.Name = "titleDataGridViewTextBoxColumn1";
+            this.titleDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // authorDataGridViewTextBoxColumn1
+            // 
+            this.authorDataGridViewTextBoxColumn1.DataPropertyName = "author";
+            this.authorDataGridViewTextBoxColumn1.HeaderText = "作者";
+            this.authorDataGridViewTextBoxColumn1.Name = "authorDataGridViewTextBoxColumn1";
+            this.authorDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.authorDataGridViewTextBoxColumn1.Width = 64;
+            // 
+            // publisherDataGridViewTextBoxColumn1
+            // 
+            this.publisherDataGridViewTextBoxColumn1.DataPropertyName = "publisher";
+            this.publisherDataGridViewTextBoxColumn1.HeaderText = "出版社";
+            this.publisherDataGridViewTextBoxColumn1.Name = "publisherDataGridViewTextBoxColumn1";
+            this.publisherDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // categoryDataGridViewTextBoxColumn1
+            // 
+            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "category";
+            this.categoryDataGridViewTextBoxColumn1.HeaderText = "分类";
+            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
+            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.categoryDataGridViewTextBoxColumn1.Width = 64;
+            // 
+            // reservetimeDataGridViewTextBoxColumn
+            // 
+            this.reservetimeDataGridViewTextBoxColumn.DataPropertyName = "reserve_time";
+            this.reservetimeDataGridViewTextBoxColumn.HeaderText = "预约时间";
+            this.reservetimeDataGridViewTextBoxColumn.Name = "reservetimeDataGridViewTextBoxColumn";
+            this.reservetimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // activeReserveBindingSource
+            // 
+            this.activeReserveBindingSource.DataMember = "active_reserve";
+            this.activeReserveBindingSource.DataSource = this.dataSet;
             // 
             // mnuMain
             // 
@@ -777,153 +955,74 @@
             // 
             this.returnedTableAdapter.ClearBeforeFill = true;
             // 
-            // activeReserveBindingSource
-            // 
-            this.activeReserveBindingSource.DataMember = "active_reserve";
-            this.activeReserveBindingSource.DataSource = this.dataSet;
-            // 
             // activeReserveTableAdapter
             // 
             this.activeReserveTableAdapter.ClearBeforeFill = true;
             // 
-            // isbnDataGridViewTextBoxColumn1
+            // categoryTableAdapter
             // 
-            this.isbnDataGridViewTextBoxColumn1.DataPropertyName = "isbn";
-            this.isbnDataGridViewTextBoxColumn1.HeaderText = "ISBN";
-            this.isbnDataGridViewTextBoxColumn1.Name = "isbnDataGridViewTextBoxColumn1";
-            this.isbnDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.isbnDataGridViewTextBoxColumn1.Width = 64;
+            this.categoryTableAdapter.ClearBeforeFill = true;
             // 
-            // titleDataGridViewTextBoxColumn1
+            // readableBookBindingSource
             // 
-            this.titleDataGridViewTextBoxColumn1.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn1.HeaderText = "书名";
-            this.titleDataGridViewTextBoxColumn1.Name = "titleDataGridViewTextBoxColumn1";
-            this.titleDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.readableBookBindingSource.DataMember = "readable_book";
+            this.readableBookBindingSource.DataSource = this.dataSet;
             // 
-            // authorDataGridViewTextBoxColumn1
+            // readableBookTableAdapter
             // 
-            this.authorDataGridViewTextBoxColumn1.DataPropertyName = "author";
-            this.authorDataGridViewTextBoxColumn1.HeaderText = "作者";
-            this.authorDataGridViewTextBoxColumn1.Name = "authorDataGridViewTextBoxColumn1";
-            this.authorDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.authorDataGridViewTextBoxColumn1.Width = 64;
+            this.readableBookTableAdapter.ClearBeforeFill = true;
             // 
-            // publisherDataGridViewTextBoxColumn1
+            // isbnDataGridViewTextBoxColumn2
             // 
-            this.publisherDataGridViewTextBoxColumn1.DataPropertyName = "publisher";
-            this.publisherDataGridViewTextBoxColumn1.HeaderText = "出版社";
-            this.publisherDataGridViewTextBoxColumn1.Name = "publisherDataGridViewTextBoxColumn1";
-            this.publisherDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.isbnDataGridViewTextBoxColumn2.DataPropertyName = "isbn";
+            this.isbnDataGridViewTextBoxColumn2.HeaderText = "ISBN";
+            this.isbnDataGridViewTextBoxColumn2.Name = "isbnDataGridViewTextBoxColumn2";
+            this.isbnDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.isbnDataGridViewTextBoxColumn2.Width = 50;
             // 
-            // categoryDataGridViewTextBoxColumn1
+            // titleDataGridViewTextBoxColumn2
             // 
-            this.categoryDataGridViewTextBoxColumn1.DataPropertyName = "category";
-            this.categoryDataGridViewTextBoxColumn1.HeaderText = "分类";
-            this.categoryDataGridViewTextBoxColumn1.Name = "categoryDataGridViewTextBoxColumn1";
-            this.categoryDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.categoryDataGridViewTextBoxColumn1.Width = 64;
+            this.titleDataGridViewTextBoxColumn2.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn2.HeaderText = "书名";
+            this.titleDataGridViewTextBoxColumn2.Name = "titleDataGridViewTextBoxColumn2";
+            this.titleDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // reservetimeDataGridViewTextBoxColumn
+            // authorDataGridViewTextBoxColumn2
             // 
-            this.reservetimeDataGridViewTextBoxColumn.DataPropertyName = "reserve_time";
-            this.reservetimeDataGridViewTextBoxColumn.HeaderText = "预约时间";
-            this.reservetimeDataGridViewTextBoxColumn.Name = "reservetimeDataGridViewTextBoxColumn";
-            this.reservetimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.authorDataGridViewTextBoxColumn2.DataPropertyName = "author";
+            this.authorDataGridViewTextBoxColumn2.HeaderText = "作者";
+            this.authorDataGridViewTextBoxColumn2.Name = "authorDataGridViewTextBoxColumn2";
+            this.authorDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.authorDataGridViewTextBoxColumn2.Width = 60;
             // 
-            // isbnDataGridViewTextBoxColumn
+            // publisherDataGridViewTextBoxColumn2
             // 
-            this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
-            this.isbnDataGridViewTextBoxColumn.HeaderText = "ISBN";
-            this.isbnDataGridViewTextBoxColumn.Name = "isbnDataGridViewTextBoxColumn";
-            this.isbnDataGridViewTextBoxColumn.ReadOnly = true;
-            this.isbnDataGridViewTextBoxColumn.Width = 64;
+            this.publisherDataGridViewTextBoxColumn2.DataPropertyName = "publisher";
+            this.publisherDataGridViewTextBoxColumn2.HeaderText = "出版社";
+            this.publisherDataGridViewTextBoxColumn2.Name = "publisherDataGridViewTextBoxColumn2";
+            this.publisherDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // titleDataGridViewTextBoxColumn
+            // descriptionDataGridViewTextBoxColumn
             // 
-            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
-            this.titleDataGridViewTextBoxColumn.HeaderText = "书名";
-            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "描述";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // authorDataGridViewTextBoxColumn
+            // categoryDataGridViewTextBoxColumn2
             // 
-            this.authorDataGridViewTextBoxColumn.DataPropertyName = "author";
-            this.authorDataGridViewTextBoxColumn.HeaderText = "作者";
-            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
-            this.authorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.authorDataGridViewTextBoxColumn.Width = 64;
+            this.categoryDataGridViewTextBoxColumn2.DataPropertyName = "category";
+            this.categoryDataGridViewTextBoxColumn2.HeaderText = "分类";
+            this.categoryDataGridViewTextBoxColumn2.Name = "categoryDataGridViewTextBoxColumn2";
+            this.categoryDataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // publisherDataGridViewTextBoxColumn
+            // countDataGridViewTextBoxColumn
             // 
-            this.publisherDataGridViewTextBoxColumn.DataPropertyName = "publisher";
-            this.publisherDataGridViewTextBoxColumn.HeaderText = "出版社";
-            this.publisherDataGridViewTextBoxColumn.Name = "publisherDataGridViewTextBoxColumn";
-            this.publisherDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // categoryDataGridViewTextBoxColumn
-            // 
-            this.categoryDataGridViewTextBoxColumn.DataPropertyName = "category";
-            this.categoryDataGridViewTextBoxColumn.HeaderText = "分类";
-            this.categoryDataGridViewTextBoxColumn.Name = "categoryDataGridViewTextBoxColumn";
-            this.categoryDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoryDataGridViewTextBoxColumn.Width = 64;
-            // 
-            // libraryDataGridViewTextBoxColumn
-            // 
-            this.libraryDataGridViewTextBoxColumn.DataPropertyName = "library";
-            this.libraryDataGridViewTextBoxColumn.HeaderText = "图书馆";
-            this.libraryDataGridViewTextBoxColumn.Name = "libraryDataGridViewTextBoxColumn";
-            this.libraryDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // renttimeDataGridViewTextBoxColumn1
-            // 
-            this.renttimeDataGridViewTextBoxColumn1.DataPropertyName = "rent_time";
-            this.renttimeDataGridViewTextBoxColumn1.HeaderText = "借出时间";
-            this.renttimeDataGridViewTextBoxColumn1.Name = "renttimeDataGridViewTextBoxColumn1";
-            this.renttimeDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // returntimeDataGridViewTextBoxColumn
-            // 
-            this.returntimeDataGridViewTextBoxColumn.DataPropertyName = "return_time";
-            this.returntimeDataGridViewTextBoxColumn.HeaderText = "归还时间";
-            this.returntimeDataGridViewTextBoxColumn.Name = "returntimeDataGridViewTextBoxColumn";
-            this.returntimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // booktitleDataGridViewTextBoxColumn
-            // 
-            this.booktitleDataGridViewTextBoxColumn.DataPropertyName = "book_title";
-            this.booktitleDataGridViewTextBoxColumn.HeaderText = "书名";
-            this.booktitleDataGridViewTextBoxColumn.Name = "booktitleDataGridViewTextBoxColumn";
-            this.booktitleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bookauthorDataGridViewTextBoxColumn
-            // 
-            this.bookauthorDataGridViewTextBoxColumn.DataPropertyName = "book_author";
-            this.bookauthorDataGridViewTextBoxColumn.HeaderText = "作者";
-            this.bookauthorDataGridViewTextBoxColumn.Name = "bookauthorDataGridViewTextBoxColumn";
-            this.bookauthorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bookpublisherDataGridViewTextBoxColumn
-            // 
-            this.bookpublisherDataGridViewTextBoxColumn.DataPropertyName = "book_publisher";
-            this.bookpublisherDataGridViewTextBoxColumn.HeaderText = "出版社";
-            this.bookpublisherDataGridViewTextBoxColumn.Name = "bookpublisherDataGridViewTextBoxColumn";
-            this.bookpublisherDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // renttimeDataGridViewTextBoxColumn
-            // 
-            this.renttimeDataGridViewTextBoxColumn.DataPropertyName = "rent_time";
-            this.renttimeDataGridViewTextBoxColumn.HeaderText = "借出时间";
-            this.renttimeDataGridViewTextBoxColumn.Name = "renttimeDataGridViewTextBoxColumn";
-            this.renttimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // duetimeDataGridViewTextBoxColumn
-            // 
-            this.duetimeDataGridViewTextBoxColumn.DataPropertyName = "due_time";
-            this.duetimeDataGridViewTextBoxColumn.HeaderText = "应还时间";
-            this.duetimeDataGridViewTextBoxColumn.Name = "duetimeDataGridViewTextBoxColumn";
-            this.duetimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "数";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            this.countDataGridViewTextBoxColumn.Width = 50;
             // 
             // frmMain
             // 
@@ -941,6 +1040,9 @@
             this.pnlWrapperMain.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tpgBookSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.pnlSearchWrapper.ResumeLayout(false);
             this.grpBookSearch.ResumeLayout(false);
             this.pnlSearchBar.ResumeLayout(false);
@@ -956,7 +1058,6 @@
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBorrowed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.borrowingBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.tpgHistory.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).EndInit();
@@ -964,11 +1065,12 @@
             this.tpgBookReserve.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReserve)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.activeReserveBindingSource)).EndInit();
             this.mnuMain.ResumeLayout(false);
             this.mnuMain.PerformLayout();
             this.sspMain.ResumeLayout(false);
             this.sspMain.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.activeReserveBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.readableBookBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -994,7 +1096,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuToolExit;
         private System.Windows.Forms.TabPage tpgBookRental;
         private System.Windows.Forms.TabPage tpgBookReserve;
-        private System.Windows.Forms.ListView lstBookResult;
         private System.Windows.Forms.TabPage tpgReaderInfo;
         private System.Windows.Forms.StatusStrip sspMain;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
@@ -1056,6 +1157,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn bookpublisherDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn renttimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn duetimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvSearch;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private DataSetTableAdapters.categoryTableAdapter categoryTableAdapter;
+        private System.Windows.Forms.BindingSource readableBookBindingSource;
+        private DataSetTableAdapters.readable_bookTableAdapter readableBookTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publisherDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
 
 
     }

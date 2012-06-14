@@ -49,8 +49,7 @@ namespace BackTerminal
             else
                 sql = "select * from readable_book";
 
-            this.readablebookTableAdapter.Adapter.SelectCommand
-                .CommandText = sql;
+            this.readablebookTableAdapter.Adapter.SelectCommand.CommandText = sql;
 
             this.readablebookTableAdapter.Adapter.SelectCommand.Parameters.Clear();
             if (searchText.Length > 0)
