@@ -105,11 +105,11 @@ namespace FrontTerminal
                 String commandText;
                 if (readerGenderI == 2)
                 {
-                    commandText = "select * from  Reader where name like '*" + readerName + "%'";
+                    commandText = "select * from  Reader where name like '%" + readerName + "%'";
                 }
                 else
                 {
-                    commandText = "select * from  Reader where name like '*" + readerName + "%' and gender=" + readerGenderI;
+                    commandText = "select * from  Reader where name like '%" + readerName + "%' and gender=" + readerGenderI;
                 }
                 SqlCommand cmdReader = new SqlCommand(commandText, Connection.Instance());
                 SqlDataReader recordShow = cmdReader.ExecuteReader();
