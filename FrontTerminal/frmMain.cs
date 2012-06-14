@@ -160,7 +160,7 @@ namespace FrontTerminal
                 }
 
                 recReader.Read();
-                int authory = Convert.ToInt32(recReader[10]);
+                int authory = Convert.ToInt32(recReader[11]);
                 recReader.Close();
 
                 SqlCommand cmdBookBorrowed = new SqlCommand("select * from borrowable_particular where particular_id = " + bookId, Connection.Instance());
@@ -173,8 +173,9 @@ namespace FrontTerminal
                     return;
                 }
                 recBook.Close();
-                new SqlCommand("select * from  group where id = " + authory, Connection.Instance());
-                SqlDataReader recGroup = cmd.ExecuteReader();
+                SqlCommand cmdGroup = new SqlCommand("select * from [group] where id = @authory", Connection.Instance());
+                cmdGroup.Parameters.Add("@authory", authory);
+                SqlDataReader recGroup = cmdGroup.ExecuteReader();
                 recGroup.Read();
                 int maxBorrowTime = Convert.ToInt32(recGroup[2]);
                 recGroup.Close();
@@ -183,8 +184,7 @@ namespace FrontTerminal
                 SqlCommand cmdRental = new SqlCommand("insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)", Connection.Instance());
 
                 cmdRental.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)";
-                cmdRental.Parameters.Add("@nowTime", SqlDbType.DateTime, 8, "rent_time");
-                cmdRental.Parameters["@nowTime"].Value = nowTime;
+                cmdRental.Parameters.Add("@nowTime", nowTime);
 
                 cmdRental.Parameters.Add("@oughtToReturn", SqlDbType.DateTime, 8, "due_time");
                 cmdRental.Parameters["@oughtToReturn"].Value = oughtToReturn;
@@ -196,6 +196,7 @@ namespace FrontTerminal
                 cmdRental.Parameters["@readerId"].Value = readerId;
 
                 cmdRental.ExecuteNonQuery();
+                UserRental.showRental(readerId, dgvReaderBorrow);
                 MessageBox.Show("借书成功！");
 
             }
