@@ -65,6 +65,7 @@ namespace FrontTerminal
                     SqlCommand cmdRental = new SqlCommand("select * from rental where reader_id=" + readerID, Connection.Instance());
 
                     SqlDataReader recRental = cmdRental.ExecuteReader();
+                    dgvReaderBorrow.Rows.Clear();
                     while (recRental.Read())
                     {
                         dgvReaderBorrow.Rows.Add(new object[] { recRental[0], recRental[1], recRental[2], recRental[3], recRental[4], recRental[5] });
