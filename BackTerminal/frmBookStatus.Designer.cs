@@ -31,15 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataSet = new BackTerminal.DataSet();
-            this.particularbookBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.particular_bookTableAdapter = new BackTerminal.DataSetTableAdapters.particular_bookTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libraryidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bookisbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.booklibrarydamagedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.book_library_damagedTableAdapter = new BackTerminal.DataSetTableAdapters.book_library_damagedTableAdapter();
+            this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.particularidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libraryidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.particularbookBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booklibrarydamagedBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -47,11 +49,13 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.libraryidDataGridViewTextBoxColumn,
-            this.bookisbnDataGridViewTextBoxColumn,
-            this.damagedDataGridViewCheckBoxColumn});
-            this.dataGridView1.DataSource = this.particularbookBindingSource;
+            this.isbnDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.libraryDataGridViewTextBoxColumn,
+            this.damagedDataGridViewCheckBoxColumn,
+            this.particularidDataGridViewTextBoxColumn,
+            this.libraryidDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.booklibrarydamagedBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(13, 13);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
@@ -63,39 +67,50 @@
             this.dataSet.DataSetName = "DataSet";
             this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // particularbookBindingSource
+            // booklibrarydamagedBindingSource
             // 
-            this.particularbookBindingSource.DataMember = "particular_book";
-            this.particularbookBindingSource.DataSource = this.dataSet;
+            this.booklibrarydamagedBindingSource.DataMember = "book_library_damaged";
+            this.booklibrarydamagedBindingSource.DataSource = this.dataSet;
             // 
-            // particular_bookTableAdapter
+            // book_library_damagedTableAdapter
             // 
-            this.particular_bookTableAdapter.ClearBeforeFill = true;
+            this.book_library_damagedTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // isbnDataGridViewTextBoxColumn
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
+            this.isbnDataGridViewTextBoxColumn.HeaderText = "isbn";
+            this.isbnDataGridViewTextBoxColumn.Name = "isbnDataGridViewTextBoxColumn";
             // 
-            // libraryidDataGridViewTextBoxColumn
+            // titleDataGridViewTextBoxColumn
             // 
-            this.libraryidDataGridViewTextBoxColumn.DataPropertyName = "library_id";
-            this.libraryidDataGridViewTextBoxColumn.HeaderText = "library_id";
-            this.libraryidDataGridViewTextBoxColumn.Name = "libraryidDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
             // 
-            // bookisbnDataGridViewTextBoxColumn
+            // libraryDataGridViewTextBoxColumn
             // 
-            this.bookisbnDataGridViewTextBoxColumn.DataPropertyName = "book_isbn";
-            this.bookisbnDataGridViewTextBoxColumn.HeaderText = "book_isbn";
-            this.bookisbnDataGridViewTextBoxColumn.Name = "bookisbnDataGridViewTextBoxColumn";
+            this.libraryDataGridViewTextBoxColumn.DataPropertyName = "library";
+            this.libraryDataGridViewTextBoxColumn.HeaderText = "library";
+            this.libraryDataGridViewTextBoxColumn.Name = "libraryDataGridViewTextBoxColumn";
             // 
             // damagedDataGridViewCheckBoxColumn
             // 
             this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "damaged";
             this.damagedDataGridViewCheckBoxColumn.HeaderText = "damaged";
             this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
+            // 
+            // particularidDataGridViewTextBoxColumn
+            // 
+            this.particularidDataGridViewTextBoxColumn.DataPropertyName = "particular_id";
+            this.particularidDataGridViewTextBoxColumn.HeaderText = "particular_id";
+            this.particularidDataGridViewTextBoxColumn.Name = "particularidDataGridViewTextBoxColumn";
+            // 
+            // libraryidDataGridViewTextBoxColumn
+            // 
+            this.libraryidDataGridViewTextBoxColumn.DataPropertyName = "library_id";
+            this.libraryidDataGridViewTextBoxColumn.HeaderText = "library_id";
+            this.libraryidDataGridViewTextBoxColumn.Name = "libraryidDataGridViewTextBoxColumn";
             // 
             // frmBookStatus
             // 
@@ -108,7 +123,7 @@
             this.Load += new System.EventHandler(this.frmBookStatus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.particularbookBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.booklibrarydamagedBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -117,11 +132,13 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private DataSet dataSet;
-        private System.Windows.Forms.BindingSource particularbookBindingSource;
-        private DataSetTableAdapters.particular_bookTableAdapter particular_bookTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn libraryidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bookisbnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource booklibrarydamagedBindingSource;
+        private DataSetTableAdapters.book_library_damagedTableAdapter book_library_damagedTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libraryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn damagedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn particularidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn libraryidDataGridViewTextBoxColumn;
     }
 }

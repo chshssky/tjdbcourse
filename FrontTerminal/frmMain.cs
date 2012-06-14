@@ -45,39 +45,30 @@ namespace FrontTerminal
                         while (recReaderInfo.Read())
                         {
                             txbName.Text = recReaderInfo[1].ToString();
-                            if (Convert.ToInt32(recReaderInfo[3]) == 0)
+                            Console.Out.WriteLine(recReaderInfo[4]);
+                            if (recReaderInfo[4] == null)
+                            {
+                                txbGender.Text = "不便透露";
+                            }
+                            else if (Convert.ToInt32(recReaderInfo[4]) == 0)
+                            {
                                 txbGender.Text = "女";
+                            }
                             else
+                            {
                                 txbGender.Text = "男";
+                            }
                         }
-                        recReaderInfo.Close();
                     }
-
+                    recReaderInfo.Close();
                 }
                 catch (Exception err)
                 {
                     MessageBox.Show(err.Message);
                 }
-                try
-                {
 
-                    SqlCommand cmdRental = new SqlCommand("select * from rental where reader_id=" + readerID, Connection.Instance());
-
-                    SqlDataReader recRental = cmdRental.ExecuteReader();
-                    dgvReaderBorrow.Rows.Clear();
-                    while (recRental.Read())
-                    {
-                        dgvReaderBorrow.Rows.Add(new object[] { recRental[0], recRental[1], recRental[2], recRental[3], recRental[4], recRental[5] });
-                    }
-                    recRental.Close();
-                    
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message);
-                }
+                UserRental.showRental(readerID, dgvReaderBorrow);
             }
-           
         }
 
         private void dgvReaderBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -108,17 +99,19 @@ namespace FrontTerminal
                 readerGenderI = 2;
             }
             Console.Out.WriteLine(readerName);
-            SqlConnection con = Connection.Instance();
-            SqlCommand cmdReader = new SqlCommand();
+            
             try
             {
-                cmdReader.Connection = con;
+                String commandText;
                 if (readerGenderI == 2)
                 {
-                    cmdReader.CommandText = "select * from  Reader where name like '*" + readerName + "%'";
+                    commandText = "select * from  Reader where name like '*" + readerName + "%'";
                 }
                 else
-                    cmdReader.CommandText = "select * from  Reader where name like '*" + readerName + "%' and gender=" + readerGenderI;
+                {
+                    commandText = "select * from  Reader where name like '*" + readerName + "%' and gender=" + readerGenderI;
+                }
+                SqlCommand cmdReader = new SqlCommand(commandText, Connection.Instance());
                 SqlDataReader recordShow = cmdReader.ExecuteReader();
 
                 if (!recordShow.HasRows)
@@ -129,86 +122,89 @@ namespace FrontTerminal
                     {
                         dbgReaderinfo.Rows.Add(new object[] { recordShow[0], recordShow[1], recordShow[3], recordShow[4], recordShow[5], recordShow[6], recordShow[7], recordShow[8], recordShow[9], recordShow[10] });
                     }
-                    recordShow.Close();
-
                 }
-                con.Close();
+                recordShow.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+        private void button3_Click(object sender, EventArgs e) //这是借书的
+        {
+
+            if ((Convert.ToString(txbReaderId.Text.Trim())) == "")
+            {
+                MessageBox.Show("请输入读者编号！");
+                return;
+            }
+            if ((Convert.ToString(txbReaderId.Text.Trim())) == "")
+            {
+                MessageBox.Show("请输入图书编号");
+                return;
+            }
+            int readerId = Convert.ToInt32(txbReaderId.Text);
+            int bookId = Convert.ToInt32(textboxBookId.Text);
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand("select * from  Reader where id = " + readerId, Connection.Instance());
+
+                SqlDataReader recReader = cmd.ExecuteReader();
+
+                if (!recReader.HasRows)
+                {
+                    recReader.Close();
+                    MessageBox.Show("没有该用户！");
+                    return;
+                }
+
+                recReader.Read();
+                int authory = Convert.ToInt32(recReader[11]);
+                recReader.Close();
+
+                SqlCommand cmdBookBorrowed = new SqlCommand("select * from borrowable_particular where particular_id = " + bookId, Connection.Instance());
+                SqlDataReader recBook = cmdBookBorrowed.ExecuteReader();
+
+                if (!recBook.HasRows)
+                {
+                    recBook.Close();
+                    MessageBox.Show("书籍已经被借");
+                    return;
+                }
+                recBook.Close();
+                SqlCommand cmdGroup = new SqlCommand("select * from [group] where id = @authory", Connection.Instance());
+                cmdGroup.Parameters.Add("@authory", authory);
+                SqlDataReader recGroup = cmdGroup.ExecuteReader();
+                recGroup.Read();
+                int maxBorrowTime = Convert.ToInt32(recGroup[2]);
+                recGroup.Close();
+                DateTime nowTime = System.DateTime.Now;
+                DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
+                SqlCommand cmdRental = new SqlCommand("insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)", Connection.Instance());
+
+                cmdRental.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)";
+                cmdRental.Parameters.Add("@nowTime", nowTime);
+
+                cmdRental.Parameters.Add("@oughtToReturn", SqlDbType.DateTime, 8, "due_time");
+                cmdRental.Parameters["@oughtToReturn"].Value = oughtToReturn;
+
+                cmdRental.Parameters.Add("@bookId", SqlDbType.Int, 4, "particular_book_id");
+                cmdRental.Parameters["@bookId"].Value = bookId;
+
+                cmdRental.Parameters.Add("@readerId", SqlDbType.Int, 4, "reader_id");
+                cmdRental.Parameters["@readerId"].Value = readerId;
+
+                cmdRental.ExecuteNonQuery();
+                UserRental.showRental(readerId, dgvReaderBorrow);
+                MessageBox.Show("借书成功！");
+
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
             }
 
-        }
-        private void button3_Click(object sender, EventArgs e) //这是借书的
-        {
-            
-            if ((Convert.ToString(txbReaderId.Text.Trim())) == "")
-                MessageBox.Show("请输入读者编号！");
-            else
-            {
-                int readerId = Convert.ToInt32(txbReaderId.Text);
-                int bookId = Convert.ToInt32(textboxBookId.Text);
-                
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("select * from  Reader where id = " + readerId, Connection.Instance());
-                   
-                    SqlDataReader recReader = cmd.ExecuteReader();
-
-                    if (!recReader.HasRows)
-                    {
-                        recReader.Close();
-                        MessageBox.Show("没有该用户！");
-                        return;
-                    }
-
-                    recReader.Read();
-                    int authory = Convert.ToInt32(recReader[10]);
-                    recReader.Close();
-
-                    SqlCommand cmdBookBorrowed = new SqlCommand("select * from borrowable_particular where particular_id = " + bookId, Connection.Instance());
-                    SqlDataReader recBook = cmdBookBorrowed.ExecuteReader();
-
-                    if (!recBook.HasRows)
-                    {
-                        recBook.Close();
-                        MessageBox.Show("书籍已经被借");
-                        return;
-                    }
-                    recBook.Close();
-                    new SqlCommand("select * from  group where id = " + authory, Connection.Instance());
-                    SqlDataReader recGroup = cmd.ExecuteReader();
-                    recGroup.Read();
-                    int maxBorrowTime = Convert.ToInt32(recGroup[2]);
-                    recGroup.Close();
-                    DateTime nowTime = System.DateTime.Now;
-                    DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
-                    SqlCommand cmdRental = new SqlCommand("insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)", Connection.Instance());
-
-                    cmdRental.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)";
-                    cmdRental.Parameters.Add("@nowTime", SqlDbType.DateTime, 8, "rent_time");
-                    cmdRental.Parameters["@nowTime"].Value = nowTime;
-
-                    cmdRental.Parameters.Add("@oughtToReturn", SqlDbType.DateTime, 8, "due_time");
-                    cmdRental.Parameters["@oughtToReturn"].Value = oughtToReturn;
-
-                    cmdRental.Parameters.Add("@bookId", SqlDbType.Int, 4, "particular_book_id");
-                    cmdRental.Parameters["@bookId"].Value = bookId;
-
-                    cmdRental.Parameters.Add("@readerId", SqlDbType.Int, 4, "reader_id");
-                    cmdRental.Parameters["@readerId"].Value = readerId;
-
-                    cmdRental.ExecuteNonQuery();
-                    MessageBox.Show("借书成功！");
-                    
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message);
-                }
-                
-            }
         }
 
         private void button2_Click(object sender, EventArgs e) //这是还书的
