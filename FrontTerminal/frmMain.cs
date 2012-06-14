@@ -273,6 +273,11 @@ namespace FrontTerminal
             }
 
         }
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            formRecordLost inputLostInfo = new formRecordLost();
+            inputLostInfo.Show();
+        }
 
     }
 }
