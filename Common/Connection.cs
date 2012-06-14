@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
-
+using System.Data.OleDb; 
 namespace Library
 {
     class Connection
     {
         private static SqlConnection connection = null;
+        private static OleDbConnection a = null;
 
         public static SqlConnection Instance()
         {

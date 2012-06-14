@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Library;
+using System.Data.OleDb; 
+
 
 namespace FrontTerminal
 {
@@ -26,7 +28,7 @@ namespace FrontTerminal
 
         private void btnSearchReader_Click(object sender, EventArgs e)
         {
-            if (txbReaderId.Text == "")
+            if (txbReaderId.Text.Trim() == "")
             {
                 MessageBox.Show("请输入读者编号");
             }
@@ -90,7 +92,7 @@ namespace FrontTerminal
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //这是搜索读者信息的
         {
             String readerName = Convert.ToString(txbReadName.Text);
             String readerGender = Convert.ToString(cbbReaderGender.Text);
@@ -149,8 +151,7 @@ namespace FrontTerminal
             {
                 int readerId = Convert.ToInt32(txbReaderId.Text);
                 int bookId = Convert.ToInt32(textboxBookId.Text);
-                String borrowTime = System.DateTime.Now.ToString();
-                String dueTime = System.DateTime.Now.AddDays(30).ToString();
+                
                 try
                 {
                     SqlCommand cmd = new SqlCommand("select * from  Reader where id = " + readerId, Connection.Instance());
@@ -214,7 +215,28 @@ namespace FrontTerminal
 
         private void button2_Click(object sender, EventArgs e) //这是还书的
         {
-            int bookId = Convert.ToInt32(textboxBookId.Text); //因为还书只需要书籍编号，所以我只获取了图书编号
+            if (textboxBookId.Text.ToString() == "")
+            {
+                MessageBox.Show("请输入还书编号");
+                return;
+            }//如果还书编号为空，弹出提示
+            else
+            {
+                int bookId = Convert.ToInt32(textboxBookId.Text); //因为还书只需要书籍编号，所以我只获取了图书编号
+                //先把rental表中该书的return time填上。
+                // SqlCommand cmdReturn = new SqlCommand("select * from rental where particular_book_id=" + bookId, Connection.Instance());
+
+                //
+                DateTime returnTime = System.DateTime.Now;
+                String update = "update rental set return_time='" + returnTime + "' where particular_book_id='" + bookId + "' and return_time is null";
+                SqlCommand cmdReturn = new SqlCommand(update, Connection.Instance());
+                SqlDataReader drReturn = cmdReturn.ExecuteReader();
+                drReturn.Close();
+                MessageBox.Show("还书成功，哈哈！");
+                //SqlDataReader drReturn = cmdReturn.ExecuteReader();
+
+                //zhuyi   drReturn close 
+            }
 
         }
 
