@@ -119,7 +119,7 @@
             this.ClientSize = new System.Drawing.Size(477, 313);
             this.Controls.Add(this.dataGridView1);
             this.Name = "frmBookStatus";
-            this.Text = "frmBookStatus";
+            this.Text = "书籍状态";
             this.Load += new System.EventHandler(this.frmBookStatus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).EndInit();
