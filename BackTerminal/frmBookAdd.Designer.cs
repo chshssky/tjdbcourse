@@ -172,6 +172,7 @@
             this.buttonOK.TabIndex = 9;
             this.buttonOK.Text = "确定(&O)";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // frmBookAdd
             // 
