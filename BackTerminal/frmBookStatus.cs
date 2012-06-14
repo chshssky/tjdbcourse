@@ -19,6 +19,8 @@ namespace BackTerminal
         {
             // TODO: 这行代码将数据加载到表“dataSet.library”中。您可以根据需要移动或删除它。
             this.libraryTableAdapter.Fill(this.dataSet.library);
+            // TODO: 这行代码将数据加载到表“dataSet.library”中。您可以根据需要移动或删除它。
+            this.libraryTableAdapter.Fill(this.dataSet.library);
             // TODO: This line of code loads data into the 'dataSet.book_library_damaged' table. You can move, or remove it, as needed.
             this.bookLibraryDamagedTableAdapter.Fill(this.dataSet.book_library_damaged);
         }

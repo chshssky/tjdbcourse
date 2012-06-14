@@ -104,5 +104,12 @@ namespace BackTerminal
             view.ClearSelection();
             view.Rows[e.RowIndex].Selected = true;
         }
+
+        private void toolStripMenuItemAddBook_Click(object sender, EventArgs e)
+        {
+            frmBookAdd form = new frmBookAdd();
+            form.setISBN((string)dgvBook.SelectedRows[0].Cells[0].Value);
+            form.ShowDialog();
+        }
     }
 }

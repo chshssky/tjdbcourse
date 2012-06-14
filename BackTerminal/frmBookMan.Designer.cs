@@ -53,7 +53,7 @@
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddBook = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemNewBook = new System.Windows.Forms.ToolStripMenuItem();
             this.sstMain = new System.Windows.Forms.StatusStrip();
@@ -254,7 +254,7 @@
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemStatus,
             this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
+            this.toolStripMenuItemAddBook,
             this.toolStripSeparator4,
             this.toolStripMenuItemNewBook});
             this.contextMenuStrip.Name = "contextMenuStrip";
@@ -273,11 +273,12 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem4.Text = "删除(&D)";
             // 
-            // toolStripMenuItem5
+            // toolStripMenuItemAddBook
             // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem5.Text = "增购(&A)...";
+            this.toolStripMenuItemAddBook.Name = "toolStripMenuItemAddBook";
+            this.toolStripMenuItemAddBook.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemAddBook.Text = "增购(&A)...";
+            this.toolStripMenuItemAddBook.Click += new System.EventHandler(this.toolStripMenuItemAddBook_Click);
             // 
             // toolStripSeparator4
             // 
@@ -527,7 +528,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewBook;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddBook;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
