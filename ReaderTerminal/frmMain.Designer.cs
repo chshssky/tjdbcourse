@@ -565,6 +565,7 @@
             this.dgvBorrowed.RowTemplate.Height = 23;
             this.dgvBorrowed.Size = new System.Drawing.Size(592, 316);
             this.dgvBorrowed.TabIndex = 0;
+            this.dgvBorrowed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBorrowed_CellContentClick);
             // 
             // bookisbnDataGridViewTextBoxColumn
             // 

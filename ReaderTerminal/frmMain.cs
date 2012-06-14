@@ -310,5 +310,10 @@ namespace ReaderTerminal
 
             this.borrowingTableAdapter.Fill(dataSet.borrowing);
         }
+
+        private void dgvBorrowed_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
