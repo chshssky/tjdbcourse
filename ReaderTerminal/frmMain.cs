@@ -349,5 +349,10 @@ namespace ReaderTerminal
 
             this.activeReserveTableAdapter.Fill(dataSet.active_reserve);
         }
+
+        private void dgvBorrowed_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
