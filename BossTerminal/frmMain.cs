@@ -36,14 +36,14 @@ namespace BossTerminal
             this.Close();
         }
 
-        private void 修改账号AToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuBossChangeName_Click(object sender, EventArgs e)
         {
             frmBossName fm = new frmBossName();
             fm.ShowDialog();
             fm.Close();
         }
 
-        private void 修改密码PToolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuBossChangePassword_Click(object sender, EventArgs e)
         {
             new frmPassword().ShowDialog();
         }
@@ -93,6 +93,26 @@ namespace BossTerminal
                 else
                     cell.Value = Library.Util.MD5((string)cell.Value);
             }
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            mnuToolRefresh_Click(sender, e);
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            mnuToolSave_Click(sender, e);
+        }
+
+        private void tsbChangeName_Click(object sender, EventArgs e)
+        {
+            mnuBossChangeName_Click(sender, e);
+        }
+
+        private void tsbChangePassword_Click(object sender, EventArgs e)
+        {
+            mnuBossChangePassword_Click(sender, e);
         }
     }
 }

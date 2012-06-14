@@ -32,15 +32,25 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.dgvBook = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.dataSet = new BackTerminal.DataSet();
             this.readablebookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new BackTerminal.DataSet();
             this.readablebookTableAdapter = new BackTerminal.DataSetTableAdapters.readable_bookTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.mnsMain = new System.Windows.Forms.MenuStrip();
+            this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.图书BToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBookStatus = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBookDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBookAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuBookBuy = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuToolExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.分类CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCategoryManage = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvBook = new System.Windows.Forms.DataGridView();
             this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,11 +58,12 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.panel1.SuspendLayout();
+            this.mnsMain.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -61,7 +72,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(462, 21);
             this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label1
             // 
@@ -80,7 +90,136 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "搜索";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // readablebookBindingSource
+            // 
+            this.readablebookBindingSource.DataMember = "readable_book";
+            this.readablebookBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // readablebookTableAdapter
+            // 
+            this.readablebookTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(617, 32);
+            this.panel1.TabIndex = 11;
+            // 
+            // mnsMain
+            // 
+            this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.工具TToolStripMenuItem,
+            this.图书BToolStripMenuItem,
+            this.分类CToolStripMenuItem,
+            this.帮助HToolStripMenuItem});
+            this.mnsMain.Location = new System.Drawing.Point(0, 0);
+            this.mnsMain.Name = "mnsMain";
+            this.mnsMain.Size = new System.Drawing.Size(617, 25);
+            this.mnsMain.TabIndex = 12;
+            this.mnsMain.Text = "menuStrip1";
+            // 
+            // 工具TToolStripMenuItem
+            // 
+            this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuToolExit});
+            this.工具TToolStripMenuItem.Name = "工具TToolStripMenuItem";
+            this.工具TToolStripMenuItem.Size = new System.Drawing.Size(59, 21);
+            this.工具TToolStripMenuItem.Text = "工具(&T)";
+            // 
+            // 图书BToolStripMenuItem
+            // 
+            this.图书BToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuBookStatus,
+            this.mnuBookAdd,
+            this.mnuBookDelete,
+            this.toolStripMenuItem1,
+            this.mnuBookBuy});
+            this.图书BToolStripMenuItem.Name = "图书BToolStripMenuItem";
+            this.图书BToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.图书BToolStripMenuItem.Text = "图书(&B)";
+            // 
+            // mnuBookStatus
+            // 
+            this.mnuBookStatus.Name = "mnuBookStatus";
+            this.mnuBookStatus.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookStatus.Text = "状态(&S)...";
+            // 
+            // mnuBookDelete
+            // 
+            this.mnuBookDelete.Name = "mnuBookDelete";
+            this.mnuBookDelete.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookDelete.Text = "删除(&D)";
+            // 
+            // mnuBookAdd
+            // 
+            this.mnuBookAdd.Name = "mnuBookAdd";
+            this.mnuBookAdd.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookAdd.Text = "增购(&A)...";
+            // 
+            // mnuBookBuy
+            // 
+            this.mnuBookBuy.Name = "mnuBookBuy";
+            this.mnuBookBuy.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookBuy.Text = "购买新书(&N)...";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            // 
+            // mnuToolExit
+            // 
+            this.mnuToolExit.Name = "mnuToolExit";
+            this.mnuToolExit.Size = new System.Drawing.Size(152, 22);
+            this.mnuToolExit.Text = "退出(&X)";
+            // 
+            // 帮助HToolStripMenuItem
+            // 
+            this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuHelpAbout});
+            this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
+            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
+            this.帮助HToolStripMenuItem.Text = "帮助(&H)";
+            // 
+            // mnuHelpAbout
+            // 
+            this.mnuHelpAbout.Name = "mnuHelpAbout";
+            this.mnuHelpAbout.Size = new System.Drawing.Size(152, 22);
+            this.mnuHelpAbout.Text = "关于(&A)";
+            // 
+            // 分类CToolStripMenuItem
+            // 
+            this.分类CToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuCategoryManage});
+            this.分类CToolStripMenuItem.Name = "分类CToolStripMenuItem";
+            this.分类CToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.分类CToolStripMenuItem.Text = "分类(&C)";
+            // 
+            // mnuCategoryManage
+            // 
+            this.mnuCategoryManage.Name = "mnuCategoryManage";
+            this.mnuCategoryManage.Size = new System.Drawing.Size(152, 22);
+            this.mnuCategoryManage.Text = "管理(&M)...";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvBook);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 57);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(617, 400);
+            this.panel2.TabIndex = 13;
             // 
             // dgvBook
             // 
@@ -95,70 +234,12 @@
             this.categoryDataGridViewTextBoxColumn,
             this.countDataGridViewTextBoxColumn});
             this.dgvBook.DataSource = this.readablebookBindingSource;
-            this.dgvBook.Location = new System.Drawing.Point(28, 79);
+            this.dgvBook.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBook.Location = new System.Drawing.Point(0, 0);
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.RowTemplate.Height = 23;
-            this.dgvBook.Size = new System.Drawing.Size(417, 326);
-            this.dgvBook.TabIndex = 5;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(467, 79);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "修改选定图书状态";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(467, 120);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "删除选定图书";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(467, 159);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 23);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "增购选定图书";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(467, 235);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(122, 20);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "图书管理";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(467, 196);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(122, 23);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "购买新书";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // readablebookBindingSource
-            // 
-            this.readablebookBindingSource.DataMember = "readable_book";
-            this.readablebookBindingSource.DataSource = this.dataSet;
-            // 
-            // readablebookTableAdapter
-            // 
-            this.readablebookTableAdapter.ClearBeforeFill = true;
+            this.dgvBook.Size = new System.Drawing.Size(617, 400);
+            this.dgvBook.TabIndex = 6;
             // 
             // isbnDataGridViewTextBoxColumn
             // 
@@ -202,38 +283,28 @@
             this.countDataGridViewTextBoxColumn.HeaderText = "数量";
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(617, 32);
-            this.panel1.TabIndex = 11;
-            // 
             // frmBookMan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 457);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.dgvBook);
+            this.Controls.Add(this.mnsMain);
+            this.MainMenuStrip = this.mnsMain;
             this.Name = "frmBookMan";
             this.Text = "书籍管理";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            this.Load += new System.EventHandler(this.frmBookMan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.mnsMain.ResumeLayout(false);
+            this.mnsMain.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -242,15 +313,25 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgvBook;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
         private DataSet dataSet;
         private System.Windows.Forms.BindingSource readablebookBindingSource;
         private DataSetTableAdapters.readable_bookTableAdapter readablebookTableAdapter;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.MenuStrip mnsMain;
+        private System.Windows.Forms.ToolStripMenuItem 工具TToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuToolExit;
+        private System.Windows.Forms.ToolStripMenuItem 图书BToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuBookStatus;
+        private System.Windows.Forms.ToolStripMenuItem mnuBookAdd;
+        private System.Windows.Forms.ToolStripMenuItem mnuBookDelete;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem mnuBookBuy;
+        private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
+        private System.Windows.Forms.ToolStripMenuItem 分类CToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mnuCategoryManage;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvBook;
         private System.Windows.Forms.DataGridViewTextBoxColumn isbnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
@@ -258,7 +339,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Panel panel1;
 
     }
 }
