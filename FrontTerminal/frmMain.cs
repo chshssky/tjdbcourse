@@ -20,9 +20,8 @@ namespace FrontTerminal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'frontDataSet.reader' table. You can move, or remove it, as needed.
-            this.readerTableAdapter.Fill(this.frontDataSet.reader);
-
+            // TODO: 这行代码将数据加载到表“frDataSet.overdue_reader”中。您可以根据需要移动或删除它。
+            this.overdue_readerTableAdapter.Fill(this.frDataSet.overdue_reader);
         }
 
         private void btnSearchReader_Click(object sender, EventArgs e)
@@ -89,8 +88,13 @@ namespace FrontTerminal
 
         private void dgvReaderBorrow_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+        private void selectionChange(object sender, EventArgs e)
+        {
 
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -142,5 +146,73 @@ namespace FrontTerminal
             }
 
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = Connection.Instance();
+            SqlCommand cmd = new SqlCommand();
+            int readerId = Convert.ToInt32(txbReaderId.Text);
+            int bookId = Convert.ToInt32(textboxBookId.Text);
+            String borrowTime = System.DateTime.Now.ToString();
+            String dueTime = System.DateTime.Now.AddDays(30).ToString();
+            try
+            {
+                cmd.Connection = con;
+                cmd.CommandText = "select * from  Reader where id = " + readerId;
+                SqlDataReader record = cmd.ExecuteReader();
+                if (!record.HasRows)
+                    MessageBox.Show("没有该用户！");
+                else
+                {
+                    record.Read();
+                    int authory = Convert.ToInt32(record[10]);
+                    record.Close();
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.Connection = con;
+                    cmd2.CommandText = "select * from  group where id = " + authory;
+                    SqlDataReader record2 = cmd.ExecuteReader();
+                    record2.Read();
+                    int maxBorrowTime = Convert.ToInt32(record2[2]);
+                    record2.Close();
+                    DateTime nowTime = System.DateTime.Now;
+                    DateTime oughtToReturn = System.DateTime.Now.AddDays(maxBorrowTime);
+                    SqlCommand cmd3 = new SqlCommand();
+                    cmd3.Connection = con;
+                    cmd3.CommandText = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(@nowTime,@oughtToReturn,@bookId,@readerId)";
+                    cmd3.Parameters.Add("@nowTime", SqlDbType.DateTime,8,"rent_time");
+                    cmd3.Parameters["@nowTime"].Value = nowTime;
+
+                    cmd3.Parameters.Add("@oughtToReturn", SqlDbType.DateTime, 8, "due_time");
+                    cmd3.Parameters["@oughtToReturn"].Value = oughtToReturn;
+
+                    cmd3.Parameters.Add("@bookId", SqlDbType.Int, 4, "particular_book_id");
+                    cmd3.Parameters["@bookId"].Value = bookId;
+
+                    cmd3.Parameters.Add("@readerId", SqlDbType.Int, 4, "reader_id");
+                    cmd3.Parameters["@readerId"].Value = readerId;
+
+                    cmd3.ExecuteNonQuery();
+                    //cmd3.Connection = con;
+                    //String InsertSql = "insert into rental(rent_time,due_time,particular_book_id,reader_id) values(" + nowTime.ToString("yyyy-MM-dd HH:mm:ss") + "," + oughtToReturn.ToString("yyyy-MM-dd HH:mm:ss") + "," + bookId + "," + readerId + ")";
+                    //SqlCommand com3 = new SqlCommand(InsertSql, con);
+                    //com3.ExecuteNonQuery();
+
+                    con.Close();
+
+                    // cmd3.CommandText = ;
+                    // cmd3.ExecuteNonQuery();//
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+            con.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

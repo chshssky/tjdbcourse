@@ -29,7 +29,7 @@ namespace FrontTerminal
 
             string sql = "select permission " +
                 "from manager " +
-                "where [name] = @strName and " +
+                "where name = @strName and " +
                 "   password = @strPasw";
 
             SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
