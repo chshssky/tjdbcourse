@@ -17,8 +17,8 @@ namespace BackTerminal
 
         private void frmBookStatus_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet.particular_book' table. You can move, or remove it, as needed.
-            this.particular_bookTableAdapter.Fill(this.dataSet.particular_book);
+            // TODO: This line of code loads data into the 'dataSet.book_library_damaged' table. You can move, or remove it, as needed.
+            this.book_library_damagedTableAdapter.Fill(this.dataSet.book_library_damaged);
         }
 
         public void Reload(string ISBN)
@@ -26,13 +26,13 @@ namespace BackTerminal
             // testing...
             this.dataSet.particular_book.Clear();
 
-            string sql = "select * from particular_book where book_isbn=@ISBN";
+            string sql = "select * from book_library_damaged where isbn=@ISBN";
             //sql = "select * from particular_book";
-            this.particular_bookTableAdapter.Fill(this.dataSet.particular_book);
-            this.particular_bookTableAdapter.Adapter.SelectCommand.CommandText = sql;
-            this.particular_bookTableAdapter.Adapter.SelectCommand.Parameters.Clear();
-            this.particular_bookTableAdapter.Adapter.SelectCommand.Parameters.AddWithValue("@ISBN", ISBN);
-            this.particular_bookTableAdapter.Adapter.Fill(this.dataSet.particular_book);
+            this.book_library_damagedTableAdapter.Fill(this.dataSet.book_library_damaged);
+            this.book_library_damagedTableAdapter.Adapter.SelectCommand.CommandText = sql;
+            this.book_library_damagedTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            this.book_library_damagedTableAdapter.Adapter.SelectCommand.Parameters.AddWithValue("@ISBN", ISBN);
+            this.book_library_damagedTableAdapter.Adapter.Fill(this.dataSet.book_library_damaged);
         }
     }
 }

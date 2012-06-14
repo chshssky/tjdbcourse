@@ -90,5 +90,11 @@ namespace BackTerminal
             form.Reload((string)dgvBook.SelectedRows[0].Cells[0].Value);
             form.ShowDialog();
         }
+
+        private void toolStripMenuItemNewBook_Click(object sender, EventArgs e)
+        {
+            frmBookNew form = new frmBookNew();
+            form.ShowDialog();
+        }
     }
 }
