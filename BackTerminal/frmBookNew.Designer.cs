@@ -32,7 +32,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxLibrary = new System.Windows.Forms.ComboBox();
             this.tvCategory = new System.Windows.Forms.TreeView();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
+            this.comboBoxLibrary = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -62,7 +62,7 @@
             this.buttonOK.Location = new System.Drawing.Point(14, 4);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(75, 28);
-            this.buttonOK.TabIndex = 21;
+            this.buttonOK.TabIndex = 9;
             this.buttonOK.Text = "确定(&O)";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
@@ -83,7 +83,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.comboBoxLibrary, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.tvCategory, 1, 7);
             this.tableLayoutPanel1.Controls.Add(this.textBoxTitle, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 6);
@@ -98,6 +97,7 @@
             this.tableLayoutPanel1.Controls.Add(this.numericUpDown, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBoxDescription, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.comboBoxLibrary, 1, 6);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -123,22 +123,13 @@
             this.label1.TabIndex = 11;
             this.label1.Text = "书名";
             // 
-            // comboBoxLibrary
-            // 
-            this.comboBoxLibrary.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxLibrary.FormattingEnabled = true;
-            this.comboBoxLibrary.Location = new System.Drawing.Point(67, 153);
-            this.comboBoxLibrary.Name = "comboBoxLibrary";
-            this.comboBoxLibrary.Size = new System.Drawing.Size(497, 20);
-            this.comboBoxLibrary.TabIndex = 25;
-            // 
             // tvCategory
             // 
             this.tvCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvCategory.Location = new System.Drawing.Point(67, 178);
             this.tvCategory.Name = "tvCategory";
             this.tvCategory.Size = new System.Drawing.Size(497, 244);
-            this.tvCategory.TabIndex = 17;
+            this.tvCategory.TabIndex = 8;
             // 
             // textBoxTitle
             // 
@@ -146,7 +137,7 @@
             this.textBoxTitle.Location = new System.Drawing.Point(67, 3);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(497, 21);
-            this.textBoxTitle.TabIndex = 12;
+            this.textBoxTitle.TabIndex = 1;
             // 
             // label6
             // 
@@ -184,7 +175,7 @@
             this.textBoxISBN.Location = new System.Drawing.Point(67, 78);
             this.textBoxISBN.Name = "textBoxISBN";
             this.textBoxISBN.Size = new System.Drawing.Size(497, 21);
-            this.textBoxISBN.TabIndex = 16;
+            this.textBoxISBN.TabIndex = 4;
             // 
             // label3
             // 
@@ -202,7 +193,7 @@
             this.textBoxPublisher.Location = new System.Drawing.Point(67, 53);
             this.textBoxPublisher.Name = "textBoxPublisher";
             this.textBoxPublisher.Size = new System.Drawing.Size(497, 21);
-            this.textBoxPublisher.TabIndex = 14;
+            this.textBoxPublisher.TabIndex = 3;
             // 
             // label5
             // 
@@ -230,15 +221,25 @@
             this.textBoxAuthor.Location = new System.Drawing.Point(67, 28);
             this.textBoxAuthor.Name = "textBoxAuthor";
             this.textBoxAuthor.Size = new System.Drawing.Size(497, 21);
-            this.textBoxAuthor.TabIndex = 27;
+            this.textBoxAuthor.TabIndex = 2;
             // 
             // numericUpDown
             // 
             this.numericUpDown.Dock = System.Windows.Forms.DockStyle.Fill;
             this.numericUpDown.Location = new System.Drawing.Point(67, 128);
+            this.numericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown.Name = "numericUpDown";
             this.numericUpDown.Size = new System.Drawing.Size(497, 21);
-            this.numericUpDown.TabIndex = 28;
+            this.numericUpDown.TabIndex = 6;
+            this.numericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label8
             // 
@@ -256,7 +257,17 @@
             this.textBoxDescription.Location = new System.Drawing.Point(67, 103);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(497, 21);
-            this.textBoxDescription.TabIndex = 30;
+            this.textBoxDescription.TabIndex = 5;
+            // 
+            // comboBoxLibrary
+            // 
+            this.comboBoxLibrary.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxLibrary.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLibrary.FormattingEnabled = true;
+            this.comboBoxLibrary.Location = new System.Drawing.Point(67, 153);
+            this.comboBoxLibrary.Name = "comboBoxLibrary";
+            this.comboBoxLibrary.Size = new System.Drawing.Size(497, 20);
+            this.comboBoxLibrary.TabIndex = 7;
             // 
             // panel2
             // 
@@ -283,7 +294,7 @@
             this.button1.Location = new System.Drawing.Point(104, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 22;
+            this.button1.TabIndex = 10;
             this.button1.Text = "取消(&C)";
             this.button1.UseVisualStyleBackColor = true;
             // 
@@ -314,7 +325,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxLibrary;
         private System.Windows.Forms.TreeView tvCategory;
         private System.Windows.Forms.TextBox textBoxTitle;
         private System.Windows.Forms.Label label6;
@@ -332,5 +342,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.ComboBox comboBoxLibrary;
     }
 }

@@ -88,6 +88,19 @@ namespace BackTerminal
             return true;
         }
 
+        private void ErrorMessage(string str)
+        {
+            MessageBox.Show(str, "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+        }
+
+        // 检查字符串是否小于 length，并且长度大于0
+        private bool CheckString(string str, int length = int.MaxValue)
+        {
+            if (string.IsNullOrEmpty(str)) return false;
+            if (str.Length > length) return false;
+            return true;
+        }
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             if (!TreeViewSelected()) return;
@@ -102,11 +115,37 @@ namespace BackTerminal
             string libraryName = (string)comboBoxLibrary.SelectedItem;
             string description = textBoxDescription.Text;
 
-            // 获取 category id
+            // 检查各控件的值
+            if (CheckString(title, 20) && CheckString(author, 50) && CheckString(publisher, 50)
+                && (CheckString(description, 100) || description.Length == 0)) ;
+            else
+            {
+                ErrorMessage("您输入的字符车过长或为空");
+                return;
+            }
+            
+
+            // 检查 dbo.book 中是否存在这个 ISBN
             SqlConnection connection = Library.Connection.Instance();
-            string queryString = "SELECT id FROM dbo.category where title='" + categoryTitle + "';";
+            string queryString = "SELECT COUNT(*) FROM dbo.book where isbn='" + ISBN + "';";
             SqlCommand command = new SqlCommand(queryString, connection);
             SqlDataReader reader = command.ExecuteReader();
+            int count = 0;
+            while (reader.Read())
+            {
+                count = int.Parse(reader[0].ToString());
+            }
+            reader.Close();
+            if (count > 0)
+            {
+                ErrorMessage("ISBN已存在");
+                return;
+            }
+
+            // 获取 category id            
+            queryString = "SELECT id FROM dbo.category where title='" + categoryTitle + "';";
+            command = new SqlCommand(queryString, connection);
+            reader = command.ExecuteReader();
             int categoryId = 1;
             while (reader.Read())
             {
@@ -148,6 +187,7 @@ namespace BackTerminal
                 command.Parameters.AddWithValue("@library_id", libraryId);
                 command.ExecuteNonQuery();
             }
+            this.Dispose();
         }
     }
 }
