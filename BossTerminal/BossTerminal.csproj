@@ -55,12 +55,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmAddLib.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddLib.Designer.cs">
-      <DependentUpon>frmAddLib.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBossName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +81,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmAddLib.resx">
-      <DependentUpon>frmAddLib.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBossName.resx">
       <DependentUpon>frmBossName.cs</DependentUpon>
     </EmbeddedResource>

@@ -152,14 +152,14 @@
             // mnuBossChangeName
             // 
             this.mnuBossChangeName.Name = "mnuBossChangeName";
-            this.mnuBossChangeName.Size = new System.Drawing.Size(152, 22);
+            this.mnuBossChangeName.Size = new System.Drawing.Size(142, 22);
             this.mnuBossChangeName.Text = "修改名称(&N)";
             this.mnuBossChangeName.Click += new System.EventHandler(this.mnuBossChangeName_Click);
             // 
             // mnuBossChangePassword
             // 
             this.mnuBossChangePassword.Name = "mnuBossChangePassword";
-            this.mnuBossChangePassword.Size = new System.Drawing.Size(152, 22);
+            this.mnuBossChangePassword.Size = new System.Drawing.Size(142, 22);
             this.mnuBossChangePassword.Text = "修改密码(&P)";
             this.mnuBossChangePassword.Click += new System.EventHandler(this.mnuBossChangePassword_Click);
             // 
@@ -226,7 +226,7 @@
             this.tpgLibrary.Margin = new System.Windows.Forms.Padding(0);
             this.tpgLibrary.Name = "tpgLibrary";
             this.tpgLibrary.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgLibrary.Size = new System.Drawing.Size(672, 356);
+            this.tpgLibrary.Size = new System.Drawing.Size(672, 334);
             this.tpgLibrary.TabIndex = 7;
             this.tpgLibrary.Text = "图书馆管理";
             this.tpgLibrary.UseVisualStyleBackColor = true;
@@ -408,21 +408,19 @@
             // 
             // tsbRefresh
             // 
-            this.tsbRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbRefresh.Image = ((System.Drawing.Image)(resources.GetObject("tsbRefresh.Image")));
             this.tsbRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbRefresh.Name = "tsbRefresh";
-            this.tsbRefresh.Size = new System.Drawing.Size(23, 22);
+            this.tsbRefresh.Size = new System.Drawing.Size(52, 22);
             this.tsbRefresh.Text = "刷新";
             this.tsbRefresh.Click += new System.EventHandler(this.tsbRefresh_Click);
             // 
             // tsbSave
             // 
-            this.tsbSave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbSave.Image = ((System.Drawing.Image)(resources.GetObject("tsbSave.Image")));
             this.tsbSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbSave.Name = "tsbSave";
-            this.tsbSave.Size = new System.Drawing.Size(23, 22);
+            this.tsbSave.Size = new System.Drawing.Size(52, 22);
             this.tsbSave.Text = "保存";
             this.tsbSave.Click += new System.EventHandler(this.tsbSave_Click);
             // 
@@ -433,21 +431,19 @@
             // 
             // tsbChangeName
             // 
-            this.tsbChangeName.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbChangeName.Image = ((System.Drawing.Image)(resources.GetObject("tsbChangeName.Image")));
             this.tsbChangeName.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbChangeName.Name = "tsbChangeName";
-            this.tsbChangeName.Size = new System.Drawing.Size(23, 22);
+            this.tsbChangeName.Size = new System.Drawing.Size(76, 22);
             this.tsbChangeName.Text = "更改名称";
             this.tsbChangeName.Click += new System.EventHandler(this.tsbChangeName_Click);
             // 
             // tsbChangePassword
             // 
-            this.tsbChangePassword.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbChangePassword.Image = ((System.Drawing.Image)(resources.GetObject("tsbChangePassword.Image")));
             this.tsbChangePassword.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbChangePassword.Name = "tsbChangePassword";
-            this.tsbChangePassword.Size = new System.Drawing.Size(23, 22);
+            this.tsbChangePassword.Size = new System.Drawing.Size(76, 22);
             this.tsbChangePassword.Text = "更改密码";
             this.tsbChangePassword.Click += new System.EventHandler(this.tsbChangePassword_Click);
             // 

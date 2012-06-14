@@ -273,7 +273,6 @@
             this.tspMain.Name = "tspMain";
             this.tspMain.Size = new System.Drawing.Size(617, 25);
             this.tspMain.TabIndex = 15;
-            this.tspMain.Text = "toolStrip1";
             // 
             // tsbStatus
             // 
