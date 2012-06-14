@@ -77,6 +77,7 @@
             this.btnYes.TabIndex = 4;
             this.btnYes.Text = "确认";
             this.btnYes.UseVisualStyleBackColor = true;
+            this.btnYes.Click += new System.EventHandler(this.btnYes_Click);
             // 
             // btnNO
             // 
@@ -86,6 +87,7 @@
             this.btnNO.TabIndex = 5;
             this.btnNO.Text = "重置";
             this.btnNO.UseVisualStyleBackColor = true;
+            this.btnNO.Click += new System.EventHandler(this.btnNO_Click);
             // 
             // formRecordLost
             // 
