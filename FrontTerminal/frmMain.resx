@@ -135,71 +135,88 @@
   <metadata name="ReadId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="RentId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>135, 14</value>
   </metadata>
-  <metadata name="RentTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DueTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ReturnTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="BookId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ReadId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="tolMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 131</value>
   </metadata>
   <metadata name="readerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>341, 14</value>
   </metadata>
+  <metadata name="readerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>341, 14</value>
+  </metadata>
+  <metadata name="dataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>245, 14</value>
+  </metadata>
+  <metadata name="dataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>245, 14</value>
+  </metadata>
+  <metadata name="tolMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 131</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="tsbRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHySURBVDhPpZLLaxNRFIfnPxIXLtyIK0EXLsWNLlq6ERHM
+        ooJSRKh1UWjFR8SKFlNq0aAWqy21WB9ZGIT6qJoGmyZtnpOHbTHJZGYyM5/3zhjSSVBEL/y4DDPfd+45
+        d5ThByU6M3SvxPm7RfpvqZy8VqBnJM/RSzkOX8hy4FyWff0ZN3sDaRQJh97gZvyVw9gLm+C8xeVnTYan
+        TQbDBgNTOmdCGqdv1zlxs07f9aqb3X1LnmBnBieLnB0vcuqGV/nIUI5DAxn2/6ooq7ayqyeKMvEkyt8u
+        xwHLdjCaDg3DZs/BXpQ7jyJ/5I9fUdz3jqBNGxfWBDz7+pMnGLu/2CUo1D8TKz/mbWYEKZBpNkE3QNNt
+        qprVFnS2IOEW1Np7g56kJgRVzWarukPQ2YL8UFaXq1Bty2oN2KqJCLiybf6+hblkwIWlyDS9XcLhlQCV
+        Hwi4ibpptAXByeddM2gdPVn56sKx4hdXpG6C+t0kWzYIz3/0hng1NOcTdPbfel5MTJMuQbZksKHqTDz9
+        4BeIK8ayxFVZ3rGPXVSYXR1lJj7KUj7mwskyrBd0EvmGXyDv2JJ3LHrWdDlpT1LaFoMUx84IMFWEbwVY
+        y+nE05pfIP+ueGKD5ZV13i2niLxPsRBdYyaS4OHLVaYWuuNrQQ7jX6P87/oJ04P0Pf/pEDQAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="tsbSave.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGqSURBVDhPtZPbK4NxGMf9K279BcicNjYMr8Ocx4ysZgov
+        JSvKbCWHlVFGsi1yPoRtZBO1kkZO74XjbpDiZkkhF19+b969NBPFr57L5/N5Tr+wsP94Y6MXsFpPMWg+
+        Rp+JQVfnPnRtO9A2b4GmPdCoN1BV6UZIN0ledwOm3id8fPcPzxge8aG+3oLCgoVgwE/NZYqJrwE/NdfU
+        epAnm+Ir+K1ZWeVCdpaNB3xnVlRsIyGhlS2ZM+fLl5EuNfOAobdpr668wKC/C8yMDMx37QdVvAl56TgL
+        4MwZubOQiI08oK+XweLiIxroExbAJl/54WVuEJVpDzKL0sYhTNTzALLnqWk/6MZDkJKpok1EviWGCycR
+        IZkJMgtEVsQKtDygXbcDq+0WA+ZLdBvP0KZn0KT1QlPngVLlAtczZ46OagCJwCGRCyPJPcZzxKcrApGc
+        UwkSXM9BZo5AzrPn3UwAJRVqjM05sLV3AIlMhZBmDlBdvQGd4QjSsjXEiLPR1GLAHnOGeYcTgsQUhDRz
+        AKd9F8ryJXZVMtkkKMoCaWo/kkQdiItrYfv91PNf/uBXgiTTXTinxwQAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="overduereaderBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 53</value>
   </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 14</value>
-  </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>135, 14</value>
+  <metadata name="overduereaderBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 53</value>
   </metadata>
   <metadata name="damagedbookBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>465, 53</value>
+  </metadata>
+  <metadata name="damagedbookBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>465, 53</value>
+  </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>135, 14</value>
+  </metadata>
+  <metadata name="borrowingBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>240, 92</value>
+  </metadata>
+  <metadata name="borrowingBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>240, 92</value>
   </metadata>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="dataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>245, 14</value>
-  </metadata>
-  <metadata name="readerBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>341, 14</value>
-  </metadata>
-  <metadata name="dataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>245, 14</value>
-  </metadata>
   <metadata name="readerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>517, 14</value>
-  </metadata>
-  <metadata name="overduereaderBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 53</value>
   </metadata>
   <metadata name="overdue_readerTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>241, 53</value>
   </metadata>
-  <metadata name="damagedbookBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>465, 53</value>
-  </metadata>
   <metadata name="damaged_bookTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 92</value>
-  </metadata>
-  <metadata name="borrowingBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>240, 92</value>
-  </metadata>
-  <metadata name="borrowingBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>240, 92</value>
   </metadata>
   <metadata name="borrowingTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>439, 92</value>

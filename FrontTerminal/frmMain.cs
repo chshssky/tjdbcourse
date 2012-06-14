@@ -87,7 +87,6 @@ namespace FrontTerminal
         }
         private void button3_Click(object sender, EventArgs e) //这是借书的
         {
-
             if ((Convert.ToString(txbReaderId.Text.Trim())) == "")
             {
                 MessageBox.Show("请输入读者编号！");
@@ -159,7 +158,6 @@ namespace FrontTerminal
             {
                 MessageBox.Show(err.Message);
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e) //这是还书的
@@ -200,7 +198,7 @@ namespace FrontTerminal
                 if (!drFindReserve.HasRows)
                 {
                     drFindReserve.Close();
-                    ifOrder = "no one has reserved this book";
+                    ifOrder = "没有人预约了这本书";
                 }
                 else
                 {
@@ -227,12 +225,54 @@ namespace FrontTerminal
                     UserRental.showRental(Convert.ToInt32(txbReaderId.Text), dgvReaderBorrow);
                 MessageBox.Show("还书成功！");
             }
-
         }
         private void btnRecord_Click(object sender, EventArgs e)
         {
             formRecordLost inputLostInfo = new formRecordLost();
             inputLostInfo.Show();
+            this.damaged_bookTableAdapter.Fill(this.dataSet.damaged_book);
+        }
+
+        private void tsbRefresh_Click(object sender, EventArgs e)
+        {
+            this.readerTableAdapter.Fill(this.dataSet.reader);
+        }
+
+        private void tsbSave_Click(object sender, EventArgs e)
+        {
+            new SqlCommandBuilder(this.readerTableAdapter.Adapter);
+            this.readerTableAdapter.Update(this.dataSet);
+        }
+        private string lastPassword = "";
+        private void dbgReaderinfo_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            DataGridViewRow row = view.Rows[e.RowIndex];
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("password"))
+            {
+                if (cell.Value is string)
+                    lastPassword = (string)cell.Value;
+                cell.Value = "";
+            }
+            else
+                Library.Util.TrimGridCell((DataGridView)sender, e.RowIndex, e.ColumnIndex);
+        }
+
+        private void dbgReaderinfo_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView view = (DataGridView)sender;
+            DataGridViewRow row = view.Rows[e.RowIndex];
+            DataGridViewColumn column = view.Columns[e.ColumnIndex];
+            DataGridViewCell cell = row.Cells[e.ColumnIndex];
+            if (column.DataPropertyName.Equals("password"))
+            {
+                if (((string)cell.Value).Length == 0)
+                    cell.Value = lastPassword;
+                else
+                    cell.Value = Library.Util.MD5((string)cell.Value);
+            }
         }
 
     }
