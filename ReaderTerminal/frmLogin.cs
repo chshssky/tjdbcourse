@@ -22,26 +22,31 @@ namespace ReaderTerminal
         {
             string strName = txtName.Text;
             string strPasw = txtPassword.Text;
+            string strPwMd5 = Library.Util.MD5(strPasw);
+
             string sql =
                 "select id " +
                 "from reader " +
                 "where name = @strName and password = @strPasw";
             SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
             cmd.Parameters.AddWithValue("@strName", strName);
-            cmd.Parameters.AddWithValue("@strPasw", strPasw);
+            cmd.Parameters.AddWithValue("@strPasw", strPwMd5);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.Read())
             {
                 readerId = reader.GetInt32(0);
                 reader.Close();
                 this.Hide();
+                this.txtName.Text = "";
+                this.txtPassword.Text = "";
                 new frmMain().ShowDialog();
                 this.Show();
             }
             else
             {
                 reader.Close();
-                MessageBox.Show("你的账号或密码错误。");
+                MessageBox.Show("您的账号或密码错误。", "无法登录",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

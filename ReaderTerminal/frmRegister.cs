@@ -29,6 +29,7 @@ namespace ReaderTerminal
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            string pwmd5 = Library.Util.MD5(password);
             string realName = txtRealName.Text;
             Boolean? gender = null;
             if (cmbGender.SelectedIndex == 0)
@@ -49,7 +50,7 @@ namespace ReaderTerminal
 
             SqlCommand cmd = new SqlCommand(sql, Library.Connection.Instance());
             cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@password", password);
+            cmd.Parameters.AddWithValue("@password", pwmd5);
             cmd.Parameters.AddWithValue("@gender", gender);
             cmd.Parameters.AddWithValue("@real_name", realName);
             cmd.Parameters.AddWithValue("@credential_type", credType);
