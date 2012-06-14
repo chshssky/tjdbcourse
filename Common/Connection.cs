@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
-
 namespace Library
 {
     class Connection
     {
         private static SqlConnection connection = null;
-
         public static SqlConnection Instance()
         {
             if (connection == null)

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlWrapper = new System.Windows.Forms.Panel();
             this.tbcMain = new System.Windows.Forms.TabControl();
             this.tbpRental = new System.Windows.Forms.TabPage();
@@ -43,6 +44,10 @@
             this.ReadId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlReaderInfo = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textboxBookId = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnSearchReader = new System.Windows.Forms.Button();
             this.txbGender = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -90,10 +95,8 @@
             this.frontDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.frontDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.overdue_readerTableAdapter = new FrontTerminal.FrDataSetTableAdapters.overdue_readerTableAdapter();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textboxBookId = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.pnlWrapper.SuspendLayout();
             this.tbcMain.SuspendLayout();
             this.tbpRental.SuspendLayout();
@@ -119,6 +122,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.frontDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frontDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.frontDataSetBindingSource1)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlWrapper
@@ -255,6 +259,42 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "读者基本信息";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(449, 58);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "借书";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(333, 58);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "还书";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textboxBookId
+            // 
+            this.textboxBookId.Location = new System.Drawing.Point(68, 58);
+            this.textboxBookId.Name = "textboxBookId";
+            this.textboxBookId.Size = new System.Drawing.Size(100, 21);
+            this.textboxBookId.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(8, 58);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "图书编号";
             // 
             // btnSearchReader
             // 
@@ -572,6 +612,7 @@
             // 
             // tbpLost
             // 
+            this.tbpLost.Controls.Add(this.toolStrip1);
             this.tbpLost.Controls.Add(this.dataGridView4);
             this.tbpLost.Location = new System.Drawing.Point(4, 22);
             this.tbpLost.Name = "tbpLost";
@@ -633,41 +674,24 @@
             // 
             this.overdue_readerTableAdapter.ClearBeforeFill = true;
             // 
-            // label6
+            // toolStrip1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "图书编号";
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(657, 25);
+            this.toolStrip1.TabIndex = 3;
+            this.toolStrip1.Text = "toolStrip1";
             // 
-            // textboxBookId
+            // toolStripButton1
             // 
-            this.textboxBookId.Location = new System.Drawing.Point(68, 58);
-            this.textboxBookId.Name = "textboxBookId";
-            this.textboxBookId.Size = new System.Drawing.Size(100, 21);
-            this.textboxBookId.TabIndex = 8;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(333, 58);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "还书";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(449, 58);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "借书";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "登记遗失";
             // 
             // frmMain
             // 
@@ -703,12 +727,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.overduereaderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frDataSet)).EndInit();
             this.tbpLost.ResumeLayout(false);
+            this.tbpLost.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.frontDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frontDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.frontDataSetBindingSource1)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -781,6 +808,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textboxBookId;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
 
     }
 }

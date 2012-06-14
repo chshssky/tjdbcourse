@@ -23,10 +23,9 @@ namespace FrontTerminal
             // TODO: 这行代码将数据加载到表“frDataSet.overdue_reader”中。您可以根据需要移动或删除它。
             this.overdue_readerTableAdapter.Fill(this.frDataSet.overdue_reader);
         }
-
         private void btnSearchReader_Click(object sender, EventArgs e)
         {
-            if (txbReaderId.Text == "")
+            if (txbReaderId.Text.Trim() == "")
             {
                 MessageBox.Show("请输入读者编号");
             }
@@ -34,30 +33,24 @@ namespace FrontTerminal
             {
                 int readerID = Convert.ToInt32(txbReaderId.Text);
                 Console.Out.WriteLine(readerID);
-                SqlConnection con = Connection.Instance();
-                SqlCommand cmd = new SqlCommand();
-                SqlCommand cmdshow = new SqlCommand();
-                
-                
                 try
                 {
-                    cmd.Connection = con;
-                    cmd.CommandText = "select * from  Reader where id = " + readerID;
-                    SqlDataReader record = cmd.ExecuteReader();
+                    SqlCommand cmdReaderInfo = new SqlCommand("select * from  Reader where id = " + readerID, Connection.Instance());
+                    SqlDataReader recReaderInfo = cmdReaderInfo.ExecuteReader();
 
-                    if (!record.HasRows)
+                    if (!recReaderInfo.HasRows)
                         MessageBox.Show("没有该用户！");
                     else
                     {
-                        while (record.Read())
+                        while (recReaderInfo.Read())
                         {
-                            txbName.Text = record[1].ToString();
-                            if (Convert.ToInt32(record[3]) == 0)
+                            txbName.Text = recReaderInfo[1].ToString();
+                            if (Convert.ToInt32(recReaderInfo[3]) == 0)
                                 txbGender.Text = "女";
                             else
                                 txbGender.Text = "男";
                         }
-                        record.Close();
+                        recReaderInfo.Close();
                     }
 
                 }
@@ -67,9 +60,11 @@ namespace FrontTerminal
                 }
                 try
                 {
-                    cmdshow.Connection = con;
-                    cmdshow.CommandText= "select * from rental where reader_id=" + readerID;
-                    SqlDataReader recRental = cmdshow.ExecuteReader();
+
+                    SqlCommand cmdRental = new SqlCommand("select * from rental where reader_id=" + readerID, Connection.Instance());
+
+                    SqlDataReader recRental = cmdRental.ExecuteReader();
+                    dgvReaderBorrow.Rows.Clear();
                     while (recRental.Read())
                     {
                         dgvReaderBorrow.Rows.Add(new object[] { recRental[0], recRental[1], recRental[2], recRental[3], recRental[4], recRental[5] });
@@ -81,7 +76,6 @@ namespace FrontTerminal
                 {
                     MessageBox.Show(err.Message);
                 }
-                con.Close();
             }
            
         }
@@ -96,7 +90,7 @@ namespace FrontTerminal
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //这是搜索读者信息的
         {
             String readerName = Convert.ToString(txbReadName.Text);
             String readerGender = Convert.ToString(cbbReaderGender.Text);
@@ -155,8 +149,7 @@ namespace FrontTerminal
             {
                 int readerId = Convert.ToInt32(txbReaderId.Text);
                 int bookId = Convert.ToInt32(textboxBookId.Text);
-                String borrowTime = System.DateTime.Now.ToString();
-                String dueTime = System.DateTime.Now.AddDays(30).ToString();
+                
                 try
                 {
                     SqlCommand cmd = new SqlCommand("select * from  Reader where id = " + readerId, Connection.Instance());
@@ -220,7 +213,64 @@ namespace FrontTerminal
 
         private void button2_Click(object sender, EventArgs e) //这是还书的
         {
-            int bookId = Convert.ToInt32(textboxBookId.Text); //因为还书只需要书籍编号，所以我只获取了图书编号
+            if (textboxBookId.Text.ToString() == "")
+            {
+                MessageBox.Show("请输入还书编号");
+                return;
+            }//如果还书编号为空，弹出提示
+            else
+            {
+                int bookId = Convert.ToInt32(textboxBookId.Text); //因为还书只需要书籍编号，所以我只获取了图书编号
+                //先把rental表中该书的return time填上。
+                // SqlCommand cmdReturn = new SqlCommand("select * from rental where particular_book_id=" + bookId, Connection.Instance());
+
+                //
+                DateTime returnTime = System.DateTime.Now;
+                String update = "update rental set return_time='" + returnTime + "' where particular_book_id='" + bookId + "' and return_time is null";
+                SqlCommand cmdReturn = new SqlCommand(update, Connection.Instance());
+                SqlDataReader drReturn = cmdReturn.ExecuteReader();
+                drReturn.Close();
+                
+                // 走到这一步，把rental表中的return_time填上了
+                //，接下来就要看看有谁预约了这本书,因为预约中的书是用isbn表示，
+                //而还书的书籍编号是用ID，所以要多一步，在book表中换成ID对应的isbn
+
+                String getBookisbn = "select * from  particular_book where id = " + bookId;
+                SqlCommand cmdFindIsbn = new SqlCommand(getBookisbn, Connection.Instance());
+                SqlDataReader drFindIsbn = cmdFindIsbn.ExecuteReader();
+                drFindIsbn.Read();
+                String theIsbn = drFindIsbn[2].ToString(); //找出该id的isbn
+                drFindIsbn.Close();
+                
+                String ifOrder = "";
+                String findReserve = "select * from  reserve where book_isbn='" + theIsbn+"'";
+                SqlCommand cmdFindReserve = new SqlCommand(findReserve, Connection.Instance());
+                SqlDataReader drFindReserve = cmdFindReserve.ExecuteReader();
+                if (!drFindReserve.HasRows)
+                    ifOrder = "no one has reserved this book";
+                else
+                {
+                    do
+                    {
+                        if (drFindReserve.Read())
+                            continue;
+                        else
+                        {
+                            ifOrder = "no valid one has reserved";
+                            break; //当当前已经到了最后一列，说明所有预约者的借书卡都无效了（不过可能性有点小也）
+                        }
+                    }
+                    while (Convert.ToUInt32(drFindReserve[4]) == 0);//此读者的借书卡无效，接着找下一个人
+                    if(ifOrder != "no valid one has reserved")
+                        ifOrder = "studentId:"+drFindReserve[1].ToString()+"has reserved it";
+                    drFindReserve.Close();
+                    MessageBox.Show(ifOrder); 
+                }
+
+                 //在预约读者中找出有没有人预约此书
+
+
+            }
 
         }
 

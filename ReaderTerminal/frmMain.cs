@@ -231,6 +231,7 @@ namespace ReaderTerminal
                     readerInfo.Text += str[i];
                 }
             }
+           
         }
 
         private void 修改密码ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -318,6 +319,11 @@ namespace ReaderTerminal
         private void mnuReaderChangePassword_Click(object sender, EventArgs e)
         {
             new frmPassword().ShowDialog();
+        }
+
+        private void tpgBookReserve_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

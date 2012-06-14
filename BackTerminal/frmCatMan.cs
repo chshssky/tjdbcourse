@@ -141,7 +141,7 @@ namespace BackTerminal
             int id = GetIdByTitle(title);
             string str;
             str = "DELETE FROM dbo.category WHERE title='" + title + "';";
-            Console.Out.WriteLine(str);
+            
             SqlConnection connection = Library.Connection.Instance();
             SqlCommand command = new SqlCommand(str, connection);
 
@@ -189,11 +189,6 @@ namespace BackTerminal
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void frmCatMan_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

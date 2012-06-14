@@ -161,7 +161,6 @@
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "frmCatMan";
             this.Text = "分类管理";
-            this.Load += new System.EventHandler(this.frmCatMan_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
