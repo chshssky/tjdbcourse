@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.confirm = new System.Windows.Forms.Button();
-            this.cancel = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.oripsd = new System.Windows.Forms.TextBox();
-            this.newpsd = new System.Windows.Forms.TextBox();
-            this.newpsdcfm = new System.Windows.Forms.TextBox();
+            this.txtOldPassword = new System.Windows.Forms.TextBox();
+            this.txtNewPassword = new System.Windows.Forms.TextBox();
+            this.txtPasswordConfirm = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // confirm
+            // btnSubmit
             // 
-            this.confirm.Location = new System.Drawing.Point(43, 154);
-            this.confirm.Name = "confirm";
-            this.confirm.Size = new System.Drawing.Size(85, 31);
-            this.confirm.TabIndex = 0;
-            this.confirm.Text = "确定(&O)";
-            this.confirm.UseVisualStyleBackColor = true;
-            this.confirm.Click += new System.EventHandler(this.confirm_Click);
+            this.btnSubmit.Location = new System.Drawing.Point(43, 154);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(85, 29);
+            this.btnSubmit.TabIndex = 0;
+            this.btnSubmit.Text = "确定(&O)";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.confirm_Click);
             // 
-            // cancel
+            // btnCancel
             // 
-            this.cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancel.Location = new System.Drawing.Point(157, 155);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(85, 30);
-            this.cancel.TabIndex = 1;
-            this.cancel.Text = "取消(&C)";
-            this.cancel.UseVisualStyleBackColor = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Location = new System.Drawing.Point(157, 155);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(85, 28);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "取消(&C)";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -71,7 +71,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(58, 65);
+            this.label2.Location = new System.Drawing.Point(58, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 3;
@@ -93,43 +93,46 @@
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 5;
             // 
-            // oripsd
+            // txtOldPassword
             // 
-            this.oripsd.Location = new System.Drawing.Point(124, 25);
-            this.oripsd.Name = "oripsd";
-            this.oripsd.Size = new System.Drawing.Size(118, 21);
-            this.oripsd.TabIndex = 6;
+            this.txtOldPassword.Location = new System.Drawing.Point(124, 25);
+            this.txtOldPassword.Name = "txtOldPassword";
+            this.txtOldPassword.PasswordChar = '●';
+            this.txtOldPassword.Size = new System.Drawing.Size(118, 21);
+            this.txtOldPassword.TabIndex = 6;
             // 
-            // newpsd
+            // txtNewPassword
             // 
-            this.newpsd.Location = new System.Drawing.Point(124, 65);
-            this.newpsd.Name = "newpsd";
-            this.newpsd.Size = new System.Drawing.Size(118, 21);
-            this.newpsd.TabIndex = 7;
+            this.txtNewPassword.Location = new System.Drawing.Point(124, 65);
+            this.txtNewPassword.Name = "txtNewPassword";
+            this.txtNewPassword.PasswordChar = '●';
+            this.txtNewPassword.Size = new System.Drawing.Size(118, 21);
+            this.txtNewPassword.TabIndex = 7;
             // 
-            // newpsdcfm
+            // txtPasswordConfirm
             // 
-            this.newpsdcfm.Location = new System.Drawing.Point(124, 104);
-            this.newpsdcfm.Name = "newpsdcfm";
-            this.newpsdcfm.Size = new System.Drawing.Size(118, 21);
-            this.newpsdcfm.TabIndex = 8;
+            this.txtPasswordConfirm.Location = new System.Drawing.Point(124, 104);
+            this.txtPasswordConfirm.Name = "txtPasswordConfirm";
+            this.txtPasswordConfirm.PasswordChar = '●';
+            this.txtPasswordConfirm.Size = new System.Drawing.Size(118, 21);
+            this.txtPasswordConfirm.TabIndex = 8;
             // 
             // frmPassword
             // 
-            this.AcceptButton = this.confirm;
+            this.AcceptButton = this.btnSubmit;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.cancel;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(271, 207);
-            this.Controls.Add(this.newpsdcfm);
-            this.Controls.Add(this.newpsd);
-            this.Controls.Add(this.oripsd);
+            this.Controls.Add(this.txtPasswordConfirm);
+            this.Controls.Add(this.txtNewPassword);
+            this.Controls.Add(this.txtOldPassword);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.cancel);
-            this.Controls.Add(this.confirm);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnSubmit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "frmPassword";
@@ -141,14 +144,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Button confirm;
-        private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox oripsd;
-        private System.Windows.Forms.TextBox newpsd;
-        private System.Windows.Forms.TextBox newpsdcfm;
+        private System.Windows.Forms.TextBox txtOldPassword;
+        private System.Windows.Forms.TextBox txtNewPassword;
+        private System.Windows.Forms.TextBox txtPasswordConfirm;
     }
 }

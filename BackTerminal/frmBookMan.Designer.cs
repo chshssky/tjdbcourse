@@ -58,11 +58,11 @@
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItemNewBook = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemStatus = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAddBook = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItemNewBook = new System.Windows.Forms.ToolStripMenuItem();
             this.sstMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tspMain = new System.Windows.Forms.ToolStrip();
@@ -301,35 +301,11 @@
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemStatus,
             this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
+            this.toolStripMenuItemAddBook,
             this.toolStripSeparator4,
             this.toolStripMenuItemNewBook});
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(153, 120);
-            // 
-            // toolStripMenuItemNewBook
-            // 
-            this.toolStripMenuItemNewBook.Name = "toolStripMenuItemNewBook";
-            this.toolStripMenuItemNewBook.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItemNewBook.Text = "购买新书(&N)...";
-            this.toolStripMenuItemNewBook.Click += new System.EventHandler(this.toolStripMenuItemNewBook_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Text = "删除(&D)";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem5.Text = "增购(&A)...";
             // 
             // toolStripMenuItemStatus
             // 
@@ -337,6 +313,31 @@
             this.toolStripMenuItemStatus.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItemStatus.Text = "状态(&S)...";
             this.toolStripMenuItemStatus.Click += new System.EventHandler(this.toolStripMenuItemStatus_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Text = "删除(&D)";
+            // 
+            // toolStripMenuItemAddBook
+            // 
+            this.toolStripMenuItemAddBook.Name = "toolStripMenuItemAddBook";
+            this.toolStripMenuItemAddBook.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemAddBook.Text = "增购(&A)...";
+            this.toolStripMenuItemAddBook.Click += new System.EventHandler(this.toolStripMenuItemAddBook_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripMenuItemNewBook
+            // 
+            this.toolStripMenuItemNewBook.Name = "toolStripMenuItemNewBook";
+            this.toolStripMenuItemNewBook.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemNewBook.Text = "购买新书(&N)...";
+            this.toolStripMenuItemNewBook.Click += new System.EventHandler(this.toolStripMenuItemNewBook_Click);
             // 
             // sstMain
             // 
@@ -532,7 +533,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewBook;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAddBook;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemStatus;
 
     }
