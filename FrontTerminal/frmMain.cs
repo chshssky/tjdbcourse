@@ -34,30 +34,24 @@ namespace FrontTerminal
             {
                 int readerID = Convert.ToInt32(txbReaderId.Text);
                 Console.Out.WriteLine(readerID);
-                SqlConnection con = Connection.Instance();
-                SqlCommand cmd = new SqlCommand();
-                SqlCommand cmdshow = new SqlCommand();
-                
-                
                 try
                 {
-                    cmd.Connection = con;
-                    cmd.CommandText = "select * from  Reader where id = " + readerID;
-                    SqlDataReader record = cmd.ExecuteReader();
+                    SqlCommand cmdReaderInfo = new SqlCommand("select * from  Reader where id = " + readerID, Connection.Instance());
+                    SqlDataReader recReaderInfo = cmdReaderInfo.ExecuteReader();
 
-                    if (!record.HasRows)
+                    if (!recReaderInfo.HasRows)
                         MessageBox.Show("没有该用户！");
                     else
                     {
-                        while (record.Read())
+                        while (recReaderInfo.Read())
                         {
-                            txbName.Text = record[1].ToString();
-                            if (Convert.ToInt32(record[3]) == 0)
+                            txbName.Text = recReaderInfo[1].ToString();
+                            if (Convert.ToInt32(recReaderInfo[3]) == 0)
                                 txbGender.Text = "女";
                             else
                                 txbGender.Text = "男";
                         }
-                        record.Close();
+                        recReaderInfo.Close();
                     }
 
                 }
@@ -67,9 +61,10 @@ namespace FrontTerminal
                 }
                 try
                 {
-                    cmdshow.Connection = con;
-                    cmdshow.CommandText= "select * from rental where reader_id=" + readerID;
-                    SqlDataReader recRental = cmdshow.ExecuteReader();
+
+                    SqlCommand cmdRental = new SqlCommand("select * from rental where reader_id=" + readerID, Connection.Instance());
+
+                    SqlDataReader recRental = cmdRental.ExecuteReader();
                     while (recRental.Read())
                     {
                         dgvReaderBorrow.Rows.Add(new object[] { recRental[0], recRental[1], recRental[2], recRental[3], recRental[4], recRental[5] });
@@ -81,7 +76,6 @@ namespace FrontTerminal
                 {
                     MessageBox.Show(err.Message);
                 }
-                con.Close();
             }
            
         }
