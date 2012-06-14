@@ -22,6 +22,23 @@ namespace BackTerminal
         {
             InitializeComponent();
             InitializeTreeViewCategory();
+            InitializeComboBoxLibrary();
+        }
+
+        private void InitializeComboBoxLibrary()
+        {
+            SqlConnection connection = Library.Connection.Instance();
+            string queryString = "SELECT name FROM dbo.library;";
+            SqlCommand command = new SqlCommand(queryString, connection);
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string name = (string)reader[0];
+                comboBoxLibrary.Items.Add(name);
+            }
+            comboBoxLibrary.SelectedIndex = 0;
+            reader.Close();
         }
 
         private TreeNode NodeFromKey(string key)
