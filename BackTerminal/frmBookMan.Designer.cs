@@ -57,6 +57,12 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemNewBook = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemStatus = new System.Windows.Forms.ToolStripMenuItem();
             this.sstMain = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tspMain = new System.Windows.Forms.ToolStrip();
@@ -71,20 +77,14 @@
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
             this.tsbSearch = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItemStatus = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.readablebookBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             this.mnsMain.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).BeginInit();
+            this.contextMenuStrip.SuspendLayout();
             this.sstMain.SuspendLayout();
             this.tspMain.SuspendLayout();
-            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // readablebookBindingSource
@@ -158,30 +158,30 @@
             // mnuBookStatus
             // 
             this.mnuBookStatus.Name = "mnuBookStatus";
-            this.mnuBookStatus.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookStatus.Size = new System.Drawing.Size(151, 22);
             this.mnuBookStatus.Text = "状态(&S)...";
             // 
             // mnuBookAdd
             // 
             this.mnuBookAdd.Name = "mnuBookAdd";
-            this.mnuBookAdd.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookAdd.Size = new System.Drawing.Size(151, 22);
             this.mnuBookAdd.Text = "增购(&A)...";
             // 
             // mnuBookDelete
             // 
             this.mnuBookDelete.Name = "mnuBookDelete";
-            this.mnuBookDelete.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookDelete.Size = new System.Drawing.Size(151, 22);
             this.mnuBookDelete.Text = "删除(&D)";
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuBookBuy
             // 
             this.mnuBookBuy.Name = "mnuBookBuy";
-            this.mnuBookBuy.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookBuy.Size = new System.Drawing.Size(151, 22);
             this.mnuBookBuy.Text = "购买新书(&N)...";
             this.mnuBookBuy.Click += new System.EventHandler(this.mnuBookBuy_Click);
             // 
@@ -242,6 +242,7 @@
             this.dgvBook.Location = new System.Drawing.Point(0, 0);
             this.dgvBook.Name = "dgvBook";
             this.dgvBook.RowTemplate.Height = 23;
+            this.dgvBook.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBook.Size = new System.Drawing.Size(617, 385);
             this.dgvBook.TabIndex = 6;
             this.dgvBook.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvBook_CellBeginEdit);
@@ -294,6 +295,48 @@
             this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
             this.countDataGridViewTextBoxColumn.ReadOnly = true;
             this.countDataGridViewTextBoxColumn.Width = 64;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemStatus,
+            this.toolStripMenuItem4,
+            this.toolStripMenuItem5,
+            this.toolStripSeparator4,
+            this.toolStripMenuItemNewBook});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(153, 120);
+            // 
+            // toolStripMenuItemNewBook
+            // 
+            this.toolStripMenuItemNewBook.Name = "toolStripMenuItemNewBook";
+            this.toolStripMenuItemNewBook.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemNewBook.Text = "购买新书(&N)...";
+            this.toolStripMenuItemNewBook.Click += new System.EventHandler(this.toolStripMenuItemNewBook_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem4.Text = "删除(&D)";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem5.Text = "增购(&A)...";
+            // 
+            // toolStripMenuItemStatus
+            // 
+            this.toolStripMenuItemStatus.Name = "toolStripMenuItemStatus";
+            this.toolStripMenuItemStatus.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemStatus.Text = "状态(&S)...";
+            this.toolStripMenuItemStatus.Click += new System.EventHandler(this.toolStripMenuItemStatus_Click);
             // 
             // sstMain
             // 
@@ -413,47 +456,6 @@
             this.tsbSearch.Text = "搜索";
             this.tsbSearch.Click += new System.EventHandler(this.tsbSearch_Click);
             // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.toolStripSeparator4,
-            this.toolStripMenuItem4,
-            this.toolStripMenuItem5,
-            this.toolStripMenuItemStatus});
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(152, 98);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem3.Text = "购买新书(&N)...";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem4.Text = "删除(&D)";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem5.Text = "增购(&A)...";
-            // 
-            // toolStripMenuItemStatus
-            // 
-            this.toolStripMenuItemStatus.Name = "toolStripMenuItemStatus";
-            this.toolStripMenuItemStatus.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItemStatus.Text = "状态(&S)...";
-            this.toolStripMenuItemStatus.Click += new System.EventHandler(this.toolStripMenuItemStatus_Click);
-            // 
             // frmBookMan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -473,11 +475,11 @@
             this.mnsMain.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBook)).EndInit();
+            this.contextMenuStrip.ResumeLayout(false);
             this.sstMain.ResumeLayout(false);
             this.sstMain.PerformLayout();
             this.tspMain.ResumeLayout(false);
             this.tspMain.PerformLayout();
-            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -527,7 +529,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemNewBook;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
