@@ -30,21 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.bookLibraryDamagedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataSet = new BackTerminal.DataSet();
-            this.bookLibraryDamagedTableAdapter = new BackTerminal.DataSetTableAdapters.book_library_damagedTableAdapter();
-            this.libraryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.libraryTableAdapter = new BackTerminal.DataSetTableAdapters.libraryTableAdapter();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.particular_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.library_id = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.libraryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSet = new BackTerminal.DataSet();
             this.damagedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.bookLibraryDamagedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bookLibraryDamagedTableAdapter = new BackTerminal.DataSetTableAdapters.book_library_damagedTableAdapter();
+            this.libraryTableAdapter = new BackTerminal.DataSetTableAdapters.libraryTableAdapter();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,44 +61,13 @@
             this.dataGridView1.DataSource = this.bookLibraryDamagedBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(8, 8);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 21;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(660, 369);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // bookLibraryDamagedBindingSource
-            // 
-            this.bookLibraryDamagedBindingSource.DataMember = "book_library_damaged";
-            this.bookLibraryDamagedBindingSource.DataSource = this.dataSet;
-            // 
-            // dataSet
-            // 
-            this.dataSet.DataSetName = "DataSet";
-            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // bookLibraryDamagedTableAdapter
-            // 
-            this.bookLibraryDamagedTableAdapter.ClearBeforeFill = true;
-            // 
-            // libraryBindingSource
-            // 
-            this.libraryBindingSource.DataMember = "library";
-            this.libraryBindingSource.DataSource = this.dataSet;
-            // 
-            // libraryTableAdapter
-            // 
-            this.libraryTableAdapter.ClearBeforeFill = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(8);
-            this.panel1.Size = new System.Drawing.Size(676, 385);
-            this.panel1.TabIndex = 1;
             // 
             // particular_id
             // 
@@ -138,6 +107,16 @@
             this.library_id.ValueMember = "id";
             this.library_id.Width = 200;
             // 
+            // libraryBindingSource
+            // 
+            this.libraryBindingSource.DataMember = "library";
+            this.libraryBindingSource.DataSource = this.dataSet;
+            // 
+            // dataSet
+            // 
+            this.dataSet.DataSetName = "DataSet";
+            this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // damagedDataGridViewCheckBoxColumn
             // 
             this.damagedDataGridViewCheckBoxColumn.DataPropertyName = "damaged";
@@ -145,6 +124,29 @@
             this.damagedDataGridViewCheckBoxColumn.Name = "damagedDataGridViewCheckBoxColumn";
             this.damagedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.damagedDataGridViewCheckBoxColumn.Width = 40;
+            // 
+            // bookLibraryDamagedBindingSource
+            // 
+            this.bookLibraryDamagedBindingSource.DataMember = "book_library_damaged";
+            this.bookLibraryDamagedBindingSource.DataSource = this.dataSet;
+            // 
+            // bookLibraryDamagedTableAdapter
+            // 
+            this.bookLibraryDamagedTableAdapter.ClearBeforeFill = true;
+            // 
+            // libraryTableAdapter
+            // 
+            this.libraryTableAdapter.ClearBeforeFill = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridView1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(8);
+            this.panel1.Size = new System.Drawing.Size(676, 385);
+            this.panel1.TabIndex = 1;
             // 
             // frmBookStatus
             // 
@@ -156,9 +158,9 @@
             this.Text = "书籍状态";
             this.Load += new System.EventHandler(this.frmBookStatus_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.libraryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookLibraryDamagedBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

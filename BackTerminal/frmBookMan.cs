@@ -16,6 +16,20 @@ namespace BackTerminal
             InitializeComponent();
         }
 
+        private void ShowBookStatus()
+        {
+            frmBookStatus form = new frmBookStatus();
+            form.Reload((string)dgvBook.SelectedRows[0].Cells[0].Value);
+            form.ShowDialog();
+        }
+
+        private void ShowBookAdd()
+        {
+            frmBookAdd form = new frmBookAdd();
+            form.setISBN((string)dgvBook.SelectedRows[0].Cells[0].Value);
+            form.ShowDialog();
+        }
+
         private void frmBookMan_Load(object sender, EventArgs e)
         {
             // TODO: 这行代码将数据加载到表“dataSet.readable_book”中。您可以根据需要移动或删除它。
@@ -86,15 +100,12 @@ namespace BackTerminal
 
         private void toolStripMenuItemStatus_Click(object sender, EventArgs e)
         {
-            frmBookStatus form = new frmBookStatus();
-            form.Reload((string)dgvBook.SelectedRows[0].Cells[0].Value);
-            form.ShowDialog();
+            ShowBookStatus();
         }
 
         private void toolStripMenuItemNewBook_Click(object sender, EventArgs e)
         {
-            frmBookNew form = new frmBookNew();
-            form.ShowDialog();
+            new frmBookNew().ShowDialog();
         }
 
         private void dgvBook_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
@@ -107,9 +118,48 @@ namespace BackTerminal
 
         private void toolStripMenuItemAddBook_Click(object sender, EventArgs e)
         {
-            frmBookAdd form = new frmBookAdd();
-            form.setISBN((string)dgvBook.SelectedRows[0].Cells[0].Value);
-            form.ShowDialog();
+            ShowBookAdd();
+        }
+
+        private void mnuBookStatus_Click(object sender, EventArgs e)
+        {
+            ShowBookStatus();
+        }
+
+        private void mnuBookAdd_Click(object sender, EventArgs e)
+        {
+            ShowBookAdd();
+        }
+
+        private void mnuBookDelete_Click(object sender, EventArgs e)
+        {
+            DeleteBook();
+        }
+
+        private void DeleteBook()
+        {
+            string ISBN = (string)dgvBook.SelectedRows[0].Cells[0].Value;
+            string bookName = (string)dgvBook.SelectedRows[0].Cells[1].Value;
+            string message = "你确定要删除“" + bookName + "”吗？";
+            const string caption = "删除书目";
+            var result = MessageBox.Show(message, caption,
+                                         MessageBoxButtons.YesNo,
+                                         MessageBoxIcon.Question);
+            if (result == DialogResult.No) return;
+
+            string str;
+            str = "DELETE FROM dbo.book WHERE isbn=@ISBN";
+
+            SqlConnection connection = Library.Connection.Instance();
+            SqlCommand command = new SqlCommand(str, connection);
+            command.Parameters.AddWithValue("@ISBN", ISBN);
+            command.ExecuteNonQuery();
+            command.Dispose();
+        }
+
+        private void toolStripMenuItemDelete_Click(object sender, EventArgs e)
+        {
+            DeleteBook();
         }
     }
 }
