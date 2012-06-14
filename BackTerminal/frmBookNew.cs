@@ -122,12 +122,20 @@ namespace BackTerminal
                 ErrorMessage("您输入的字符车过长或为空");
                 return;
             }
+
+            if (categoryTitle == root)
+            {
+                MessageBox.Show("不能选择“全部分类”。请重新选择一个分类！",
+                    "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             
 
             // 检查 dbo.book 中是否存在这个 ISBN
             SqlConnection connection = Library.Connection.Instance();
-            string queryString = "SELECT COUNT(*) FROM dbo.book where isbn='" + ISBN + "';";
+            string queryString = "SELECT COUNT(*) FROM dbo.book where isbn=@ISBN;";
             SqlCommand command = new SqlCommand(queryString, connection);
+            command.Parameters.AddWithValue("@ISBN", ISBN);
             SqlDataReader reader = command.ExecuteReader();
             int count = 0;
             while (reader.Read())
@@ -142,8 +150,9 @@ namespace BackTerminal
             }
 
             // 获取 category id            
-            queryString = "SELECT id FROM dbo.category where title='" + categoryTitle + "';";
+            queryString = "SELECT id FROM dbo.category where title=@title";
             command = new SqlCommand(queryString, connection);
+            command.Parameters.AddWithValue("@title", categoryTitle);
             reader = command.ExecuteReader();
             int categoryId = 1;
             while (reader.Read())
@@ -153,8 +162,9 @@ namespace BackTerminal
             reader.Close();
 
             // 获取 library id
-            queryString = "SELECT id FROM dbo.library where name='" + libraryName + "';";
+            queryString = "SELECT id FROM dbo.library where name=@libraryName";
             command = new SqlCommand(queryString, connection);
+            command.Parameters.AddWithValue("@libraryName", libraryName);
             reader = command.ExecuteReader();
             int libraryId = 1;
             while (reader.Read())

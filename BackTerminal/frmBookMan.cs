@@ -109,6 +109,7 @@ namespace BackTerminal
         private void toolStripMenuItemNewBook_Click(object sender, EventArgs e)
         {
             new frmBookNew().ShowDialog();
+            refreshDGV();
         }
 
         private void dgvBook_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
