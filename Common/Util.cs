@@ -53,6 +53,8 @@ namespace Library
                 cmd.Parameters.AddWithValue("@value", (bool)value);
             else if (value is int)
                 cmd.Parameters.AddWithValue("@value", (int)value);
+            else if (value is DBNull)
+                cmd.Parameters.AddWithValue("@value", DBNull.Value);
             else throw new Exception("类型不支持");
             cmd.ExecuteNonQuery();
         }
