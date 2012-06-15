@@ -74,7 +74,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(5, 12, 5, 5);
-            this.panel1.Size = new System.Drawing.Size(577, 417);
+            this.panel1.Size = new System.Drawing.Size(577, 458);
             this.panel1.TabIndex = 27;
             // 
             // tableLayoutPanel1
@@ -110,7 +110,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(567, 400);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(567, 441);
             this.tableLayoutPanel1.TabIndex = 27;
             // 
             // label1
@@ -128,7 +128,7 @@
             this.tvCategory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvCategory.Location = new System.Drawing.Point(67, 178);
             this.tvCategory.Name = "tvCategory";
-            this.tvCategory.Size = new System.Drawing.Size(497, 244);
+            this.tvCategory.Size = new System.Drawing.Size(497, 260);
             this.tvCategory.TabIndex = 8;
             // 
             // textBoxTitle
@@ -163,7 +163,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 294);
+            this.label4.Location = new System.Drawing.Point(32, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 18;
@@ -273,7 +273,7 @@
             // 
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 417);
+            this.panel2.Location = new System.Drawing.Point(0, 458);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(577, 41);
             this.panel2.TabIndex = 28;
@@ -304,9 +304,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(577, 458);
+            this.ClientSize = new System.Drawing.Size(577, 499);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.MinimumSize = new System.Drawing.Size(593, 537);
             this.Name = "frmBookNew";
             this.Text = "购买新书";
             this.panel1.ResumeLayout(false);
