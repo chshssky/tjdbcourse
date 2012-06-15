@@ -35,7 +35,7 @@ namespace ReaderTerminal
                 case 0: sql += "title"; break;
                 case 1: sql += "author"; break;
                 case 2: sql += "isbn"; break;
-                case 3: sql += "category"; return;
+                case 3: sql += "category"; break;
                 case 4: sql += "publisher"; break;
             }
 
