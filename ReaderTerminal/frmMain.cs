@@ -227,7 +227,8 @@ namespace ReaderTerminal
 
         private void dgvSearch_DoubleClick(object sender, EventArgs e)
         {
-            new frmBook().ShowDialog();
+            string isbn = dgvSearch.SelectedRows[0].Cells[0].Value.ToString();
+            new frmBook(isbn).ShowDialog();
         }
     }
 }
