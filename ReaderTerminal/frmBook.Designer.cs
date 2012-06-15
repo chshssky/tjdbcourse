@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBookName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPublisher = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtBorrowing = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -50,14 +50,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "书名";
             // 
-            // textBox1
+            // txtBookName
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox1.Location = new System.Drawing.Point(62, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(130, 21);
-            this.textBox1.TabIndex = 4;
+            this.txtBookName.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBookName.Location = new System.Drawing.Point(62, 15);
+            this.txtBookName.Name = "txtBookName";
+            this.txtBookName.ReadOnly = true;
+            this.txtBookName.Size = new System.Drawing.Size(130, 21);
+            this.txtBookName.TabIndex = 4;
             // 
             // label2
             // 
@@ -68,14 +68,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "作者";
             // 
-            // textBox3
+            // txtAuthor
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox3.Location = new System.Drawing.Point(62, 62);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(130, 21);
-            this.textBox3.TabIndex = 6;
+            this.txtAuthor.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtAuthor.Location = new System.Drawing.Point(62, 62);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.ReadOnly = true;
+            this.txtAuthor.Size = new System.Drawing.Size(130, 21);
+            this.txtAuthor.TabIndex = 6;
             // 
             // label3
             // 
@@ -86,25 +86,25 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "出版社";
             // 
-            // textBox4
+            // txtPublisher
             // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox4.Location = new System.Drawing.Point(293, 62);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(123, 21);
-            this.textBox4.TabIndex = 8;
+            this.txtPublisher.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtPublisher.Location = new System.Drawing.Point(293, 62);
+            this.txtPublisher.Name = "txtPublisher";
+            this.txtPublisher.ReadOnly = true;
+            this.txtPublisher.Size = new System.Drawing.Size(123, 21);
+            this.txtPublisher.TabIndex = 8;
             // 
-            // textBox2
+            // txtDescription
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox2.Location = new System.Drawing.Point(119, 123);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(390, 75);
-            this.textBox2.TabIndex = 9;
+            this.txtDescription.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtDescription.Location = new System.Drawing.Point(119, 123);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ReadOnly = true;
+            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtDescription.Size = new System.Drawing.Size(390, 75);
+            this.txtDescription.TabIndex = 9;
             // 
             // label4
             // 
@@ -115,16 +115,16 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "书籍借还信息";
             // 
-            // textBox5
+            // txtBorrowing
             // 
-            this.textBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.textBox5.Location = new System.Drawing.Point(119, 254);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox5.Size = new System.Drawing.Size(390, 131);
-            this.textBox5.TabIndex = 11;
+            this.txtBorrowing.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBorrowing.Location = new System.Drawing.Point(119, 254);
+            this.txtBorrowing.Multiline = true;
+            this.txtBorrowing.Name = "txtBorrowing";
+            this.txtBorrowing.ReadOnly = true;
+            this.txtBorrowing.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtBorrowing.Size = new System.Drawing.Size(390, 131);
+            this.txtBorrowing.TabIndex = 11;
             // 
             // label5
             // 
@@ -152,17 +152,18 @@
             this.ClientSize = new System.Drawing.Size(521, 423);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtBorrowing);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.txtPublisher);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBookName);
             this.Controls.Add(this.label1);
             this.Name = "frmBook";
             this.Text = "frmBook";
+            this.Load += new System.EventHandler(this.frmBook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,14 +172,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBookName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPublisher;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBorrowing;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
     }
