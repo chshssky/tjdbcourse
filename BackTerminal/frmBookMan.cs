@@ -171,5 +171,20 @@ namespace BackTerminal
         {
             DeleteBook();
         }
+
+        private void tsbDelete_Click(object sender, EventArgs e)
+        {
+            DeleteBook();
+        }
+
+        private void tsbAdd_Click(object sender, EventArgs e)
+        {
+            ShowBookAdd();
+        }
+
+        private void tsbStatus_Click(object sender, EventArgs e)
+        {
+            ShowBookStatus();
+        }
     }
 }

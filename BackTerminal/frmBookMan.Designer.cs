@@ -157,38 +157,38 @@
             // mnuBookStatus
             // 
             this.mnuBookStatus.Name = "mnuBookStatus";
-            this.mnuBookStatus.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookStatus.Size = new System.Drawing.Size(151, 22);
             this.mnuBookStatus.Text = "状态(&S)...";
             this.mnuBookStatus.Click += new System.EventHandler(this.mnuBookStatus_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuBookAdd
             // 
             this.mnuBookAdd.Name = "mnuBookAdd";
-            this.mnuBookAdd.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookAdd.Size = new System.Drawing.Size(151, 22);
             this.mnuBookAdd.Text = "增购(&A)...";
             this.mnuBookAdd.Click += new System.EventHandler(this.mnuBookAdd_Click);
             // 
             // mnuBookDelete
             // 
             this.mnuBookDelete.Name = "mnuBookDelete";
-            this.mnuBookDelete.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookDelete.Size = new System.Drawing.Size(151, 22);
             this.mnuBookDelete.Text = "删除(&D)";
             this.mnuBookDelete.Click += new System.EventHandler(this.mnuBookDelete_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 6);
             // 
             // mnuBookBuy
             // 
             this.mnuBookBuy.Name = "mnuBookBuy";
-            this.mnuBookBuy.Size = new System.Drawing.Size(152, 22);
+            this.mnuBookBuy.Size = new System.Drawing.Size(151, 22);
             this.mnuBookBuy.Text = "购买新书(&N)...";
             this.mnuBookBuy.Click += new System.EventHandler(this.mnuBookBuy_Click);
             // 
@@ -203,7 +203,7 @@
             // mnuCategoryManage
             // 
             this.mnuCategoryManage.Name = "mnuCategoryManage";
-            this.mnuCategoryManage.Size = new System.Drawing.Size(152, 22);
+            this.mnuCategoryManage.Size = new System.Drawing.Size(129, 22);
             this.mnuCategoryManage.Text = "管理(&M)...";
             this.mnuCategoryManage.Click += new System.EventHandler(this.mnuCategoryManage_Click);
             // 
@@ -378,6 +378,7 @@
             this.tsbStatus.Name = "tsbStatus";
             this.tsbStatus.Size = new System.Drawing.Size(23, 22);
             this.tsbStatus.Text = "状态";
+            this.tsbStatus.Click += new System.EventHandler(this.tsbStatus_Click);
             // 
             // tsbAdd
             // 
@@ -387,6 +388,7 @@
             this.tsbAdd.Name = "tsbAdd";
             this.tsbAdd.Size = new System.Drawing.Size(23, 22);
             this.tsbAdd.Text = "增购";
+            this.tsbAdd.Click += new System.EventHandler(this.tsbAdd_Click);
             // 
             // tsbDelete
             // 
@@ -396,6 +398,7 @@
             this.tsbDelete.Name = "tsbDelete";
             this.tsbDelete.Size = new System.Drawing.Size(23, 22);
             this.tsbDelete.Text = "删除";
+            this.tsbDelete.Click += new System.EventHandler(this.tsbDelete_Click);
             // 
             // toolStripSeparator1
             // 
