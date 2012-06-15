@@ -48,6 +48,11 @@ namespace ReaderTerminal
 
         private void frmBook_Load(object sender, EventArgs e)
         {
+            // TODO: 这行代码将数据加载到表“dataSet.library”中。您可以根据需要移动或删除它。
+            this.libraryTableAdapter.Fill(this.dataSet.library);
+            // TODO: 这行代码将数据加载到表“dataSet.keeping”中。您可以根据需要移动或删除它。
+            this.keepingTableAdapter.Fill(this.dataSet.keeping);
+
             string sql = "select title, author, publisher, description " +
                 "from readable_book where isbn = @isbn";
 
@@ -62,6 +67,13 @@ namespace ReaderTerminal
                 txtDescription.Text = reader.GetString(3);
             }
             reader.Close();
+
+            this.keepingTableAdapter.Adapter.SelectCommand.CommandText =
+                "select * from keeping where isbn = @isbn";
+            this.keepingTableAdapter.Adapter.SelectCommand.Parameters.Clear();
+            this.keepingTableAdapter.Adapter.SelectCommand.Parameters
+                .AddWithValue("@isbn", isbn);
+            this.keepingTableAdapter.Fill(dataSet.keeping);
         }
     }
 }

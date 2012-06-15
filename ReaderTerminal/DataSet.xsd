@@ -820,6 +820,27 @@ SELECT id, reader_id, book_isbn, reserve_time, available FROM reserve WHERE (id 
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="keepingTableAdapter" GeneratorDataComponentClassName="keepingTableAdapter" Name="keeping" UserDataComponentName="keepingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="lib.dbo.keeping" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT title, author, publisher, isbn, library_id, particular_id FROM dbo.keeping</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="title" DataSetColumn="title" />
+              <Mapping SourceColumn="author" DataSetColumn="author" />
+              <Mapping SourceColumn="publisher" DataSetColumn="publisher" />
+              <Mapping SourceColumn="isbn" DataSetColumn="isbn" />
+              <Mapping SourceColumn="library_id" DataSetColumn="library_id" />
+              <Mapping SourceColumn="particular_id" DataSetColumn="particular_id" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="overdue_readerTableAdapter" GeneratorDataComponentClassName="overdue_readerTableAdapter" Name="overdue_reader" UserDataComponentName="overdue_readerTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="LibraryConnectionString (Settings)" DbObjectName="lib.dbo.overdue_reader" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -1424,6 +1445,42 @@ SELECT id, reader_id, book_isbn, reserve_time, available FROM reserve WHERE (id 
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="keeping" msprop:Generator_TableClassName="keepingDataTable" msprop:Generator_TableVarName="tablekeeping" msprop:Generator_TablePropName="keeping" msprop:Generator_RowDeletingName="keepingRowDeleting" msprop:Generator_UserTableName="keeping" msprop:Generator_RowChangingName="keepingRowChanging" msprop:Generator_RowEvHandlerName="keepingRowChangeEventHandler" msprop:Generator_RowDeletedName="keepingRowDeleted" msprop:Generator_RowEvArgName="keepingRowChangeEvent" msprop:Generator_RowChangedName="keepingRowChanged" msprop:Generator_RowClassName="keepingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="title" msprop:Generator_ColumnVarNameInTable="columntitle" msprop:Generator_ColumnPropNameInRow="title" msprop:Generator_ColumnPropNameInTable="titleColumn" msprop:Generator_UserColumnName="title">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="author" msprop:Generator_ColumnVarNameInTable="columnauthor" msprop:Generator_ColumnPropNameInRow="author" msprop:Generator_ColumnPropNameInTable="authorColumn" msprop:Generator_UserColumnName="author">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="publisher" msprop:Generator_ColumnVarNameInTable="columnpublisher" msprop:Generator_ColumnPropNameInRow="publisher" msprop:Generator_ColumnPropNameInTable="publisherColumn" msprop:Generator_UserColumnName="publisher">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="isbn" msprop:Generator_ColumnVarNameInTable="columnisbn" msprop:Generator_ColumnPropNameInRow="isbn" msprop:Generator_ColumnPropNameInTable="isbnColumn" msprop:Generator_UserColumnName="isbn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="library_id" msprop:Generator_ColumnVarNameInTable="columnlibrary_id" msprop:Generator_ColumnPropNameInRow="library_id" msprop:Generator_ColumnPropNameInTable="library_idColumn" msprop:Generator_UserColumnName="library_id" type="xs:int" />
+              <xs:element name="particular_id" msprop:Generator_ColumnVarNameInTable="columnparticular_id" msprop:Generator_ColumnPropNameInRow="particular_id" msprop:Generator_ColumnPropNameInTable="particular_idColumn" msprop:Generator_UserColumnName="particular_id" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

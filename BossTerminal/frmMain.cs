@@ -86,6 +86,13 @@ namespace BossTerminal
                 else
                     cell.Value = Library.Util.MD5((string)cell.Value);
             }
+            else if (column.DataPropertyName.Equals("library_id"))
+            {
+                if (!(row.Cells[0].Value is DBNull) && ((int)row.Cells[0].Value > 0))
+                {
+                    Library.Util.UpdateGridCell(view, e.RowIndex, e.ColumnIndex);
+                }
+            }
         }
 
         private void tsbRefresh_Click(object sender, EventArgs e)
