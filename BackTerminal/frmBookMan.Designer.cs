@@ -47,8 +47,6 @@
             this.mnuBookBuy = new System.Windows.Forms.ToolStripMenuItem();
             this.分类CToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCategoryManage = new System.Windows.Forms.ToolStripMenuItem();
-            this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelpAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvBook = new System.Windows.Forms.DataGridView();
             this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,8 +105,7 @@
             this.mnsMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.工具TToolStripMenuItem,
             this.图书BToolStripMenuItem,
-            this.分类CToolStripMenuItem,
-            this.帮助HToolStripMenuItem});
+            this.分类CToolStripMenuItem});
             this.mnsMain.Location = new System.Drawing.Point(0, 0);
             this.mnsMain.Name = "mnsMain";
             this.mnsMain.Size = new System.Drawing.Size(617, 25);
@@ -210,20 +207,6 @@
             this.mnuCategoryManage.Text = "管理(&M)...";
             this.mnuCategoryManage.Click += new System.EventHandler(this.mnuCategoryManage_Click);
             // 
-            // 帮助HToolStripMenuItem
-            // 
-            this.帮助HToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHelpAbout});
-            this.帮助HToolStripMenuItem.Name = "帮助HToolStripMenuItem";
-            this.帮助HToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
-            this.帮助HToolStripMenuItem.Text = "帮助(&H)";
-            // 
-            // mnuHelpAbout
-            // 
-            this.mnuHelpAbout.Name = "mnuHelpAbout";
-            this.mnuHelpAbout.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelpAbout.Text = "关于(&A)";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgvBook);
@@ -317,7 +300,7 @@
             this.toolStripSeparator4,
             this.toolStripMenuItemNewBook});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(153, 120);
+            this.contextMenuStrip.Size = new System.Drawing.Size(152, 98);
             // 
             // toolStripMenuItemStatus
             // 
@@ -513,8 +496,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnuBookDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem mnuBookBuy;
-        private System.Windows.Forms.ToolStripMenuItem 帮助HToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mnuHelpAbout;
         private System.Windows.Forms.ToolStripMenuItem 分类CToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnuCategoryManage;
         private System.Windows.Forms.Panel panel2;
