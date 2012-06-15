@@ -60,16 +60,24 @@ namespace ReaderTerminal
             cmd.Parameters.AddWithValue("@expire_time", System.DateTime.Now.AddYears(1));
             cmd.Parameters.AddWithValue("@available", true);
 
-            if (cmd.ExecuteNonQuery() == 0)
+            try
+            {
+                if (cmd.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("您填写的信息有误，请重新输入。", "无法注册",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("注册成功！", "注册成功",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+            }
+            catch (Exception)
             {
                 MessageBox.Show("您填写的信息有误，请重新输入。", "无法注册",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                MessageBox.Show("注册成功！", "注册成功",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
             }
         }
 
