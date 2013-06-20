@@ -12,11 +12,11 @@ namespace Library
             if (connection == null)
             {
                 string connstr =
-                    "Data Source=10.60.1.59\\SQLEXPRESS,1433; " +
+                    "Data Source=GREENMOON55-PC\\SQLEXPRESS; " +
                     "Persist Security Info=True; " +
                     "Initial Catalog=lib; " +
                     "User Id=lib; " +
-                    "Password=liuyue; ";
+                    "Password=lib; ";
 
                 connection = new SqlConnection(connstr);
                 connection.Open();
