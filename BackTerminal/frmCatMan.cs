@@ -103,15 +103,16 @@ namespace BackTerminal
             Console.Out.Write(parentTitle);
             if (parentTitle == root)
             {
-                str = "INSERT INTO dbo.category (title, parent_id) VALUES('" + title + "',NULL);";
+                str = "INSERT INTO dbo.category (title, parent_id) VALUES(@title, NULL);";
             }
             else
             {
                 int id = GetIdByTitle(parentTitle);
-                str = "INSERT INTO dbo.category (title, parent_id) VALUES('" + title + "'," + id + ");";
+                str = "INSERT INTO dbo.category (title, parent_id) VALUES(@title, " + id + ");";
             }
             SqlConnection connection = Library.Connection.Instance();
             SqlCommand command = new SqlCommand(str, connection);
+            command.Parameters.AddWithValue("@title", title);
             command.ExecuteNonQuery();
 
             MessageBox.Show("添加成功", "添加分类");

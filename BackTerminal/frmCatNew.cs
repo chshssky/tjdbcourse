@@ -19,6 +19,7 @@ namespace BackTerminal
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
+            textBox.Text = textBox.Text.Trim(); 
             if (textBox.Text.Length == 0)
             {
                 MessageBox.Show("分类不能为空，请重新输入！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Hand);
