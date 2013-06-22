@@ -114,9 +114,16 @@ namespace BackTerminal
             SqlConnection connection = Library.Connection.Instance();
             SqlCommand command = new SqlCommand(str, connection);
             command.Parameters.AddWithValue("@title", title);
-            command.ExecuteNonQuery();
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("添加成功", "添加分类");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Errors[0].Message, "错误");
+            }
 
-            MessageBox.Show("添加成功", "添加分类");
             tvCategory.Nodes.Clear();
             InitializeTreeViewCategory();
         }
