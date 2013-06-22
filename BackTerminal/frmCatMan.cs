@@ -64,8 +64,9 @@ namespace BackTerminal
         private int GetIdByTitle(string title)
         {
             SqlConnection connection = Library.Connection.Instance();
-            string queryString = "SELECT id FROM dbo.category WHERE title='"+title+"';";
+            string queryString = "SELECT id FROM dbo.category WHERE title=@title;";
             SqlCommand command = new SqlCommand(queryString, connection);
+            command.Parameters.AddWithValue("@title", title);
             SqlDataReader reader = command.ExecuteReader();
 
             int id = 0;
@@ -141,13 +142,12 @@ namespace BackTerminal
             
             int id = GetIdByTitle(title);
             string str;
-            str = "DELETE FROM dbo.category WHERE title='" + title + "';";
+            str = "DELETE FROM dbo.category WHERE title=@title;";
             
             SqlConnection connection = Library.Connection.Instance();
             SqlCommand command = new SqlCommand(str, connection);
-
+            command.Parameters.AddWithValue("@title", title);
             command.ExecuteNonQuery();
-
             command.Dispose();
 
             tvCategory.Nodes.Clear();
@@ -174,12 +174,14 @@ namespace BackTerminal
             if (newTitle == null) return;
 
             string str =
-                "UPDATE dbo.category SET title='" + newTitle + 
-                "' WHERE title='" + title + "';";
+                "UPDATE dbo.category SET title=@newTitle " + 
+                "WHERE title=@title;";
             Console.Out.WriteLine(str);
 
             SqlConnection connection = Library.Connection.Instance();
             SqlCommand command = new SqlCommand(str, connection);
+            command.Parameters.AddWithValue("@newTitle", newTitle);
+            command.Parameters.AddWithValue("@title", title);
             command.ExecuteNonQuery();
             command.Dispose();
 
