@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace BackTerminal
 {
@@ -105,6 +106,8 @@ namespace BackTerminal
         {
             if (!TreeViewSelected()) return;
             string categoryTitle = tvCategory.SelectedNode.Text;
+            
+            Regex regex = new Regex(@"((978[\--– ])?[0-9][0-9\--– ]{10}[\--– ][0-9xX])|((978)?[0-9]{9}[0-9Xx])");
 
             // 获取各控件的值
             string title = textBoxTitle.Text;
@@ -120,6 +123,12 @@ namespace BackTerminal
                 && CheckString(ISBN, 20) && (CheckString(description, 100) || description.Length == 0)))
             {
                 ErrorMessage("您输入的字符串过长或为空");
+                return;
+            }
+
+            if (!regex.IsMatch(ISBN))
+            {
+                ErrorMessage("您输入的ISBN格式不正确");
                 return;
             }
 
